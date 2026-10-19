@@ -1,0 +1,26 @@
+/* ZEPMS — "site loop": charcoal steel, safety orange and survey green; hazard-stripe motif. */
+:root {
+  --bg: #f6f6f6; --surface: #ffffff; --surface-2: #ececeb; --ink: #181614; --ink-2: #555452; --ink-3: #696866; --line: #dddddc;
+  --accent: #a94d08; --accent-ink: #ffffff; --accent-soft: #f4e8df; --accent-2: #3a6b2a; --accent-2-soft: #e3eae1;
+  --good: #1d7a4b; --good-soft: #dcf1e4; --bad: #b42a2a; --bad-soft: #f9e2e0; --warn: #b77800; --warn-soft: #fbefd3; --on-status: #ffffff;
+  --hero-bg: #1c1a17; --hero-ink: #fffaf6; --hero-ink-2: #b0afae; --hero-accent: #ff9d4d;
+  --motif: radial-gradient(circle at 82% 28%, rgba(255,157,77,0.24), transparent 46%), radial-gradient(circle at 12% 88%, rgba(155,210,122,0.16), transparent 42%), repeating-linear-gradient(135deg, transparent 0 38px, rgba(255,157,77,0.07) 38px 39px);
+  --sg-line: #494845; --sg-accent: #ff9d4d; --sg-accent-2: #9bd27a; --sg-node: #23211e; --sg-ink: #fffaf6; --sg-ink-2: #b0afae;
+  --f-display: "Archivo", "IBM Plex Sans", "Segoe UI", sans-serif; --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; --f-mono: "IBM Plex Mono", Consolas, monospace;
+  --radius: 16px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+  --bg: #0f0e0d; --surface: #161512; --surface-2: #272523; --ink: #fff9f4; --ink-2: #b6b6b5; --ink-3: #908f8d; --line: #373533;
+  --accent: #ff9d4d; --accent-ink: #0f0e0d; --accent-soft: #3f2b1a; --accent-2: #9bd27a; --accent-2-soft: #252d1e;
+  --good: #5bd39a; --good-soft: #10301f; --bad: #ff7a7a; --bad-soft: #3a1616; --warn: #f2b84c; --warn-soft: #3a2c10; --on-status: #0f0e0d;
+  color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f0e0d; --surface: #161512; --surface-2: #272523; --ink: #fff9f4; --ink-2: #b6b6b5; --ink-3: #908f8d; --line: #373533;
+  --accent: #ff9d4d; --accent-ink: #0f0e0d; --accent-soft: #3f2b1a; --accent-2: #9bd27a; --accent-2-soft: #252d1e;
+  --good: #5bd39a; --good-soft: #10301f; --bad: #ff7a7a; --bad-soft: #3a1616; --warn: #f2b84c; --warn-soft: #3a2c10; --on-status: #0f0e0d;
+  color-scheme: dark;
+}
+.hero h1, .mod-num, .mod-big, .bb-cover b { font-stretch: 112%; }
