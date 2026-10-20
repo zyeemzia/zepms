@@ -35,8 +35,9 @@ TRACK.modules.push({
      "text": "A **risk** is an uncertain event or condition that, if it occurs, would affect at least one project objective: safety, cost, time, quality, scope or reputation. An **issue** is something that has already happened or is certain to happen and now needs a decision. 'Piles may meet a buried obstruction' is a risk; 'pile P-17 has refused at 6 metres on an old foundation' is an issue. Risks are managed with responses planned in advance; issues are managed with decisions and actions now. A risk that occurs becomes an issue, and the register should record that transfer rather than quietly deleting the line."
     },
     {
-     "type": "flow",
-     "title": "The risk management process on an engineering project",
+     "type": "cycle",
+     "title": "The risk management process is a loop, not a line",
+     "center": "Weekly risk review",
      "items": [
       {
        "label": "Plan",
@@ -56,13 +57,14 @@ TRACK.modules.push({
       },
       {
        "label": "Monitor",
-       "text": "Review weekly, track triggers, draw down contingency"
+       "text": "Track triggers and exposure; control contingency drawdown"
       },
       {
        "label": "Learn",
        "text": "Feed what actually happened into the next estimate and register"
       }
-     ]
+     ],
+     "caption": "Learn feeds straight back into Identify: every review, stage gate and incident restarts the loop. The steps are broadly consistent with ISO 31000:2018 and the risk guidance in ISO 21502:2020."
     },
     {
      "type": "text",
@@ -89,18 +91,23 @@ TRACK.modules.push({
       ],
       [
        "Supply chain and logistics",
-       "Long-lead items, factory capacity, shipping, customs, heavy haul",
+       "Long-lead items, factory capacity, shipping, customs, heavy haul, single-source suppliers",
        "Power transformer delayed at the port; no lowbed trailer available for the river crossing"
       ],
       [
        "Commercial and contractual",
-       "Contract form, subcontractor solvency, price escalation, currency",
+       "Contract form, subcontractor solvency, inflation and price volatility, currency",
        "Steel price rise on a remeasured viaduct contract with a price-adjustment formula"
       ],
       [
        "External",
        "Permits, weather, flooding, politics, community, utilities",
        "Monsoon flooding of the batching plant access road in Chattogram"
+      ],
+      [
+       "Information and digital",
+       "Model quality, CDE access and status, data handover, cyber security",
+       "Clashes in the federated model are not resolved before steel shop drawings are released"
       ],
       [
        "Organisational and management",
@@ -173,7 +180,49 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "Workshops are only one route. Good teams also run a **pre-mortem** ('it is two years from now and the project has gone badly; what happened?'), interview specialists one-to-one, walk the site with the construction team, review the schedule logic for single points of failure, and read the contract for risks it allocates to you. Watch for bias: optimism ('our crews are faster than average'), anchoring on the last project, and groupthink when the sponsor is in the room. Identification is never finished; new risks appear at every stage gate, every design review and every major procurement award."
+     "text": "Workshops are only one route. Good teams also run a **pre-mortem** ('it is two years from now and the project has gone badly; what happened?'), interview specialists one-to-one, walk the site with the construction team, review the schedule logic for single points of failure, and read the contract for risks it allocates to you. Watch for bias: optimism ('our crews are faster than average'), anchoring on the last project, and groupthink when the sponsor is in the room. Identification is never finished; new risks appear at every stage gate, every design review and every major procurement award. Digital help is welcome: searching past registers and lessons-learned records, or using AI tools to suggest candidate risks from the schedule, contract and site reports, widens the net quickly. Treat every suggestion as a candidate that someone who knows the project must verify before it enters the register."
+    },
+    {
+     "type": "timeline",
+     "title": "Identification continues across the life cycle",
+     "items": [
+      {
+       "when": "Concept",
+       "label": "Strategic risks",
+       "text": "Site, technology, funding and permits; first register for the business case"
+      },
+      {
+       "when": "Feasibility",
+       "label": "Option risks",
+       "text": "Ground, routes and utility connections compared between options"
+      },
+      {
+       "when": "Investment decision",
+       "label": "Quantified risks",
+       "text": "Top risks quantified; contingency and confidence level agreed"
+      },
+      {
+       "when": "Design reviews",
+       "label": "Design risks",
+       "text": "Interfaces, buildability, safety in design, carbon hotspots"
+      },
+      {
+       "when": "Contract award",
+       "label": "Allocated risks",
+       "text": "Read the contract for risks it gives you; supply-chain and price risks"
+      },
+      {
+       "when": "Construction",
+       "label": "Site risks",
+       "text": "Weekly reviews: ground, weather, productivity and safety"
+      },
+      {
+       "when": "Commissioning",
+       "label": "Handover risks",
+       "text": "Testing, energisation, operator readiness and defects"
+      }
+     ],
+     "caption": "Each stage gate and major award should trigger a fresh identification pass; risks retire and new ones appear as the project moves from paper to site."
     },
     {
      "type": "template",
@@ -272,6 +321,17 @@ TRACK.modules.push({
        "term": "Cause-risk-effect statement",
        "def": "A three-part way of writing a risk: the existing cause or condition, the uncertain event that may occur, and its effect on named objectives."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "A risk is uncertain and gets a planned response; an issue has happened and needs a decision now. Move occurred risks to the issues log with a cross-reference.",
+      "Write every risk as cause, event and effect so the team knows where to act and what to watch.",
+      "Use the RBS, an assumptions review, a pre-mortem and site walks to find threats and opportunities; generate silently before discussing.",
+      "Treat tool-generated or database suggestions as candidates that someone who knows the project must verify.",
+      "Repeat identification at every stage gate, design review and major contract award."
      ]
     },
     {
@@ -438,6 +498,50 @@ TRACK.modules.push({
      "text": "**Risk appetite** is how much risk the organisation is willing to take in pursuit of its objectives; **thresholds** turn that into rules, such as 'any risk with a safety impact of 5 is escalated to the steering committee whatever its probability' or 'no single risk may carry more than USD 1m exposure without a funded response'. Never average a catastrophic safety consequence away: a crane lift over a live 33 kV bay scored 1 x 5 = 5 looks 'low' on the heat map but is unacceptable to almost every owner and contractor."
     },
     {
+     "type": "matrix",
+     "title": "Reading the probability-impact grid as four zones",
+     "x": "Probability (low to high)",
+     "y": "Impact (low to high)",
+     "quadrants": [
+      {
+       "title": "Rare but severe",
+       "items": [
+        "Never dismiss as 'green'",
+        "Severity thresholds apply",
+        "Specific controls and a fallback",
+        "e.g. a lift beside a live 33 kV bay"
+       ]
+      },
+      {
+       "title": "Likely and severe",
+       "items": [
+        "Act now and escalate",
+        "Funded, owned responses",
+        "Model it quantitatively",
+        "e.g. late transformer on the critical path"
+       ]
+      },
+      {
+       "title": "Rare and minor",
+       "items": [
+        "Accept and monitor",
+        "Review at the monthly cycle",
+        "e.g. late delivery of site cabins"
+       ]
+      },
+      {
+       "title": "Likely but minor",
+       "items": [
+        "Reduce with routine controls",
+        "Allow for it in contingency",
+        "Watch for clusters",
+        "e.g. frequent short rain stoppages"
+       ]
+      }
+     ],
+     "caption": "A cell's colour is only a starting point: the top-left zone holds the rare but catastrophic risks that appetite thresholds pull out for specific treatment, whatever their score."
+    },
+    {
      "type": "compare",
      "title": "Response strategies for threats and for opportunities",
      "columns": [
@@ -496,6 +600,13 @@ TRACK.modules.push({
        "Purchase order signed"
       ],
       [
+       "Steel and cement price volatility on a three-year package",
+       "Accept (funded)",
+       "Price-adjustment formula on published indices instead of a large bidder premium; escalation allowance held in the budget",
+       "Cost manager",
+       "Index movement beyond the allowance assumed in the estimate"
+      ],
+      [
        "Insolvency of the facade subcontractor",
        "Mitigate",
        "Monthly financial check, direct payment of key suppliers, identify a replacement firm",
@@ -544,6 +655,51 @@ TRACK.modules.push({
        "text": "Report each month whether the contingency left is enough for the risk exposure left; a gap is an early warning to the sponsor."
       }
      ]
+    },
+    {
+     "type": "chart",
+     "kind": "line",
+     "title": "Remaining contingency versus remaining risk exposure",
+     "labels": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "M6",
+      "M7",
+      "M8"
+     ],
+     "series": [
+      {
+       "name": "Contingency remaining",
+       "values": [
+        3.0,
+        2.8,
+        2.6,
+        2.3,
+        2.0,
+        1.6,
+        1.3,
+        1.0
+       ]
+      },
+      {
+       "name": "Residual risk exposure",
+       "values": [
+        2.4,
+        2.3,
+        2.2,
+        2.1,
+        1.9,
+        1.8,
+        1.6,
+        1.4
+       ]
+      }
+     ],
+     "yLabel": "USD million",
+     "caption": "Illustrative figures. From month 6 the exposure still ahead exceeds the contingency left; that crossover is the early warning the monthly report must give the sponsor before the money runs out."
     },
     {
      "type": "scenario",
@@ -621,6 +777,17 @@ TRACK.modules.push({
        "term": "Contingency drawdown",
        "def": "The controlled release of risk contingency into a control account when an identified risk occurs, approved within delegated authority and recorded in the register and forecast."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Define probability and impact scales in project terms before scoring; scores rank risks, they do not measure them.",
+      "Severity thresholds from the risk appetite override the heat-map colour for catastrophic safety and public risks.",
+      "Fund a response when the exposure it removes exceeds its cost, and check it for secondary risks.",
+      "Every significant risk needs one owner, specific dated actions and an observable trigger.",
+      "Draw down contingency only for occurred risks, within delegated authority, and compare what is left with residual exposure every month."
      ]
     },
     {
@@ -745,56 +912,78 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "A **decision tree** lays out a choice, the uncertain events that follow each option and their consequences, so that options can be compared on expected value and on spread. Suppose the foundation designer for an effluent treatment plant must choose a piling system before ground conditions are fully known. Each option has a base cost and a chance of an adverse outcome. Rolling back the tree, you compute each option's expected cost and also note its worst case. The table below sets the tree out in rows; in a real study you would draw it, which makes the logic easier for a steering committee to follow."
+     "text": "A **decision tree** lays out a choice, the uncertain events that follow each option and their consequences, so that options can be compared on expected value and on spread. Suppose the foundation designer for an effluent treatment plant must choose a piling system before ground conditions are fully known. Each option has a base cost and a chance of an adverse outcome. Rolling back the tree, you compute each option's expected cost and also note its worst case. The tree below shows four options; drawing it makes the logic easy for a steering committee to follow."
     },
     {
-     "type": "table",
-     "title": "Piling decision tree set out as a table (BDT million, illustrative)",
-     "head": [
-      "Option",
-      "Base cost",
-      "Chance branch",
-      "Expected cost (EMV)",
-      "Worst case"
-     ],
-     "rows": [
-      [
-       "Driven precast concrete piles",
-       "100",
-       "25% chance of obstructions: +40",
-       "100 + 0.25 x 40 = 110",
-       "140"
-      ],
-      [
-       "Continuous flight auger piles",
-       "108",
-       "20% chance of soft-layer extension: +30",
-       "108 + 0.20 x 30 = 114",
-       "138"
-      ],
-      [
-       "Bored cast-in-situ piles",
-       "115",
-       "10% chance of casing problems: +20",
-       "115 + 0.10 x 20 = 117",
-       "135"
-      ],
-      [
-       "Steel H-piles",
-       "120",
-       "5% chance of corrosion upgrade: +10",
-       "120 + 0.05 x 10 = 120.5",
-       "130"
+     "type": "tree",
+     "title": "Piling decision tree (BDT million, illustrative)",
+     "root": {
+      "label": "Choose piling system",
+      "text": "Expected cost (EMV) and worst case per option",
+      "children": [
+       {
+        "label": "Driven precast",
+        "text": "EMV 110, worst 140",
+        "children": [
+         {
+          "label": "Obstructions 25%",
+          "text": "100 + 40 = 140"
+         },
+         {
+          "label": "No obstructions 75%",
+          "text": "100"
+         }
+        ]
+       },
+       {
+        "label": "CFA piles",
+        "text": "EMV 114, worst 138",
+        "children": [
+         {
+          "label": "Soft layer 20%",
+          "text": "108 + 30 = 138"
+         },
+         {
+          "label": "No extension 80%",
+          "text": "108"
+         }
+        ]
+       },
+       {
+        "label": "Bored cast-in-situ",
+        "text": "EMV 117, worst 135",
+        "children": [
+         {
+          "label": "Casing problems 10%",
+          "text": "115 + 20 = 135"
+         },
+         {
+          "label": "No problems 90%",
+          "text": "115"
+         }
+        ]
+       },
+       {
+        "label": "Steel H-piles",
+        "text": "EMV 120.5, worst 130",
+        "children": [
+         {
+          "label": "Corrosion upgrade 5%",
+          "text": "120 + 10 = 130"
+         },
+         {
+          "label": "No upgrade 95%",
+          "text": "120"
+         }
+        ]
+       }
       ]
-     ]
+     },
+     "caption": "Roll back from the outcomes: each option's EMV is its base cost plus probability times the extra cost. Driven piles have the lowest EMV but the widest spread; bored piles cap the worst case at 135."
     },
     {
      "type": "text",
-     "text": "On expected cost, driven precast piles win at 110. But the decision is not purely arithmetic. Driven piles carry the widest spread and generate noise and vibration that may be unacceptable next to a working dyeing hall or a hospital; a risk-averse owner with little contingency might pay 7 more in expectation for bored piles to cap the worst case at 135. The tree makes that trade-off explicit, which is its real value. Now consider many uncertainties at once: hundreds of activities with ranges, a dozen risk events, logic that merges paths. A tree becomes unmanageable, and **Monte Carlo simulation** takes over."
-    },
-    {
-     "type": "text",
-     "text": "The intuition is simple. Imagine you could build the same substation ten thousand times in parallel universes. In each one, every uncertain activity takes a duration drawn from its range: piling might take 41 days in one universe and 52 in the next. Each risk event happens in its share of universes: if the transformer has a 30% chance of a six-week delay, it is late in about three thousand of them. The computer runs the schedule logic in each universe and records the finish date. Sort the ten thousand finish dates and you have a distribution. The date that 50% of universes meet is the **P50**; the date that 80% meet is the **P80**. Nothing magical happens: the method just does, very quickly, the arithmetic of combining many ranges and events that the human mind cannot do reliably."
+     "text": "On expected cost, driven precast piles win at 110. But the decision is not purely arithmetic. Driven piles carry the widest spread and generate noise and vibration that may be unacceptable next to a working dyeing hall or a hospital; a risk-averse owner with little contingency might pay 7 more in expectation for bored piles to cap the worst case at 135. The tree makes that trade-off explicit, which is its real value. Now consider many uncertainties at once: hundreds of activities with ranges, a dozen risk events, logic that merges paths. A tree becomes unmanageable, and **Monte Carlo simulation** takes over.\nThe intuition is simple. Imagine you could build the same substation ten thousand times in parallel universes. In each one, every uncertain activity takes a duration drawn from its range: piling might take 41 days in one universe and 52 in the next. Each risk event happens in its share of universes: if the transformer has a 30% chance of a six-week delay, it is late in about three thousand of them. The computer runs the schedule logic in each universe and records the finish date. Sort the ten thousand finish dates and you have a distribution. The date that 50% of universes meet is the **P50**; the date that 80% meet is the **P80**. Nothing magical happens: the method just does, very quickly, the arithmetic of combining many ranges and events that the human mind cannot do reliably."
     },
     {
      "type": "flow",
@@ -864,6 +1053,41 @@ TRACK.modules.push({
      "note": "The plan built from most-likely durations says 95 days, yet only about 3% of simulated projects finish by then, because every range is right-skewed and the transformer path sometimes overtakes the civil and steel path at the merge. This sketch samples each input independently; in a real model, durations sharing a cause (the same ground, the same crew) would be correlated, which widens the spread and pushes the P80 later still."
     },
     {
+     "type": "chart",
+     "kind": "line",
+     "title": "S-curve from the substation simulation",
+     "labels": [
+      "95",
+      "98",
+      "100",
+      "102",
+      "104",
+      "106",
+      "108",
+      "110",
+      "112"
+     ],
+     "series": [
+      {
+       "name": "Chance of finishing by this day",
+       "values": [
+        3,
+        15,
+        29,
+        45,
+        63,
+        77,
+        88,
+        95,
+        98
+       ]
+      }
+     ],
+     "unit": "%",
+     "yLabel": "Cumulative probability",
+     "caption": "Computed from the sketch above (illustrative inputs, seed 7). The 95-day plan sits at about 3%, P50 falls near day 102.5 and P80 near day 106.5: read across from a confidence level to find the date."
+    },
+    {
      "type": "table",
      "title": "Reading the simulation output",
      "head": [
@@ -901,7 +1125,7 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "Two outputs tell you what to do next. A **tornado chart** ranks the inputs by how strongly they drive the result, longest bar at the top, so management attention goes to the few risks and activities that move P80 the most, often transformer supply, ground conditions or design approvals rather than the issues the team argues about most. The **criticality index** shows how often each activity was on the critical path across the iterations, revealing near-critical paths that a single CPM run hides. On correlation, prefer to model the shared cause explicitly, for example a 'ground worse than expected' risk that lengthens both piling and excavation, rather than assigning arbitrary coefficients; either way, never leave obviously related inputs independent."
+     "text": "Two outputs tell you what to do next. A **tornado chart** ranks the inputs by how strongly they drive the result, longest bar at the top, so management attention goes to the few risks and activities that move P80 the most, often transformer supply, ground conditions or design approvals rather than the issues the team argues about most. The **criticality index** shows how often each activity was on the critical path across the iterations, revealing near-critical paths that a single CPM run hides. On correlation, prefer to model the shared cause explicitly, for example a 'ground worse than expected' risk that lengthens both piling and excavation, rather than assigning arbitrary coefficients; either way, never leave obviously related inputs independent. Tools increasingly use AI to propose duration ranges, risk mappings and correlations from historical data. Treat that as a first draft: experienced planners must check every input against this project's evidence, and the analyst must be able to explain each one to the board. A model nobody can explain is not evidence."
     },
     {
      "type": "scenario",
@@ -976,6 +1200,17 @@ TRACK.modules.push({
        "term": "Schedule risk analysis (SRA)",
        "def": "A Monte Carlo analysis of a logic-linked schedule with duration ranges and risk events, producing finish-date confidence levels, drivers and criticality for each activity."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "EMV = probability x impact; it suits comparison and contingency for many risks but never describes the worst case.",
+      "Decision trees make the trade-off between expected cost and spread visible to decision-makers.",
+      "Monte Carlo combines ranges, risk events and logic; P50 and P80 are cumulative confidence values, not predictions of a date.",
+      "Single-point plans are optimistic because of skew, merge bias, omitted risks, ignored correlation and planning optimism.",
+      "Use tornado and criticality results to direct action, and have experts verify any tool-generated inputs."
      ]
     },
     {
@@ -1054,7 +1289,7 @@ TRACK.modules.push({
    "blocks": [
     {
      "type": "text",
-     "text": "No schedule date or cost saving justifies a serious injury, and on a well-run project nobody is asked to make that trade. Construction, plant installation and commissioning combine heavy loads, heights, energy sources, moving plant and many companies working in the same space, often under time pressure and in heat. The project manager is not the safety officer, but sets the conditions in which safety succeeds or fails: realistic programmes, competent contractors, funded temporary works, safe designs and the visible expectation that unsafe work stops. Safety is managed as a line responsibility, with the HSE team advising, checking and coaching."
+     "text": "No schedule date or cost saving justifies a serious injury, and on a well-run project nobody is asked to make that trade. Construction, plant installation and commissioning combine heavy loads, heights, energy sources, moving plant and many companies working in the same space, often under time pressure and in heat. The project manager is not the safety officer, but sets the conditions in which safety succeeds or fails: realistic programmes, competent contractors, funded temporary works, safe designs and the visible expectation that unsafe work stops. Safety is managed as a line responsibility, with the HSE team advising, checking and coaching. Many organisations run their system to ISO 45001:2018, whose 2024 amendment asks them to consider climate change, which on site means heat stress, flooding and storms. Since 2022 the ILO has counted a safe and healthy working environment among the fundamental principles and rights at work, and its Convention C167 (1988) remains the international benchmark for construction; in Bangladesh, national labour law and the construction safety provisions of BNBC 2020 set the legal minimum."
     },
     {
      "type": "layers",
@@ -1065,7 +1300,8 @@ TRACK.modules.push({
        "parts": [
         "Design out the hazard",
         "Assemble roof trusses at ground level and lift them complete",
-        "Relocate a cable route away from a live substation"
+        "Relocate a cable route away from a live substation",
+        "Drone or laser-scan inspection instead of climbing"
        ]
       },
       {
@@ -1156,34 +1392,59 @@ TRACK.modules.push({
      ]
     },
     {
-     "type": "flow",
+     "type": "sequence",
      "title": "The permit-to-work cycle",
-     "items": [
+     "actors": [
+      "Performing authority",
+      "Issuing authority",
+      "Work crew"
+     ],
+     "steps": [
       {
-       "label": "Request",
-       "text": "The performing authority describes the task, location and method"
+       "from": 0,
+       "to": 1,
+       "label": "Request permit: task, location, method"
       },
       {
-       "label": "Assess and isolate",
-       "text": "Hazards checked; energy sources isolated, locked and proved"
+       "from": 1,
+       "to": 1,
+       "label": "Check hazards; isolate, lock, prove dead"
       },
       {
-       "label": "Authorise",
-       "text": "An authorised person issues the permit with conditions and duration"
+       "from": 1,
+       "to": 0,
+       "label": "Issue permit with conditions and expiry",
+       "reply": true
       },
       {
-       "label": "Brief and accept",
-       "text": "The crew is briefed at the work face and signs acceptance"
+       "from": 0,
+       "to": 2,
+       "label": "Brief the crew at the work face"
       },
       {
-       "label": "Work and monitor",
-       "text": "Conditions checked; work stops if anything changes"
+       "from": 2,
+       "to": 0,
+       "label": "Sign acceptance of the permit",
+       "reply": true
       },
       {
-       "label": "Hand back and cancel",
-       "text": "Area made safe, isolations removed in order, permit closed"
+       "from": 2,
+       "to": 2,
+       "label": "Work; stop if conditions change",
+       "note": "Gas, weather, scope or crew change"
+      },
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Hand back: area safe, crew clear"
+      },
+      {
+       "from": 1,
+       "to": 1,
+       "label": "Remove isolations in order; cancel"
       }
-     ]
+     ],
+     "caption": "Notice that the issuing authority both starts and ends the cycle: nobody removes an isolation until the work has been handed back and the crew is confirmed clear."
     },
     {
      "type": "callout",
@@ -1233,6 +1494,43 @@ TRACK.modules.push({
       "Which leading indicators would show that fire safety is being maintained once the factory is in operation?"
      ],
      "answer": "The design failures were building and extending structures beyond their permitted and designed use, placing industrial loads and vibrating plant on floors not designed for them, and laying out exits and storage so that stairs could become fire traps. The management failures were ignoring visible structural distress and alarms, and ordering people back into danger. Before fixing the design for any extension or change of use, a competent structural engineer must assess the existing structure, foundations and load paths against the new loads and vibration, with permits obtained from the relevant authority; fire engineering must provide protected escape routes, fire separation and detection sized for the new occupancy. Useful leading indicators include monthly checks that exits and stairs are clear and unlocked, alarm and fire-pump test records, evacuation drill times, structural load plans displayed and respected, and the speed at which reported cracks or electrical faults are investigated. The deepest lesson is that a building's structural and fire safety is a design and governance matter, not a matter for workers to manage on the day."
+    },
+    {
+     "type": "timeline",
+     "title": "From disaster to reform in Bangladesh's garment sector",
+     "items": [
+      {
+       "when": "2012",
+       "label": "Tazreen fire",
+       "text": "Exits and stairs fail as escape routes"
+      },
+      {
+       "when": "April 2013",
+       "label": "Rana Plaza collapse",
+       "text": "Illegal extra floors, industrial loads, warnings ignored"
+      },
+      {
+       "when": "2013",
+       "label": "Inspection programmes",
+       "text": "Accord, industry Alliance and a national initiative inspect factories"
+      },
+      {
+       "when": "2020",
+       "label": "RMG Sustainability Council",
+       "text": "A national body takes over the Accord's work in Bangladesh"
+      },
+      {
+       "when": "2021",
+       "label": "International Accord",
+       "text": "Brands and unions extend the model beyond Bangladesh"
+      },
+      {
+       "when": "2022",
+       "label": "ILO fundamental right",
+       "text": "Safe and healthy work becomes a fundamental principle"
+      }
+     ],
+     "caption": "A decade of reform turned one-off inspections into permanent institutions. The engineering lesson is unchanged: structural and fire safety are designed and governed, not left to workers on the day."
     },
     {
      "type": "scenario",
@@ -1331,6 +1629,17 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Work down the hierarchy of controls from elimination; PPE is the last line of defence.",
+      "RAMS must be task-specific, prepared with the crew and briefed; permits control high-risk work from isolation to hand-back.",
+      "Prove dead with a proven tester every time, and plan energisation as a change to the whole permit regime.",
+      "Lead with leading indicators, a just culture, stop-work authority, welfare and heat-stress planning.",
+      "Structural and fire safety for any change of use are design and governance decisions made before work starts."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -1405,7 +1714,7 @@ TRACK.modules.push({
    "blocks": [
     {
      "type": "text",
-     "text": "An engineering project changes the place where it is built. Excavation, dewatering, batching plants, haul roads, labour camps and night work affect neighbours long before the asset delivers any benefit, and the finished asset may change flood patterns, traffic or livelihoods for decades. Regulators, lenders and communities therefore expect environmental and social risks to be assessed and managed with the same discipline as cost and schedule. In Bangladesh, the Department of Environment grants environmental clearance under the national environment conservation rules, with the depth of assessment depending on the project's category; internationally financed projects usually also follow lender environmental and social standards such as the IFC Performance Standards or the Equator Principles adopted by many banks. Failing here stops work as surely as a missing crane."
+     "text": "An engineering project changes the place where it is built. Excavation, dewatering, batching plants, haul roads, labour camps and night work affect neighbours long before the asset delivers any benefit, and the finished asset may change flood patterns, traffic or livelihoods for decades. Regulators, lenders and communities therefore expect environmental and social risks to be assessed and managed with the same discipline as cost and schedule. In Bangladesh, the Department of Environment grants environmental clearance under the national Environment Conservation Rules, with the depth of assessment depending on the project's category (check the current rules and category list). Internationally financed projects also follow lender standards such as the IFC Performance Standards (2012), the World Bank Environmental and Social Framework (2018) or the Equator Principles (EP4, 2020) adopted by many banks. Failing here stops work as surely as a missing crane."
     },
     {
      "type": "flow",
@@ -1561,7 +1870,67 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "Carbon and sustainability are now part of the business case and the contract. Distinguish **embodied carbon**, emitted in producing and transporting materials such as cement, steel and aluminium, from **operational carbon** from running the asset. The largest reductions are available early, in the Define stage, by building less, reusing existing structures and choosing efficient structural forms; later choices include cement replacement materials such as slag or fly ash, high-recycled-content steel, electric or hybrid site plant, grid power instead of diesel generators and efficient logistics. Many owners now set carbon budgets alongside cost budgets and ask for whole-life carbon assessments. Pair this with climate resilience: an asset designed for yesterday's flood levels and temperatures is a risk to everyone who depends on it."
+     "text": "Carbon is now managed much like cost: many owners set a **carbon baseline** and budget alongside the cost baseline, report against it and ask for a whole-life carbon assessment. PAS 2080:2023 sets out how owners, designers, contractors and suppliers share that duty on buildings and infrastructure. Distinguish **embodied carbon**, from producing, transporting, installing, maintaining and finally removing materials such as cement, steel and aluminium, from **operational carbon** from running the asset. The largest reductions are available early, in the Define stage: build less, reuse existing structures and choose efficient structural forms. Later choices include cement replacement such as slag or fly ash, high-recycled-content steel, offsite and modular construction that cuts waste, electric site plant and grid power instead of diesel generators. Lenders and investors increasingly ask for these figures, and disclosure standards such as IFRS S1 and S2 (2023) shape what owners report. Pair carbon with climate resilience: an asset designed for yesterday's flood levels and temperatures is a risk to everyone who depends on it."
+    },
+    {
+     "type": "chart",
+     "kind": "line",
+     "title": "The ability to reduce carbon falls as the project advances",
+     "labels": [
+      "Need",
+      "Options",
+      "Concept",
+      "Detailed design",
+      "Construction",
+      "Operation"
+     ],
+     "series": [
+      {
+       "name": "Influence on whole-life carbon",
+       "values": [
+        100,
+        80,
+        55,
+        30,
+        15,
+        5
+       ]
+      }
+     ],
+     "yLabel": "Relative influence (index)",
+     "caption": "An illustrative index, not measured data: the largest and cheapest savings are made while the need and options are still open; by construction most of the carbon is already locked into the design."
+    },
+    {
+     "type": "timeline",
+     "title": "Whole-life carbon stages (EN 15978)",
+     "items": [
+      {
+       "when": "A1–A3",
+       "label": "Product",
+       "text": "Raw materials, transport to the factory, manufacture"
+      },
+      {
+       "when": "A4–A5",
+       "label": "Construction",
+       "text": "Transport to site and the construction process, including waste"
+      },
+      {
+       "when": "B1–B7",
+       "label": "Use",
+       "text": "Maintenance, repair, replacement; operational energy (B6) and water (B7)"
+      },
+      {
+       "when": "C1–C4",
+       "label": "End of life",
+       "text": "Demolition, transport, waste processing and disposal"
+      },
+      {
+       "when": "D",
+       "label": "Beyond the life cycle",
+       "text": "Reuse, recovery and recycling potential, reported separately"
+      }
+     ],
+     "caption": "Embodied carbon covers A, B1–B5 and C; operational carbon sits in B6–B7. Module D is reported separately so that future recycling credits cannot hide today's emissions."
     },
     {
      "type": "template",
@@ -1660,6 +2029,17 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "The ESIA predicts impacts; the ESMP turns its commitments into priced, owned and monitored contract obligations.",
+      "Apply the mitigation hierarchy in order: avoid, minimise, restore, then offset or compensate.",
+      "Pay full replacement cost before displacement and restore livelihoods, including for people without formal title.",
+      "Run an accessible grievance mechanism and learn from the pattern of complaints.",
+      "Manage carbon as a baseline alongside cost, across all life-cycle stages; the biggest savings are made early in design."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -1716,6 +2096,17 @@ TRACK.modules.push({
        ],
        "answer": 2,
        "explain": "The ESIA predicts and evaluates impacts; the ESMP is the management plan that implements the mitigation with responsibilities, monitoring and budget across construction and operation."
+      },
+      {
+       "q": "A carbon assessment for a new bridge must report the emissions from manufacturing its reinforcing steel. In which EN 15978 stage do they belong?",
+       "options": [
+        "B6, operational energy use",
+        "A1–A3, the product stage",
+        "Module D, beyond the life cycle",
+        "A5, the construction process"
+       ],
+       "answer": 1,
+       "explain": "Manufacturing materials is the product stage, A1–A3. A5 covers site construction activity, B6 the energy used to run the asset, and module D reports future reuse and recycling potential separately."
       }
      ]
     }
@@ -1856,6 +2247,10 @@ TRACK.modules.push({
     },
     {
      "type": "text",
+     "text": "Modern strategies often blend these models. **Early contractor involvement (ECI)** brings a contractor in during design, usually under a pre-construction agreement, to advise on buildability, sequence, offsite and DfMA options and cost. **Two-stage tendering** selects that contractor first on quality, fees and key rates, then agrees the construction price once the design has matured. **Framework agreements** appoint a pool of firms for a programme of similar works, and **alliances** go furthest by sharing pain and gain across the whole team. Whatever the model, write the owner's information requirements (under ISO 19650), carbon targets and any offsite intentions into the strategy so that bidders can price them."
+    },
+    {
+     "type": "text",
      "text": "**Packaging** splits the scope into contracts. Fewer, larger packages reduce the number of interfaces the owner must manage but narrow the market to large firms and may increase risk premiums. More, smaller packages widen competition and can involve capable local contractors, but every boundary becomes a place where responsibility can fall through: who connects the transformer to the switchgear, who provides the crane for the vendor's supervisor, who seals the cable entry through the civil contractor's wall. On a metro line, a typical split separates viaduct and station civil works, track, power supply, signalling, rolling stock and depot; the owner or a systems integrator then has to manage the interfaces between them deliberately, with interface matrices, joint programmes and clear battery limits (see Define)."
     },
     {
@@ -1921,6 +2316,47 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "matrix",
+     "title": "A first filter: scope certainty and complexity",
+     "x": "Scope certainty at tender (low to high)",
+     "y": "Complexity and interfaces (low to high)",
+     "quadrants": [
+      {
+       "title": "Uncertain and complex",
+       "items": [
+        "Alliance or collaborative target cost",
+        "ECI with a two-stage tender",
+        "Strong joint governance"
+       ]
+      },
+      {
+       "title": "Defined and complex",
+       "items": [
+        "Design-build or EPC",
+        "Single-point responsibility",
+        "Performance guarantees"
+       ]
+      },
+      {
+       "title": "Uncertain but simple",
+       "items": [
+        "Remeasurement or framework",
+        "Cost-reimbursable for emergencies",
+        "Define scope before fixing price"
+       ]
+      },
+      {
+       "title": "Defined and simple",
+       "items": [
+        "Design-bid-build",
+        "Lump sum or remeasured",
+        "Price competition works well"
+       ]
+      }
+     ],
+     "caption": "Use it to shortlist, not to decide: owner capability and market appetite (Q3 and Q5) can still move the answer."
+    },
+    {
      "type": "callout",
      "kind": "example",
      "title": "Long-lead items drive the strategy",
@@ -1929,6 +2365,43 @@ TRACK.modules.push({
     {
      "type": "text",
      "text": "A practical sequence on a hypothetical combined-cycle plant illustrates the logic: the owner reserves the gas turbine slot at the end of feasibility, appoints an owner's engineer to write the employer's requirements, tenders an EPC contract with the turbine supply agreement attached for novation, and keeps the grid connection works as a separate package with the transmission utility. Each choice is deliberate: the turbine protects the critical path, the EPC contract gives one party responsibility for plant performance, and the grid works stay with the only organisation that can deliver them. Record such reasoning in the strategy so the next project can learn from it."
+    },
+    {
+     "type": "tree",
+     "title": "Contract structure for the combined-cycle example",
+     "root": {
+      "label": "Owner",
+      "text": "Approves strategy; manages the grid interface",
+      "children": [
+       {
+        "label": "Owner's engineer",
+        "text": "Writes employer's requirements; reviews design"
+       },
+       {
+        "label": "EPC contractor",
+        "text": "Single point for plant performance",
+        "children": [
+         {
+          "label": "Gas turbine supplier",
+          "text": "Owner-reserved slot, novated to the EPC"
+         },
+         {
+          "label": "HRSG and steam turbine",
+          "text": "Chosen by the EPC contractor"
+         },
+         {
+          "label": "Civil and erection",
+          "text": "EPC subcontractors"
+         }
+        ]
+       },
+       {
+        "label": "Grid connection",
+        "text": "Separate package with the transmission utility"
+       }
+      ]
+     },
+     "caption": "The turbine starts as an owner contract and moves under the EPC contractor by novation, while the grid works stay outside the EPC boundary, leaving an interface the owner must manage deliberately."
     },
     {
      "type": "scenario",
@@ -1995,6 +2468,17 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "The procurement strategy fixes most commercial risk before any contract is signed; record the reasons and the options rejected.",
+      "Match the delivery model to design certainty, urgency, owner capability, risk allocation, market appetite and interface complexity.",
+      "Fewer packages mean fewer interfaces but a narrower market; more packages need an owner team that can police every boundary.",
+      "ECI, two-stage tendering, frameworks and alliances bring contractor knowledge in early when scope is still developing.",
+      "Order long-lead items early, choosing free-issue or novation with eyes open to who carries late delivery."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -2051,6 +2535,17 @@ TRACK.modules.push({
        ],
        "answer": 1,
        "explain": "Alliancing suits complex, uncertain work where joint problem-solving and shared incentives add value. Simple, well-defined work is usually better served by competitive fixed pricing."
+      },
+      {
+       "q": "A hospital owner wants a contractor's buildability and offsite advice during design, but cannot fix a construction price until the design matures. Which approach fits best?",
+       "options": [
+        "A single-stage lump-sum tender on the concept design",
+        "Cost plus a percentage fee for the whole of the works",
+        "Design-bid-build once every drawing is complete",
+        "Early contractor involvement with a two-stage tender"
+       ],
+       "answer": 3,
+       "explain": "Two-stage tendering appoints the contractor early on quality, fees and rates, uses its advice during design, then agrees the price once the design is mature. A lump sum on a concept invites premiums, cost plus percentage removes cost discipline, and design-bid-build loses the early input."
       }
      ]
     }
@@ -2070,6 +2565,44 @@ TRACK.modules.push({
     {
      "type": "text",
      "text": "The pricing mechanism decides how the contractor is paid, and therefore who wins or loses when quantities grow, productivity falls or materials become more expensive. Every tender price contains three parts: the contractor's estimate of cost, an allowance for the risks it is asked to carry (the **risk premium**) and its margin. Transferring a risk to the contractor does not make it disappear; the owner pays for it through the premium, whether or not the risk occurs. Good contract strategy therefore asks not 'how do we push all risk to the contractor?' but 'which party can manage each risk at the lowest overall cost?'"
+    },
+    {
+     "type": "tree",
+     "title": "What a tender price is made of",
+     "root": {
+      "label": "Tender price",
+      "children": [
+       {
+        "label": "Estimated cost",
+        "children": [
+         {
+          "label": "Direct costs",
+          "text": "Labour, plant, materials, subcontracts"
+         },
+         {
+          "label": "Indirect costs",
+          "text": "Site management, temporary works, insurance"
+         }
+        ]
+       },
+       {
+        "label": "Risk premium",
+        "text": "Allowance for risks the contract gives the contractor"
+       },
+       {
+        "label": "Margin",
+        "children": [
+         {
+          "label": "Head-office overheads"
+         },
+         {
+          "label": "Profit"
+         }
+        ]
+       }
+      ]
+     },
+     "caption": "Changing the risk allocation moves mainly the risk premium, and the owner pays that premium whether or not the risks occur."
     },
     {
      "type": "table",
@@ -2147,6 +2680,11 @@ TRACK.modules.push({
        "name": "Guaranteed maximum price",
        "expr": "Owner pays the lower of (actual cost + fee) and the GMP, plus any agreed share of savings below it",
        "meaning": "Costs above the GMP fall on the contractor unless the scope changes; the ceiling is adjusted only through agreed changes."
+      },
+      {
+       "name": "Price adjustment (indexation)",
+       "expr": "Pn = a + b x (Ln / Lo) + c x (Mn / Mo) + ..., where a + b + c + ... = 1",
+       "meaning": "a is the fixed, non-adjustable share; each other weighting multiplies the ratio of a current index (n) to its base-date value (o), for labour, steel, cement or fuel. Payments are multiplied by Pn. Illustrative: a = 0.15, b = 0.35, c = 0.50, with indices up 10% and 20%, gives Pn = 0.15 + 0.385 + 0.60 = 1.135."
       }
      ]
     },
@@ -2157,10 +2695,62 @@ TRACK.modules.push({
      "text": "A hypothetical water treatment works has a target cost of USD 100m, a fixed fee of USD 6m and a 50:50 pain/gain share. **Underspend:** actual cost USD 90m. Gain = 100 - 90 = 10, contractor share = +5. Payment = 90 + 6 + 5 = **USD 101m**; the owner saves 5 against target plus fee (106), and the contractor earns 11 instead of 6. **Overspend:** actual cost USD 112m. Pain = 100 - 112 = -12, contractor share = -6. Payment = 112 + 6 - 6 = **USD 112m**; the owner pays 6 more than target plus fee and the contractor recovers its cost but earns no margin. Both parties feel every dollar of variance, which is the point."
     },
     {
+     "type": "chart",
+     "kind": "line",
+     "title": "What the owner pays as actual cost varies",
+     "labels": [
+      "80",
+      "90",
+      "100",
+      "112",
+      "120"
+     ],
+     "series": [
+      {
+       "name": "Target cost, 50:50 share",
+       "values": [
+        96,
+        101,
+        106,
+        112,
+        116
+       ]
+      },
+      {
+       "name": "Cost plus fixed fee",
+       "values": [
+        86,
+        96,
+        106,
+        118,
+        126
+       ]
+      },
+      {
+       "name": "Lump sum of 106",
+       "values": [
+        106,
+        106,
+        106,
+        106,
+        106
+       ]
+      }
+     ],
+     "yLabel": "Owner payment, USD m",
+     "caption": "Illustrative, using the callout's target of 100 and fee of 6 (actual cost in USD m along the bottom). The target-cost line is half as steep as cost-plus, so each party feels half of every variance; the lump sum stays flat until change or claims move it."
+    },
+    {
      "type": "callout",
      "kind": "warning",
      "title": "Fixed price is not the same as certain cost",
      "text": "A lump sum only fixes the price of the scope as described. Every design change, late owner information, change in law or unforeseeable condition that the contract assigns to the owner becomes a variation or claim. Owners who tender lump sums on immature designs often end with a final account far above the contract price, plus disputes. Conversely, a contractor that accepts a lump sum for risks it cannot control, such as ground conditions with no site investigation, may be pushed towards insolvency, which also hurts the owner."
+    },
+    {
+     "type": "callout",
+     "kind": "insight",
+     "title": "Volatile prices changed the conversation",
+     "text": "Sharp swings in steel, cement, fuel and freight prices in the early 2020s left contractors on long fixed-price contracts without indexation facing heavy losses, and some failed. Owners now more often share this risk through price-adjustment formulas tied to published indices, keeping a fixed portion and sometimes a cap so that budget certainty is not lost. Price the residual exposure in the owner's risk allowance rather than pretending it has gone."
     },
     {
      "type": "table",
@@ -2298,6 +2888,17 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Every tender price contains cost, a risk premium and margin; transferring risk is paid for whether or not the risk occurs.",
+      "Lump sum suits defined scope; remeasurement suits uncertain quantities; cost-reimbursable suits undefined or emergency work.",
+      "Target cost and GMP share or cap overruns; both need open-book access, clear allowable costs and prompt target adjustment.",
+      "Index-linked price adjustment shares inflation risk on long contracts without giving up budget control.",
+      "Allocate each risk to the party best able to manage it at the lowest overall cost."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -2354,6 +2955,17 @@ TRACK.modules.push({
        ],
        "answer": 0,
        "explain": "Without changes to scope, the GMP caps the owner's liability, so the contractor bears the USD 3m excess. Savings below the GMP may be shared, but overruns above it are not."
+      },
+      {
+       "q": "A contract adjusts payments by Pn = 0.2 + 0.3 x (Ln / Lo) + 0.5 x (Mn / Mo). Since the base date the labour index has risen 10% and the materials index 20%. What is Pn?",
+       "options": [
+        "1.15, the simple average of the two rises",
+        "1.30, adding both index rises in full",
+        "1.13, the weighted sum",
+        "1.03, ignoring the materials index rise"
+       ],
+       "answer": 2,
+       "explain": "Pn = 0.2 + 0.3 x 1.10 + 0.5 x 1.20 = 0.2 + 0.33 + 0.60 = 1.13. The fixed portion does not move, and each index rise counts only in proportion to its weighting."
       }
      ]
     }
@@ -2466,6 +3078,52 @@ TRACK.modules.push({
      "text": "During the tender period, keep every bidder on the same footing. Questions are answered in writing and the answer goes to all bidders without revealing who asked; any change to the documents is issued as a numbered **addendum**, and the deadline is extended if bidders need time to price it. Do not meet bidders privately or hint at budgets. A well-run site visit, with the ground investigation data and the existing utility records available to all, reduces the risk premiums that bidders add for things they cannot see. At the deadline, open tenders in a recorded session so that nobody can later suggest a late or altered tender was accepted."
     },
     {
+     "type": "sequence",
+     "title": "Handling a tender clarification fairly",
+     "actors": [
+      "Bidder A",
+      "Procurement lead",
+      "Design team",
+      "All bidders"
+     ],
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Written question via the tender portal"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Check the specification clause"
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Ambiguity confirmed; clause revised",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 3,
+       "label": "Anonymised answer and Addendum 3",
+       "note": "Asker's identity never revealed"
+      },
+      {
+       "from": 1,
+       "to": 3,
+       "label": "Deadline extended to allow repricing"
+      },
+      {
+       "from": 3,
+       "to": 1,
+       "label": "Acknowledge receipt of the addendum",
+       "reply": true
+      }
+     ],
+     "caption": "Notice that the answer goes to every bidder, not just the one who asked, and that acknowledgements prove each tender was priced on the same documents."
+    },
+    {
      "type": "steps",
      "title": "Evaluating tenders",
      "items": [
@@ -2517,6 +3175,43 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "chart",
+     "kind": "bar",
+     "title": "Combined scores for three tenders",
+     "labels": [
+      "Tenderer A",
+      "Tenderer B",
+      "Tenderer C"
+     ],
+     "series": [
+      {
+       "name": "Technical (of 70)",
+       "values": [
+        60,
+        52,
+        45
+       ]
+      },
+      {
+       "name": "Price (of 30)",
+       "values": [
+        27,
+        30,
+        26
+       ]
+      },
+      {
+       "name": "Combined (of 100)",
+       "values": [
+        87,
+        82,
+        71
+       ]
+      }
+     ],
+     "caption": "Illustrative. Normalised prices of 10.0m, 9.0m and 10.4m give price scores of 27, 30 and 26. B is cheapest, but A offers the best value under the published weights."
+    },
+    {
      "type": "template",
      "title": "Tender evaluation matrix",
      "purpose": "Record weighted scores for each tenderer so that the recommendation is transparent and auditable.",
@@ -2547,6 +3242,10 @@ TRACK.modules.push({
       ]
      ],
      "rows": 7
+    },
+    {
+     "type": "text",
+     "text": "Evaluations increasingly look beyond price and method. Owners score carbon reduction proposals, social value such as local employment and training, offsite and DfMA approaches, and the bidder's ability to work to the owner's information requirements in a common data environment. Publish such criteria, and how they will be measured, in the tender documents. Digital and AI tools can help check compliance and compare long submissions, but evaluators must verify every finding and remain accountable for each score."
     },
     {
      "type": "callout",
@@ -2645,6 +3344,17 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Prequalify on capability and capacity, then issue complete documents with the evaluation method and weights.",
+      "Answer every clarification in writing to all bidders and issue numbered addenda; never meet bidders privately.",
+      "Normalise prices for exclusions and errors before scoring, and never add criteria after opening.",
+      "Investigate abnormally low tenders before deciding; manage conflicts of interest transparently.",
+      "Write an evaluation report that explains every score so the award can be audited and defended."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -2719,7 +3429,7 @@ TRACK.modules.push({
    "blocks": [
     {
      "type": "text",
-     "text": "Many engineering projects, especially those financed by development banks or built by international contractors, use standard-form contracts published by industry bodies. The best known internationally are those of FIDIC, the International Federation of Consulting Engineers, whose family of forms is often identified by the colours of their covers; development banks commonly use harmonised versions of them, and many countries publish their own national forms built on similar ideas. This lesson describes the **principles** these forms share, in general terms. It does not reproduce any form: on a real project, read the actual edition, the particular conditions and the amendments, because projects frequently change the standard text, and the detail matters."
+     "text": "Many engineering projects, especially those financed by development banks or built by international contractors, use standard-form contracts published by industry bodies. The best known internationally are those of FIDIC, the International Federation of Consulting Engineers, whose family of forms is often identified by the colours of their covers; development banks commonly use harmonised versions of them, and many countries publish their own national forms built on similar ideas. FIDIC's current Red, Yellow and Silver Books are the 2017 editions, reprinted with amendments in 2022, though many contracts still run on the 1999 editions. The NEC family, now NEC4, is built around early warnings and compensation events. This lesson describes the **principles** these forms share, in general terms. It does not reproduce any form: on a real project, read the actual edition, the particular conditions and the amendments, because projects frequently change the standard text, and the detail matters."
     },
     {
      "type": "compare",
@@ -2759,38 +3469,41 @@ TRACK.modules.push({
      "text": "In the employer-designed and design-build families, the **engineer** (in some forms called the contract administrator) is appointed by the employer and wears two hats. For most purposes the engineer acts for the employer: issuing instructions, reviewing designs, inspecting work and certifying payment. But when the parties disagree over a claim or a matter that needs a decision, the engineer must first consult both parties, encourage agreement and, failing that, make a fair determination in accordance with the contract, acting neutrally rather than as the employer's advocate. The engineer's authority may be limited by the employer for certain decisions, such as variations above a value, and those limits must be stated in the contract. In turnkey forms, an employer's representative replaces the engineer and the neutral role largely disappears."
     },
     {
-     "type": "flow",
-     "title": "From award to final release",
+     "type": "timeline",
+     "title": "From award to final release (illustrative 30-month contract)",
      "items": [
       {
+       "when": "Month 0",
        "label": "Letter of acceptance",
        "text": "Contract formed; periods for securities and commencement start"
       },
       {
+       "when": "Month 0–1",
        "label": "Commencement",
-       "text": "Performance security provided, site access given, programme submitted"
+       "text": "Performance security, site access, initial programme"
       },
       {
+       "when": "Months 1–30",
        "label": "Execution",
-       "text": "Design, construction, instructions, variations and claims managed"
+       "text": "Design, construction, variations, claims; monthly statements and payment certificates"
       },
       {
-       "label": "Interim payments",
-       "text": "Monthly statements, engineer's certificates, payment within set periods"
-      },
-      {
+       "when": "Month 30",
        "label": "Taking over",
-       "text": "Works complete and tests passed; care of the works passes to the employer"
+       "text": "Tests passed; care passes to the employer; delay damages stop"
       },
       {
+       "when": "Months 30–42",
        "label": "Defects period",
-       "text": "Contractor remedies notified defects; retention and securities reduce"
+       "text": "Notified defects remedied; retention and securities reduce"
       },
       {
+       "when": "Month 42+",
        "label": "Final release",
-       "text": "Performance certificate, final statement, final payment and release of securities"
+       "text": "Performance certificate, final statement and payment, securities released"
       }
-     ]
+     ],
+     "caption": "The dates assume a 12-month defects notification period. Each certificate along the line shifts risk and money, so it must be issued on evidence."
     },
     {
      "type": "table",
@@ -2805,7 +3518,7 @@ TRACK.modules.push({
       [
        "Event the contractor believes entitles it to time or money",
        "Contractor",
-       "Many forms require notice within a short fixed period of becoming aware, often 28 days, or entitlement may be lost",
+       "Forms set a short fixed period from awareness, such as 28 days under the 2017 FIDIC forms or eight weeks for an NEC4 compensation event; late notice can lose the entitlement",
        "Weekly commercial review of diaries, RFIs and instructions for events that need notice"
       ],
       [
@@ -2839,6 +3552,62 @@ TRACK.modules.push({
      "kind": "warning",
      "title": "Time bars are real",
      "text": "A **time bar** is a contract provision under which a claim is lost, or seriously weakened, if notice is not given within the stated period. Courts and tribunals in many jurisdictions enforce them, although some legal systems soften their effect. The cure is cultural, not legal: a site team that confirms verbal instructions in writing the same day, a commercial team that scans every diary and RFI for notifiable events each week, and a notice register that nobody is allowed to ignore. A well-founded claim can be lost on a missed date; a weak claim cannot be rescued by a well-timed notice."
+    },
+    {
+     "type": "sequence",
+     "title": "A claim from notice to dispute board",
+     "actors": [
+      "Contractor",
+      "Engineer",
+      "Employer",
+      "DAAB"
+     ],
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Notice of claim within 28 days",
+       "note": "Late notice risks a time bar"
+      },
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Fully detailed claim with records"
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Consult: seek agreement"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Consult: seek agreement"
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Fair determination to both parties",
+       "reply": true
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Notice of dissatisfaction, in time"
+      },
+      {
+       "from": 2,
+       "to": 3,
+       "label": "Refer the dispute to the board"
+      },
+      {
+       "from": 3,
+       "to": 0,
+       "label": "Decision: binding, comply promptly",
+       "reply": true
+      }
+     ],
+     "caption": "Generalised from the 2017 FIDIC claims procedure (Clause 20, 28-day notice); particular conditions often change periods and steps. Either party can be the claimant or the dissatisfied party."
     },
     {
      "type": "table",
@@ -3027,6 +3796,17 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Read the actual edition, particular conditions and amendments; standard forms are often changed.",
+      "The engineer acts for the employer day to day but must consult and determine claims fairly under the contract.",
+      "Notices have deadlines that can bar a good claim; run a notice register and weekly records review.",
+      "Securities, payment certificates, taking over and the performance certificate each shift risk and money.",
+      "A standing dispute board appointed at the start helps avoid disputes; its decisions bind unless revised."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -3104,34 +3884,60 @@ TRACK.modules.push({
      "text": "Change is normal on engineering projects: designs develop, owners change their minds, ground behaves differently from the borehole logs and authorities impose new conditions. A **variation** is a change to the works instructed under the contract. A **claim** is a request by either party for an entitlement the contract provides, usually additional time, additional payment, or both. Variations and claims are not signs of failure; unmanaged ones are. Disputes arise when a claim is not agreed and the parties cannot settle it. The professional aim is to price change fairly and quickly, prove entitlement with records, and settle disagreements at the lowest, cheapest level possible."
     },
     {
-     "type": "flow",
+     "type": "sequence",
      "title": "The life of a variation",
-     "items": [
+     "actors": [
+      "Owner",
+      "Engineer",
+      "Contractor"
+     ],
+     "steps": [
       {
-       "label": "Identify",
-       "text": "Owner's need, design development, site condition or value-engineering proposal"
+       "from": 0,
+       "to": 1,
+       "label": "Need for change identified"
       },
       {
-       "label": "Instruct",
-       "text": "Written instruction from a person with authority, before the work is done"
+       "from": 1,
+       "to": 2,
+       "label": "Request a variation proposal"
       },
       {
-       "label": "Propose",
-       "text": "Contractor submits method, cost and time effect within the set period"
+       "from": 2,
+       "to": 1,
+       "label": "Proposal: method, cost and time",
+       "reply": true
       },
       {
-       "label": "Value and agree",
-       "text": "Valued by the contract's rules; time effect assessed on the programme"
+       "from": 1,
+       "to": 0,
+       "label": "Recommend; check budget authority"
       },
       {
-       "label": "Record",
-       "text": "Variation log, budget and forecast updated; baseline revised if approved"
+       "from": 0,
+       "to": 1,
+       "label": "Approve within delegated authority",
+       "reply": true
       },
       {
-       "label": "Pay",
-       "text": "Included in the next interim payment certificate"
+       "from": 1,
+       "to": 2,
+       "label": "Written variation instruction",
+       "note": "Before the work is done"
+      },
+      {
+       "from": 2,
+       "to": 2,
+       "label": "Execute; record on its own cost code"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Value by contract rules; certify in IPC",
+       "note": "Variation log and forecast updated"
       }
-     ]
+     ],
+     "caption": "The written instruction comes before the work, and the contractor's separate cost code makes valuation quick and credible."
     },
     {
      "type": "table",
@@ -3171,7 +3977,7 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "An **extension of time** (EOT) gives the contractor more time to complete, protecting it from delay damages, when a delay is caused by an event the contract places at the employer's risk and that event actually delays completion. The second condition matters: a late drawing for a non-critical stair finish may cost money but not time if the activity has enough float. The contractor must show cause and effect with a programme analysis, give notice in time and substantiate the claim. Whether an EOT also carries money depends on the type of event: employer-caused delays usually do; neutral events such as exceptionally adverse weather often give time only. Contracts differ on who owns float, so read yours."
+     "text": "An **extension of time** (EOT) gives the contractor more time to complete, protecting it from delay damages, when a delay is caused by an event the contract places at the employer's risk and that event actually delays completion. The second condition matters: a late drawing for a non-critical stair finish may cost money but not time if the activity has enough float. The contractor must show cause and effect with a programme analysis, give notice in time and substantiate the claim. Whether an EOT also carries money depends on the type of event: employer-caused delays usually do; neutral events such as exceptionally adverse weather often give time only. Contracts differ on who owns float, so read yours. Software, including AI-assisted tools, can process programme updates quickly, but a qualified planner must own the method and be able to explain every step to a tribunal."
     },
     {
      "type": "table",
@@ -3249,18 +4055,45 @@ TRACK.modules.push({
      "text": "In an unimpacted month, crews pulled 3,000 m of cable in 2,400 hours: 0.8 hours per metre. In the month when the owner's late equipment changes forced crews to work around partially installed switchboards, they pulled 5,000 m in 5,600 hours. Expected hours = 5,000 x 0.8 = 4,000. Lost hours = 5,600 - 4,000 = **1,600**. At an all-in rate of BDT 450 per hour, the disruption cost of labour is 1,600 x 450 = **BDT 720,000**. The claim is credible because both figures come from the project's own allocation sheets for the same work by the same crews."
     },
     {
+     "type": "chart",
+     "kind": "bar",
+     "title": "Measured mile: actual versus expected hours",
+     "labels": [
+      "Unimpacted month (3,000 m)",
+      "Impacted month (5,000 m)"
+     ],
+     "series": [
+      {
+       "name": "Actual hours",
+       "values": [
+        2400,
+        5600
+       ]
+      },
+      {
+       "name": "Hours at 0.8 h per metre",
+       "values": [
+        2400,
+        4000
+       ]
+      }
+     ],
+     "caption": "Illustrative figures from the example. In the unimpacted month the bars match; in the impacted month the 1,600-hour gap is the lost productivity claimed."
+    },
+    {
      "type": "checklist",
      "title": "Records that win, or settle, claims",
      "items": [
       "Daily site diaries signed by supervisors, with weather, resources, work done and problems",
       "Labour and plant allocation sheets by activity or cost code",
       "Monthly programme updates with actual start and finish dates and a narrative of delays",
-      "Dated and located photographs and drone images of progress and problems",
+      "Dated and located photographs, drone surveys and laser scans of progress and problems",
       "RFI and submittal registers with dates of request and response",
       "Every verbal instruction confirmed in writing the same day",
       "Notice register with deadlines and evidence of delivery",
       "Minutes of progress meetings agreed by both parties",
-      "Cost records that separate the cost of each variation and disruption event"
+      "Cost records that separate the cost of each variation and disruption event",
+      "Records held in the common data environment with status, revision and date (ISO 19650)"
      ]
     },
     {
@@ -3415,6 +4248,17 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "A variation needs a written instruction from someone with authority, ideally before the work, and is valued by the contract's rules.",
+      "An extension of time needs an employer-risk event that actually delays completion, proven by programme analysis and timely notice.",
+      "Genuine concurrent delay commonly gives time but not money; check the contract and governing law.",
+      "Contemporaneous records win or settle claims: diaries, allocation sheets, programme updates, photographs and notices.",
+      "Resolve disputes at the lowest effective level, from site negotiation up to arbitration only as a last resort."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -3539,7 +4383,7 @@ TRACK.modules.push({
       [
        "Lenders and investors",
        "Development banks, export credit agencies, commercial lenders, the owner's board",
-       "Drawdowns, covenants, environmental and social standards, reporting",
+       "Drawdowns, covenants, environmental and social standards, climate and sustainability disclosures, reporting",
        "Monitoring reports, site visits by the lender's technical adviser, transparent variance reporting"
       ],
       [
@@ -3559,6 +4403,47 @@ TRACK.modules.push({
     {
      "type": "text",
      "text": "Analysis turns a long list into priorities. The **power-interest grid** places each stakeholder by how much power they have over the project and how much interest they take in it: manage high-power, high-interest stakeholders closely; keep high-power, low-interest stakeholders satisfied; keep low-power, high-interest stakeholders informed; and monitor the rest. The **salience model** adds legitimacy and urgency: an affected village has a legitimate claim even if its formal power is low, and a utility owner that controls next week's shutdown has urgency. For each important stakeholder also record their current attitude and the engagement level you need – unaware, resistant, neutral, supportive or leading – and, critically, which activity on your schedule depends on them."
+    },
+    {
+     "type": "matrix",
+     "title": "Power-interest grid for an elevated metro corridor (illustrative)",
+     "x": "Interest in the project",
+     "y": "Power over the project",
+     "quadrants": [
+      {
+       "title": "Keep satisfied",
+       "items": [
+        "Aviation authority (crane heights)",
+        "Lenders' boards",
+        "Roads authority before works reach its roads"
+       ]
+      },
+      {
+       "title": "Manage closely",
+       "items": [
+        "Utility owners with diversions on the critical path",
+        "Traffic police",
+        "Environment department",
+        "Lenders' technical adviser"
+       ]
+      },
+      {
+       "title": "Monitor",
+       "items": [
+        "Commodity suppliers",
+        "Public outside the corridor"
+       ]
+      },
+      {
+       "title": "Keep informed",
+       "items": [
+        "Market traders near stations",
+        "Schools and residents along the route",
+        "Local media"
+       ]
+      }
+     ],
+     "caption": "Positions are a snapshot: stakeholders move between quadrants as the work front moves. Use salience as a check – a low-power group with a legitimate, urgent claim, such as traders losing access, needs active engagement, not just updates."
     },
     {
      "type": "callout",
@@ -3646,6 +4531,72 @@ TRACK.modules.push({
      "text": "Commitments made by a liaison officer at a public meeting – no piling after 10 pm, repair the access road after the monsoon, priority jobs for local workers – are binding in the community's eyes even if they appear in no contract. If the contractor's night-shift plan contradicts them, trust collapses quickly and complaints turn into stop-work orders. **Every commitment goes into the register, into site rules and into the subcontract**, with someone checking it is kept."
     },
     {
+     "type": "text",
+     "text": "Lender-financed projects add formal requirements. The **IFC Performance Standards** (2012), the **Equator Principles** (EP4, 2020) applied by many commercial banks to project finance, and the **World Bank Environmental and Social Framework** (2018), which has a dedicated standard on stakeholder engagement and information disclosure, all expect meaningful consultation, disclosure in a form affected people can understand, and a **grievance mechanism** – an accessible route for complaints, free of charge and without retaliation, with recorded responses and timescales. Treat the grievance log as a leading indicator: a rising number of unresolved complaints in one neighbourhood often predicts the next stop-work order."
+    },
+    {
+     "type": "sequence",
+     "title": "Closing a community grievance",
+     "actors": [
+      "Resident",
+      "Liaison officer",
+      "Contractor",
+      "Owner's PM"
+     ],
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Complaint: dust on the school route"
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Acknowledge: log number and timescale",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Investigate and propose a fix"
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Water bowser; no haulage at school times",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 3,
+       "label": "Fix needs a new commitment"
+      },
+      {
+       "from": 3,
+       "to": 2,
+       "label": "Instruct revised site rule",
+       "note": "Commitments register updated"
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Explain the action taken",
+       "reply": true
+      },
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Accepts, or asks for review"
+      },
+      {
+       "from": 1,
+       "to": 1,
+       "label": "Close entry; trend in monthly report"
+      }
+     ],
+     "caption": "A grievance is closed only when the complainant has heard what was done and has a route to ask for review. The commitment it creates goes into the register and the site rules, not just the reply."
+    },
+    {
      "type": "case",
      "title": "Utility diversions on an elevated metro corridor (illustrative)",
      "context": "A hypothetical elevated metro extension runs along a congested arterial road in a large South Asian city, with a long viaduct and several stations. The design assumed that utility records were reliable. Three months before piling, trial pits show that a large share of the planned pier positions conflict with services that are not on any record: a water main, medium-voltage power cables, telecom ducts and a storm drain. Each utility owner has its own approval process, crews and outage calendar. Traders object to the hoardings that diversions need, and the traffic police restrict daytime lane closures. The sponsor still expects piling to start on the baseline date. All figures and details are illustrative.",
@@ -3718,6 +4669,17 @@ TRACK.modules.push({
        "term": "Consents register",
        "def": "A log of every permit, licence, clearance and approval a project needs, with the issuing body, prerequisites, lead time, validity, attached conditions, responsible owner and current status, linked to schedule activities."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Analyse stakeholders by power, interest, legitimacy and urgency, and re-map them at every stage gate and new work front",
+      "Permits, consents and utility outages are scheduled activities with owners, durations and logic – not paperwork",
+      "Verify buried services by trial pits and radar before foundation positions are frozen",
+      "Log every commitment and grievance, flow commitments into site rules and subcontracts, and close the loop visibly",
+      "Lender-financed projects must meet the lender's environmental and social standards, including a working grievance mechanism"
      ]
     },
     {
@@ -3799,58 +4761,119 @@ TRACK.modules.push({
      "text": "A construction or plant site is a temporary organisation made of many companies: the owner and its engineer, a main contractor, a dozen or more subcontractors, labour suppliers, vendor specialists and inspectors. Most of these people do not report to the project manager. Authority comes from contracts, but performance comes from leadership – from whether supervisors understand the plan, whether crews trust that raising a concern is safe, and whether decisions are made quickly and explained. A project manager who stays in the site office reading reports sees the project weeks late; one who walks the work fronts, knows the foremen by name and listens before deciding sees it as it happens."
     },
     {
-     "type": "layers",
-     "title": "How a typical site organisation is layered",
-     "items": [
-      {
-       "label": "Owner and project leadership",
-       "parts": [
-        "Sponsor's representative",
-        "Owner's project manager",
-        "Owner's engineer",
-        "HSE and quality leads"
-       ]
-      },
-      {
-       "label": "Contractor management",
-       "parts": [
-        "Contractor's project manager",
-        "Construction manager",
-        "Planning and commercial",
-        "HSE and QA/QC managers"
-       ]
-      },
-      {
-       "label": "Area and discipline supervision",
-       "parts": [
-        "Section and area engineers",
-        "Civil, mechanical and electrical superintendents",
-        "Subcontractor site managers"
-       ]
-      },
-      {
-       "label": "Front-line supervision",
-       "parts": [
-        "General foremen",
-        "Foremen and chargehands",
-        "Lifting supervisors",
-        "Gang leaders"
-       ]
-      },
-      {
-       "label": "Workforce",
-       "parts": [
-        "Skilled trades and operators",
-        "Riggers and scaffolders",
-        "Labourers, often via labour suppliers",
-        "Vendor technicians"
-       ]
-      }
-     ]
+     "type": "tree",
+     "title": "A typical multi-company site organisation",
+     "root": {
+      "label": "Project site",
+      "text": "Many companies, one plan",
+      "children": [
+       {
+        "label": "Owner's team",
+        "text": "Contract authority",
+        "children": [
+         {
+          "label": "Owner's project manager"
+         },
+         {
+          "label": "Owner's engineer"
+         },
+         {
+          "label": "HSE and quality leads"
+         }
+        ]
+       },
+       {
+        "label": "Main contractor",
+        "text": "Delivers the works",
+        "children": [
+         {
+          "label": "Construction manager",
+          "children": [
+           {
+            "label": "Area and section engineers"
+           },
+           {
+            "label": "Discipline superintendents"
+           }
+          ]
+         },
+         {
+          "label": "Planning and commercial"
+         },
+         {
+          "label": "HSE and QA/QC managers"
+         }
+        ]
+       },
+       {
+        "label": "Subcontractors",
+        "text": "Trade packages",
+        "children": [
+         {
+          "label": "Subcontract site managers",
+          "children": [
+           {
+            "label": "Foremen and chargehands"
+           },
+           {
+            "label": "Trades, operators, labour-supplier workers"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "label": "Vendor specialists",
+        "text": "Install and test their equipment"
+       }
+      ]
+     },
+     "caption": "Authority runs through contracts between companies, so most people on site do not report to the project manager. The foremen at the bottom of each branch are where the plan becomes work."
     },
     {
      "type": "text",
      "text": "The foreman is the most important leader on site. Foremen translate the plan into crew instructions, decide the sequence each morning, notice hazards first and set the norms their crews follow. Many were promoted for trade skill rather than leadership, so invest in them: short training in planning, briefing and recognising fatigue; the look-ahead early enough to prepare; a voice in method statements; and public backing when they stop unsafe work. Watch **span of control** too – as a rough rule, a foreman can directly supervise about a crew on one compact work face, but not forty people spread over three floors of a building or two kilometres of pipeline."
+    },
+    {
+     "type": "text",
+     "text": "**Situational leadership** matches the style to the person and the task. A supervisor who is new to a task needs clear direction; one who is learning needs coaching – direction plus explanation and encouragement; a capable but hesitant one needs support more than instruction; and a proven, confident foreman can be given the work front and trusted. The same foreman may need direction on an unfamiliar heavy lift and full delegation on routine formwork, so judge readiness task by task."
+    },
+    {
+     "type": "matrix",
+     "title": "Situational leadership styles",
+     "x": "Supportive behaviour",
+     "y": "Directive behaviour",
+     "quadrants": [
+      {
+       "title": "Directing",
+       "items": [
+        "New to the task",
+        "Clear instructions, close follow-up"
+       ]
+      },
+      {
+       "title": "Coaching",
+       "items": [
+        "Learning, not yet consistent",
+        "Explain the why, invite ideas"
+       ]
+      },
+      {
+       "title": "Delegating",
+       "items": [
+        "Proven and confident",
+        "Agree outcomes, then step back"
+       ]
+      },
+      {
+       "title": "Supporting",
+       "items": [
+        "Capable but hesitant",
+        "Listen, encourage, share decisions"
+       ]
+      }
+     ],
+     "caption": "As competence and confidence grow on a given task, the style moves from directing through coaching and supporting to delegating. Step back to directing when the task is new or the risk is high."
     },
     {
      "type": "framework",
@@ -4002,6 +5025,12 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "callout",
+     "kind": "insight",
+     "title": "Safety is a fundamental right at work",
+     "text": "In 2022 the ILO added a safe and healthy working environment to its fundamental principles and rights at work, alongside freedom of association and freedom from forced labour, child labour and discrimination. ILO Convention 167 (1988) sets the core standards for safety and health in construction, and ISO 45001:2018 – amended in 2024 so organisations consider climate change – frames the management system, with worker consultation and participation at its heart. On site this means leaders who plan for heat, consult crews before methods change and back every justified stop; buyers, lenders and regulators increasingly check that it is real."
+    },
+    {
      "type": "scenario",
      "title": "The foreman who stopped the lift",
      "situation": "On a combined-cycle power plant site, a rigging foreman employed by a subcontractor halts the lift of a heat recovery steam generator module because gusts are approaching the wind limit in the lift plan and one tag line is damaged. The main contractor's construction manager is furious: the heavy-lift crane costs a great deal per day and the turbine hall sequence is already tight. He tells you he intends to have the foreman removed from site. You are the owner's project manager. What should you do FIRST?",
@@ -4066,6 +5095,17 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Authority comes from contracts, but performance comes from leadership – be present at the work fronts and know the foremen",
+      "Match the style to each supervisor's readiness for the task: direct and coach new foremen, delegate to proven ones",
+      "Psychological safety and high standards work together: thank people for bad news and act on it visibly",
+      "Choose the conflict approach by stakes and recurrence – direct on life safety, build a fair system for recurring clashes",
+      "Welfare and safe working are rights and productivity drivers for every company's workers on site"
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -4115,7 +5155,7 @@ TRACK.modules.push({
       {
        "q": "Why is paying labour-supplier workers on time a concern for the project manager rather than only for the labour supplier?",
        "options": [
-        "It is a contractual pass-through item the PM must certify monthly",
+        "It is a contractual pass-through item that the PM must certify every month",
         "Late pay harms welfare, morale, productivity and reputation on site",
         "It sets the critical path of every work package directly",
         "It allows the PM to reduce retention on the main contract"
@@ -4206,7 +5246,7 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "The **site diary** is the project's memory. A useful daily entry records weather, labour by trade and company, plant on site and plant standing idle, materials delivered, work done by area, instructions received, visitors and inspections, incidents, and any delays with their causes. It should be written on the day, signed by a responsible person and supported by photographs with date and location. Diaries that read 'work progressing as normal' every day are worthless; diaries that note 'excavator idle 13:00–17:00 awaiting water main isolation by utility' are the raw material for progress measurement, delay analysis and fair settlement of claims."
+     "text": "The **site diary** is the project's memory. A useful daily entry records weather, labour by trade and company, plant on site and plant standing idle, materials delivered, work done by area, instructions received, visitors and inspections, incidents, and any delays with their causes. It should be written on the day, signed by a responsible person and supported by photographs with date and location. Diaries that read 'work progressing as normal' every day are worthless; diaries that note 'excavator idle 13:00–17:00 awaiting water main isolation by utility' are the raw material for progress measurement, delay analysis and fair settlement of claims. Many sites now keep the diary in a digital app with geotagged photographs, 360° captures and drone images attached; the discipline is the same, because an image without a date, a location and a note of what it shows proves very little."
     },
     {
      "type": "compare",
@@ -4332,8 +5372,72 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "sequence",
+     "title": "A submittal from first issue to release",
+     "actors": [
+      "Contractor",
+      "Document control",
+      "Engineer",
+      "Fabricator"
+     ],
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Shop drawings rev A + transmittal"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Log, route, set review due date"
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Code: revise and resubmit",
+       "reply": true,
+       "note": "Comments within review period"
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Return coded comments",
+       "reply": true
+      },
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Resubmit rev B with responses"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Route rev B for review"
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Code: approved",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Status recorded in register",
+       "reply": true
+      },
+      {
+       "from": 0,
+       "to": 3,
+       "label": "Release for fabrication",
+       "note": "Only now is steel cut"
+      }
+     ],
+     "caption": "Every hop passes through document control, leaving a dated record of what was sent and what was decided. The fabricator is released only after the status allows it – not when the first revision is sent."
+    },
+    {
      "type": "text",
-     "text": "**Document control** ensures that everyone works from the right information. Every document has a unique number, a revision and a status such as for information, for review or for construction. Controlled documents are issued through the common data environment (see the next lesson) or a document management system, and superseded revisions are withdrawn or clearly stamped. On site, keep a drawing register that supervisors check weekly, make tablets display the current revision automatically, and allow only documents marked for construction at the work face. Most 'built to the wrong drawing' failures trace back to a printed copy that nobody withdrew."
+     "text": "**Document control** ensures that everyone works from the right information. Every document has a unique number, a revision and a status such as for information, for review or for construction. Controlled documents are issued through the common data environment (see the next lesson) or a document management system, and superseded revisions are withdrawn or clearly stamped. On site, keep a drawing register that supervisors check weekly, make tablets display the current revision automatically, and allow only documents marked for construction at the work face. Most 'built to the wrong drawing' failures trace back to a printed copy that nobody withdrew. Under the ISO 19650 approach each information container also carries a status showing what it is suitable for and a revision code, so 'for construction' is a recorded state in the CDE rather than a stamp someone remembers to apply."
     },
     {
      "type": "keypoints",
@@ -4344,8 +5448,54 @@ TRACK.modules.push({
       "Include leading indicators: open constraints, overdue submittals, RFIs older than the turnaround, inspections waiting",
       "Report by exception – highlight what needs a decision, not everything that is fine",
       "Draw from the same data as the schedule and cost systems so there is one version of the truth",
-      "Allow drill-down from summary to the actual record, so people can check the evidence"
+      "Allow drill-down from summary to the actual record, so people can check the evidence",
+      "Link progress claims to evidence – dated photos, scans or drone surveys – so reviewers can verify them quickly"
      ]
+    },
+    {
+     "type": "chart",
+     "kind": "line",
+     "title": "Open RFIs vs RFIs past turnaround (illustrative)",
+     "labels": [
+      "Wk 1",
+      "Wk 2",
+      "Wk 3",
+      "Wk 4",
+      "Wk 5",
+      "Wk 6",
+      "Wk 7",
+      "Wk 8"
+     ],
+     "series": [
+      {
+       "name": "Open RFIs",
+       "values": [
+        42,
+        45,
+        47,
+        50,
+        49,
+        52,
+        54,
+        55
+       ]
+      },
+      {
+       "name": "Past agreed turnaround",
+       "values": [
+        4,
+        6,
+        9,
+        12,
+        15,
+        19,
+        22,
+        26
+       ]
+      }
+     ],
+     "yLabel": "Number of RFIs",
+     "caption": "Illustrative data. The open total looks steady, but the overdue count rises every week – the trend that predicts blocked work fronts and deserves a decision now."
     },
     {
      "type": "text",
@@ -4416,6 +5566,17 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Site communication is a controlled system: formal channels, agreed turnaround times and records that survive",
+      "Write diaries and minutes as evidence – specific, dated and located – and challenge inaccurate minutes promptly in writing",
+      "RFIs ask, submittals seek acceptance and transmittals prove issue; fabrication waits for the right submittal status",
+      "Only current, published revisions reach the work face; withdraw superseded prints the day a new revision is issued",
+      "Dashboards should trend leading indicators with owners and thresholds, and escalation should come early with options"
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -4446,7 +5607,7 @@ TRACK.modules.push({
         "To reduce paper and printing costs on the project",
         "To satisfy the lender's monthly reporting format",
         "To prevent crews from building to obsolete information",
-        "To speed up the designer's review of open RFIs"
+        "To speed up the designer's review of all open RFIs on the project"
        ],
        "answer": 2,
        "explain": "Printed copies that remain at the work face are a frequent cause of rework. Withdrawal is a core document control practice."
@@ -4455,7 +5616,7 @@ TRACK.modules.push({
        "q": "Which indicator on a weekly dashboard is a leading indicator of future delay?",
        "options": [
         "Number of RFIs older than their agreed turnaround time",
-        "Total concrete volume poured since mobilisation",
+        "Total concrete volume poured on the project since mobilisation",
         "Cumulative cost spent to date on the project",
         "Number of workers who attended last month's induction"
        ],
@@ -4534,6 +5695,12 @@ TRACK.modules.push({
        "Survey control, scanning plan and processing capacity"
       ],
       [
+       "Design for manufacture and assembly (DfMA)",
+       "Model-driven fabrication of modules, precast elements, pipe spools and racks",
+       "Fewer site hours, factory-controlled quality and safer work at height",
+       "Earlier design freeze, fabrication-grade information and agreed tolerances"
+      ],
+      [
        "Asset information for operations",
        "Structured asset data handed to the owner's maintenance systems",
        "Faster mobilisation of maintenance and fewer missing records",
@@ -4575,7 +5742,7 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "The **ISO 19650** series is the internationally used set of standards for managing information over the life cycle of a built asset when using BIM. In outline, the client – the appointing party – defines what information it needs and why; each lead appointed party responds with a BIM execution plan and information delivery plans; information is produced and exchanged in a **common data environment (CDE)** that moves it through defined states; and the level of information need limits detail to what is genuinely useful. The standards describe principles and processes rather than particular software. Read the current published parts and any national annex before writing them into a contract, and describe their requirements in your own project documents rather than assuming everyone has read them."
+     "text": "The **ISO 19650** series is the international framework for managing information over the whole life of a built asset when using BIM. Parts 1 and 2 (2018) set out the concepts and the delivery-phase process, part 3 (2020) covers the operational phase, part 4 (2022) information exchange, and part 5 (2020) a security-minded approach to sensitive asset information; together they have superseded the earlier UK PAS 1192 documents. In outline, the client – the appointing party – defines what information it needs and why; each lead appointed party responds with a BIM execution plan and information delivery plans; information is produced and exchanged in a **common data environment (CDE)** that moves it through defined states; and the level of information need limits detail to what is genuinely useful. The standards describe principles and processes rather than particular software. Check the current parts, amendments and any national annex before writing them into a contract, and state their requirements in your own project documents rather than assuming everyone has read them."
     },
     {
      "type": "layers",
@@ -4619,26 +5786,139 @@ TRACK.modules.push({
      ]
     },
     {
-     "type": "flow",
+     "type": "topology",
      "title": "Information states in a common data environment",
-     "items": [
+     "nodes": [
+      {
+       "id": "civ",
+       "kind": "team",
+       "label": "Civil task team",
+       "sub": "Develops models in WIP",
+       "x": 0,
+       "y": 1
+      },
+      {
+       "id": "mep",
+       "kind": "team",
+       "label": "MEP task team",
+       "sub": "Develops models in WIP",
+       "x": 0,
+       "y": 3
+      },
+      {
+       "id": "sh",
+       "kind": "doc",
+       "label": "Shared models",
+       "sub": "Checked; for coordination only",
+       "x": 2,
+       "y": 2
+      },
+      {
+       "id": "fed",
+       "kind": "process",
+       "label": "Federation",
+       "sub": "Clash and clearance tests",
+       "x": 2,
+       "y": 4
+      },
+      {
+       "id": "pub",
+       "kind": "doc",
+       "label": "Published",
+       "sub": "Authorised, e.g. for construction",
+       "x": 4,
+       "y": 2
+      },
+      {
+       "id": "site",
+       "kind": "user",
+       "label": "Site teams",
+       "sub": "With fabricators: build from Published",
+       "x": 4,
+       "y": 4
+      },
+      {
+       "id": "arc",
+       "kind": "storage",
+       "label": "Archive",
+       "sub": "Superseded; kept for audit",
+       "x": 6,
+       "y": 2
+      }
+     ],
+     "links": [
+      {
+       "a": "civ",
+       "b": "sh",
+       "label": "check, share"
+      },
+      {
+       "a": "mep",
+       "b": "sh",
+       "label": "check, share"
+      },
+      {
+       "a": "sh",
+       "b": "fed",
+       "label": "federate"
+      },
+      {
+       "a": "fed",
+       "b": "mep",
+       "label": "issues",
+       "style": "dashed"
+      },
+      {
+       "a": "sh",
+       "b": "pub",
+       "label": "authorise"
+      },
+      {
+       "a": "pub",
+       "b": "site",
+       "label": "use"
+      },
+      {
+       "a": "pub",
+       "b": "arc",
+       "label": "supersede"
+      }
+     ],
+     "zones": [
       {
        "label": "Work in progress",
-       "text": "Visible only to the authoring team while it develops the information"
+       "x": 0,
+       "y": 1,
+       "w": 1,
+       "h": 3,
+       "tone": "neutral"
       },
       {
        "label": "Shared",
-       "text": "Checked and released to other teams for coordination"
+       "x": 2,
+       "y": 1,
+       "w": 1,
+       "h": 4,
+       "tone": "accent"
       },
       {
        "label": "Published",
-       "text": "Authorised for use, such as construction or procurement"
+       "x": 4,
+       "y": 1,
+       "w": 1,
+       "h": 4,
+       "tone": "good"
       },
       {
-       "label": "Archived",
-       "text": "Superseded or completed records kept for history and audit"
+       "label": "Archive",
+       "x": 6,
+       "y": 1,
+       "w": 1,
+       "h": 2,
+       "tone": "neutral"
       }
-     ]
+     ],
+     "caption": "Information moves right only through a check, review or authorisation. Coordination uses Shared information, but only Published information may be built from, and superseded information goes to the Archive rather than disappearing."
     },
     {
      "type": "callout",
@@ -4697,6 +5977,140 @@ TRACK.modules.push({
      "kind": "insight",
      "title": "Start from the decision, not the technology",
      "text": "There is no single universal scale for digital twins, and organisations use different ladders. What matters is the operating decision the twin will improve – fewer unplanned outages, lower energy use, faster maintenance – and whether the owner has the people and data processes to keep it alive. A twin that nobody updates after handover becomes another out-of-date model."
+    },
+    {
+     "type": "text",
+     "text": "A shared vocabulary helps: ISO/IEC 30173:2023 sets out digital twin concepts and terminology, operational information is managed under ISO 19650-3, and the twin works best inside an asset management system aligned with ISO 55000 and ISO 55001 (current editions 2024). The typical data flow of an informative-to-predictive twin for a plant is shown below – note that it starts with asset information defined in delivery, not with sensors bought at the end."
+    },
+    {
+     "type": "topology",
+     "title": "Data flows in an operational digital twin",
+     "nodes": [
+      {
+       "id": "cde",
+       "kind": "storage",
+       "label": "Operations CDE",
+       "sub": "ISO 19650-3 information",
+       "x": 0,
+       "y": 1
+      },
+      {
+       "id": "aim",
+       "kind": "doc",
+       "label": "Asset info model",
+       "sub": "Register, O&M data, as-builts",
+       "x": 2,
+       "y": 1
+      },
+      {
+       "id": "twin",
+       "kind": "model",
+       "label": "Digital twin",
+       "sub": "Analytics and simulation",
+       "x": 4,
+       "y": 2.5
+      },
+      {
+       "id": "cmms",
+       "kind": "server",
+       "label": "CMMS",
+       "sub": "Work orders, spares, history",
+       "x": 6,
+       "y": 1
+      },
+      {
+       "id": "ops",
+       "kind": "user",
+       "label": "Operations team",
+       "sub": "Decide and act",
+       "x": 6,
+       "y": 4
+      },
+      {
+       "id": "sen",
+       "kind": "sensor",
+       "label": "Field sensors",
+       "sub": "Vibration, temperature, flow",
+       "x": 0,
+       "y": 4
+      },
+      {
+       "id": "scada",
+       "kind": "controller",
+       "label": "SCADA / BMS",
+       "sub": "Control, alarms, trends",
+       "x": 2,
+       "y": 4
+      },
+      {
+       "id": "his",
+       "kind": "db",
+       "label": "Data historian",
+       "sub": "Time-series operating data",
+       "x": 4,
+       "y": 4
+      }
+     ],
+     "links": [
+      {
+       "a": "cde",
+       "b": "aim",
+       "label": "updates"
+      },
+      {
+       "a": "aim",
+       "b": "twin",
+       "label": "asset context"
+      },
+      {
+       "a": "sen",
+       "b": "scada"
+      },
+      {
+       "a": "scada",
+       "b": "his"
+      },
+      {
+       "a": "his",
+       "b": "twin",
+       "label": "live data"
+      },
+      {
+       "a": "twin",
+       "b": "cmms",
+       "label": "predicted work"
+      },
+      {
+       "a": "twin",
+       "b": "ops",
+       "label": "insights"
+      },
+      {
+       "a": "ops",
+       "b": "cmms",
+       "label": "raise orders",
+       "style": "dashed"
+      }
+     ],
+     "zones": [
+      {
+       "label": "Asset information",
+       "x": 0,
+       "y": 1,
+       "w": 3,
+       "h": 1,
+       "tone": "accent"
+      },
+      {
+       "label": "Operational technology",
+       "x": 0,
+       "y": 4,
+       "w": 5,
+       "h": 1,
+       "tone": "warn"
+      }
+     ],
+     "caption": "The twin combines static asset information with live operating data from the operational technology network. Its value appears only when insights become work orders and operating decisions taken by people."
     },
     {
      "type": "case",
@@ -4774,6 +6188,17 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "BIM is structured information across the asset life, not a 3D picture; plan each use – coordination, 4D, 5D, DfMA – for a purpose",
+      "ISO 19650 (parts 1–5) has superseded PAS 1192: the client states its information needs and the CDE controls information states",
+      "Build only from Published information; Shared models are for coordination",
+      "Reality capture finds deviations early and gives brownfield projects a reliable existing-condition baseline",
+      "A digital twin starts from an operating decision and asset information requirements defined at the start of the project"
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -4793,7 +6218,7 @@ TRACK.modules.push({
         "It must be published after authorisation for that purpose",
         "It must be shared with all other teams for coordination",
         "It must remain in the author's work-in-progress area",
-        "It must be archived with all previous revisions first"
+        "It must be archived together with all of its previous revisions first"
        ],
        "answer": 0,
        "explain": "Shared information is for coordination; published information has been authorised for uses such as construction."
@@ -4875,6 +6300,13 @@ TRACK.modules.push({
        "Quantities, productivity rates, resource and space limits",
        "Unrealistic rates or missing constraints such as curing or outage windows",
        "Planner and construction manager test the chosen option"
+      ],
+      [
+       "AI-assisted estimating",
+       "Drafts quantities from models or drawings and suggests rates from cost history",
+       "Model quantities, cost database, price indices, supplier quotes",
+       "Stale rates during price volatility; misread drawings; wrong estimate class",
+       "Estimator samples quantities and checks rates against current market prices"
       ],
       [
        "Delay-risk prediction",
@@ -4997,13 +6429,50 @@ TRACK.modules.push({
      "text": "In a trial week, a PPE-detection system raises 200 alerts. Review shows 150 were real (TP) and 50 were false (FP), and a manual audit finds 30 real violations the system missed (FN). Precision = 150 / 200 = **0.75**; recall = 150 / (150 + 30) = 150 / 180 ≈ **0.83**. A quarter of alerts waste a supervisor's time, and about one real violation in six goes undetected. The tool can support supervision, but it cannot replace it – and its performance must be re-checked when conditions change, such as monsoon light or a new work area."
     },
     {
+     "type": "matrix",
+     "title": "Where precision and recall come from",
+     "x": "Real event occurred",
+     "y": "Tool raised an alert",
+     "quadrants": [
+      {
+       "title": "False positive (FP)",
+       "items": [
+        "50 in the trial week",
+        "A wasted supervisor check"
+       ]
+      },
+      {
+       "title": "True positive (TP)",
+       "items": [
+        "150 in the trial week",
+        "Real violation caught"
+       ]
+      },
+      {
+       "title": "True negative (TN)",
+       "items": [
+        "Normal work, no alert",
+        "Not used in precision or recall"
+       ]
+      },
+      {
+       "title": "False negative (FN)",
+       "items": [
+        "30 found by manual audit",
+        "Missed event – the safety risk"
+       ]
+      }
+     ],
+     "caption": "Precision uses the top row: 150 / (150 + 50) = 0.75. Recall uses the right-hand column: 150 / (150 + 30) ≈ 0.83. The counts are the illustrative trial week above."
+    },
+    {
      "type": "framework",
      "title": "ZEPMS rules for governing AI on projects",
      "items": [
       {
        "label": "G1",
        "title": "Purpose and owner",
-       "text": "Every AI use has a stated purpose and a named accountable person who approves its outputs for use."
+       "text": "Every AI use has a stated purpose and a named accountable person who approves its outputs for use. Many organisations frame this in an AI management system such as ISO/IEC 42001:2023."
       },
       {
        "label": "G2",
@@ -5018,7 +6487,7 @@ TRACK.modules.push({
       {
        "label": "G4",
        "title": "Privacy and consent",
-       "text": "People are informed, purposes are limited, retention is short and footage is not repurposed without policy and consultation."
+       "text": "People are informed, purposes are limited, retention is short and footage is not repurposed without policy and consultation. Check applicable data protection law and any AI-specific rules where the project operates."
       },
       {
        "label": "G5",
@@ -5031,6 +6500,38 @@ TRACK.modules.push({
        "text": "Uses, versions, reviewers and decisions are logged, and tools are re-tested periodically for drift and bias."
       }
      ]
+    },
+    {
+     "type": "cycle",
+     "title": "Governing an AI tool in use",
+     "center": "Named person accountable",
+     "items": [
+      {
+       "label": "Define purpose",
+       "text": "Use case, owner and limits entered in the AI use register"
+      },
+      {
+       "label": "Check data",
+       "text": "Completeness, timeliness, consistency and representativeness"
+      },
+      {
+       "label": "Run and draft",
+       "text": "The tool produces draft analysis, never a final answer"
+      },
+      {
+       "label": "Verify output",
+       "text": "A competent person checks against rules and site reality"
+      },
+      {
+       "label": "Approve and record",
+       "text": "Named approver; version, changes and review stored in the CDE"
+      },
+      {
+       "label": "Monitor drift",
+       "text": "Re-test accuracy, precision and recall as work or conditions change"
+      }
+     ],
+     "caption": "Governance is a loop, not a one-off approval: when the work, season or site changes, monitoring sends the tool back to the data checks before its outputs are trusted again."
     },
     {
      "type": "callout",
@@ -5138,6 +6639,17 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "AI outputs are fast draft analysis; named people stay accountable for baselines, estimates, reports and certified progress",
+      "Before use, verify inputs, logic, reasonableness, the critical path and sensitivity – and record who checked what",
+      "Judge detection tools on both precision and recall; low recall rules a tool out as a primary safeguard",
+      "Check data quality and representativeness first – stale or unlike data produces confident wrong answers",
+      "Govern every use: register it, protect privacy and confidential information, and re-test for drift"
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -5229,7 +6741,7 @@ TRACK.modules.push({
    "blocks": [
     {
      "type": "text",
-     "text": "On an engineering project, quality means two things at once: **conformance** to the specified requirements and **fitness for purpose** in operation. The pile must reach its design capacity, the weld must pass radiography, the switchgear must perform its protection functions, and the finished plant must be operable and maintainable by the people who will run it. Defects in engineering are unusually expensive because work is quickly buried, covered, insulated or energised: honeycombing in a column found after cladding, a misaligned anchor bolt found when the turbine arrives, or a leaking roof found after the dyeing machines are installed. The economic logic of quality management is therefore simple – prevent defects rather than detect them late."
+     "text": "On an engineering project, quality means two things at once: **conformance** to the specified requirements and **fitness for purpose** in operation. The pile must reach its design capacity, the weld must pass radiography, the switchgear must perform its protection functions, and the finished plant must be operable and maintainable by the people who will run it. Defects in engineering are unusually expensive because work is quickly buried, covered, insulated or energised: honeycombing in a column found after cladding, a misaligned anchor bolt found when the turbine arrives, or a leaking roof found after the dyeing machines are installed. The economic logic of quality management is therefore simple – prevent defects rather than detect them late. ISO 21502:2020 treats quality management as one of the integrated practices of project management, planned alongside scope, schedule, cost and risk rather than left to an inspection department."
     },
     {
      "type": "compare",
@@ -5272,7 +6784,7 @@ TRACK.modules.push({
        "label": "Quality management system",
        "parts": [
         "Organisation-wide processes and responsibilities",
-        "Often certified against ISO 9001, the widely used international QMS standard"
+        "Often certified to ISO 9001 – a revision is in progress, so check the current edition"
        ]
       },
       {
@@ -5381,12 +6893,46 @@ TRACK.modules.push({
      "text": "A hypothetical spinning mill extension near Narayanganj records, in thousands: prevention 30, appraisal 70, internal failure 160 (slab rework, rejected pipe spools) and external failure 90 (roof leak repairs and lost production after handover). **COQ = 30 + 70 + 160 + 90 = 350**; COPQ = 160 + 90 = 250, so the COPQ share is 250 / 350 ≈ **71%**. If an extra 40 on prevention – pre-pour checklists, a roof mock-up, welder retesting – had halved both failure categories, the figures would have been 70 + 70 + 80 + 45 = **265**: a lower total cost with better quality. All figures are illustrative."
     },
     {
-     "type": "text",
-     "text": "**Quality audits** check whether the system is being followed and is effective. A system audit examines the quality management system as a whole; a process audit looks at one activity, such as concrete production or welding; a product audit re-examines a sample of finished work. Findings are graded – typically major non-conformity, minor non-conformity and observation – and each needs a corrective action with an owner and a date. **Supplier quality** extends the same discipline into the supply chain: prequalify vendors, write quality requirements into purchase orders, hold a pre-inspection meeting to agree the vendor's ITP, carry out surveillance at the works, and issue a formal release before shipment. A switchgear panel rejected at the factory costs days; the same panel rejected on site costs weeks."
+     "type": "chart",
+     "kind": "bar",
+     "title": "Cost of quality on the mill extension (illustrative)",
+     "labels": [
+      "Prevention",
+      "Appraisal",
+      "Internal failure",
+      "External failure"
+     ],
+     "series": [
+      {
+       "name": "As recorded (total 350)",
+       "values": [
+        30,
+        70,
+        160,
+        90
+       ]
+      },
+      {
+       "name": "With extra prevention (total 265)",
+       "values": [
+        70,
+        70,
+        80,
+        45
+       ]
+      }
+     ],
+     "yLabel": "Thousands",
+     "caption": "Illustrative figures from the example above. Adding 40 to prevention halves both failure bars, so the total cost of quality falls from 350 to 265 while quality improves."
     },
     {
-     "type": "flow",
+     "type": "text",
+     "text": "**Quality audits** check whether the system is being followed and is effective. A system audit examines the quality management system as a whole; a process audit looks at one activity, such as concrete production or welding; a product audit re-examines a sample of finished work. Findings are graded – typically major non-conformity, minor non-conformity and observation – and each needs a corrective action with an owner and a date. **Supplier quality** extends the same discipline into the supply chain: prequalify vendors, write quality requirements into purchase orders, hold a pre-inspection meeting to agree the vendor's ITP, carry out surveillance at the works, and issue a formal release before shipment. A switchgear panel rejected at the factory costs days; the same panel rejected on site costs weeks. Offsite manufacture and DfMA – precast elements, volumetric modules, pipe spools, prefabricated plant rooms – move more of the quality story into the factory, so agree the factory ITP, inspect the first article and check dimensions and interfaces before dispatch, when correction is still cheap."
+    },
+    {
+     "type": "cycle",
      "title": "The PDCA cycle for continual improvement",
+     "center": "Continual improvement",
      "items": [
       {
        "label": "Plan",
@@ -5404,7 +6950,8 @@ TRACK.modules.push({
        "label": "Act",
        "text": "Standardise what worked in procedures and ITPs, or start the cycle again"
       }
-     ]
+     ],
+     "caption": "The cycle never ends: each standardised improvement becomes the new baseline for the next Plan step. Trials stay small until Check shows that the change works."
     },
     {
      "type": "callout",
@@ -5474,6 +7021,17 @@ TRACK.modules.push({
        "term": "PDCA cycle",
        "def": "The plan-do-check-act improvement loop in which a change is planned, trialled, measured and then standardised or revised, used for continual improvement."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Quality means conformance and fitness for purpose; prevent defects, because engineering work is soon buried, covered or energised",
+      "QA builds a reliable process, QC checks the product, and the project quality plan applies the QMS to this project",
+      "COQ = prevention + appraisal + internal failure + external failure; a high failure share signals too little prevention",
+      "With offsite manufacture, quality control moves into the factory: agree vendor ITPs and release before dispatch",
+      "Use audits and PDCA to standardise what works, and make first-pass acceptance visible on the dashboard"
      ]
     },
     {
@@ -5657,7 +7215,7 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "Major equipment is tested twice. A **factory acceptance test (FAT)** is carried out at the manufacturer's works before shipment, where faults are cheapest to fix and test facilities are best. A power transformer is put through routine tests such as ratio, winding resistance, impedance and losses, and dielectric tests, plus any type or special tests the specification calls for. Pumps are run on a test bed against their performance curve; switchgear is checked for wiring, interlocks and insulation; a control system is tested by simulating inputs and checking logic and graphics. A **site acceptance test (SAT)** follows installation and proves that the equipment works correctly in its real environment, connected to real power, process and control interfaces."
+     "text": "Major equipment is tested twice. A **factory acceptance test (FAT)** is carried out at the manufacturer's works before shipment, where faults are cheapest to fix and test facilities are best. A power transformer is put through routine tests such as ratio, winding resistance, impedance and losses, and dielectric tests, plus any type or special tests the specification calls for. Pumps are run on a test bed against their performance curve; switchgear is checked for wiring, interlocks and insulation; a control system is tested by simulating inputs and checking logic and graphics. A **site acceptance test (SAT)** follows installation and proves that the equipment works correctly in its real environment, connected to real power, process and control interfaces. Remote or video-witnessed FATs are now common when travel is impractical; agree in advance which tests will be witnessed live, the camera coverage, access to raw test data and instrument calibration, and how the record will be signed."
     },
     {
      "type": "compare",
@@ -5687,7 +7245,7 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "**Material traceability** links each installed item back to its origin and test evidence. Structural steel and pressure parts carry heat numbers that match their mill test certificates; marking is transferred when plates or pipes are cut; alloy materials may be checked with positive material identification; concrete is traced by delivery tickets and cube sets; cable drums and their test reports are linked to circuits. Traceability matters most when something goes wrong: if one heat of steel or one batch of bolts is found to be defective, the project can find every location where it was used instead of opening up everything."
+     "text": "**Material traceability** links each installed item back to its origin and test evidence. Structural steel and pressure parts carry heat numbers that match their mill test certificates; marking is transferred when plates or pipes are cut; alloy materials may be checked with positive material identification; concrete is traced by delivery tickets and cube sets; cable drums and their test reports are linked to circuits. Traceability matters most when something goes wrong: if one heat of steel or one batch of bolts is found to be defective, the project can find every location where it was used instead of opening up everything. Many projects now link barcodes or RFID tags on materials and spools to the completions database, so the search takes minutes rather than days."
     },
     {
      "type": "steps",
@@ -5718,6 +7276,73 @@ TRACK.modules.push({
        "text": "Re-inspect, confirm the corrective action works, attach records, close the NCR and review NCR trends monthly."
       }
      ]
+    },
+    {
+     "type": "sequence",
+     "title": "Closing an NCR on a pipe spool",
+     "actors": [
+      "Inspector",
+      "Contractor",
+      "Designer",
+      "QA/QC manager"
+     ],
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "NCR raised: weld defects on spool S-14",
+       "note": "Spool tagged and quarantined"
+      },
+      {
+       "from": 1,
+       "to": 1,
+       "label": "Contain; check spools from same batch"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Propose repair procedure"
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Repair approved, with NDT conditions",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 3,
+       "label": "Root cause and corrective action"
+      },
+      {
+       "from": 3,
+       "to": 1,
+       "label": "Action accepted; owner and date set",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Request re-inspection"
+      },
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Repair accepted after NDT",
+       "reply": true
+      },
+      {
+       "from": 0,
+       "to": 3,
+       "label": "Evidence attached to the NCR"
+      },
+      {
+       "from": 3,
+       "to": 3,
+       "label": "Verify the action works; close NCR"
+      }
+     ],
+     "caption": "The repaired spool is accepted at step 8, but the NCR closes only when the QA/QC manager has evidence that the corrective action stops the defect recurring. Repairs need the designer's approval; rework to the original requirement does not."
     },
     {
      "type": "template",
@@ -5796,6 +7421,45 @@ TRACK.modules.push({
      "text": "A hypothetical substation has **420** open punch items and **25** working days to the energisation target. Crews close 18 items a day while walkdowns raise 6 new ones, so the net burn rate is 18 − 6 = **12 per day**. Forecast clearance = 420 / 12 = **35 days** – ten days late. The required net burn rate is 420 / 25 = **16.8 per day**. Options include adding a dedicated punch crew, clearing category A items first so energisation is not blocked, and joint daily walkdowns so that items are raised once and correctly rather than repeatedly."
     },
     {
+     "type": "chart",
+     "kind": "line",
+     "title": "Substation punch-list burn-down (illustrative)",
+     "labels": [
+      "Day 0",
+      "Day 5",
+      "Day 10",
+      "Day 15",
+      "Day 20",
+      "Day 25"
+     ],
+     "series": [
+      {
+       "name": "Forecast at 12 per day net",
+       "values": [
+        420,
+        360,
+        300,
+        240,
+        180,
+        120
+       ]
+      },
+      {
+       "name": "Required at 16.8 per day net",
+       "values": [
+        420,
+        336,
+        252,
+        168,
+        84,
+        0
+       ]
+      }
+     ],
+     "yLabel": "Open punch items",
+     "caption": "Illustrative figures from the example above. At the current net rate about 120 items are still open on the target day, so the list would clear only around day 35 unless the rate rises."
+    },
+    {
      "type": "scenario",
      "title": "Witness point missed at the factory",
      "situation": "The ITP for 33 kV switchgear for a hypothetical solar park makes the FAT a witness point for the owner's inspector, with ten days' notice. The vendor gave only two days' notice, the inspector could not travel, and the vendor ran the FAT anyway. The test reports all show passes and the vendor asks for release for shipment so that it can meet its delivery date. What should the project manager do FIRST?",
@@ -5857,6 +7521,17 @@ TRACK.modules.push({
        "term": "Punch list",
        "def": "A list of minor incomplete or defective items identified at walkdowns near completion, each categorised, assigned and tracked until cleared."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "An ITP states what is checked, against which criteria, by whom and with what record; hold points need written release",
+      "FAT at the works, SAT on site – remote witnessing works only when agreed in advance and properly recorded",
+      "Traceability lets one bad heat or batch be found without opening up everything",
+      "Close NCRs by fixing the cause, not just the item, and verify that the corrective action worked",
+      "Forecast punch-list clearance from the net burn rate and compare it with the rate the target date requires"
      ]
     },
     {
@@ -5935,7 +7610,7 @@ TRACK.modules.push({
    "blocks": [
     {
      "type": "text",
-     "text": "Construction builds by area and discipline; commissioning proves by system. **Commissioning** is the structured process of verifying that installed systems are complete, function as designed, and can be operated safely and reliably by the owner. It begins in design – with isolation valves, test points, flushing connections, temporary strainers and a commissioning philosophy – not in the last month of construction. On a boiler, a substation, an effluent treatment plant or a metro signalling system, commissioning is where hidden design, installation and integration problems finally surface, so it deserves its own plan, team and schedule."
+     "text": "Construction builds by area and discipline; commissioning proves by system. **Commissioning** is the structured process of verifying that installed systems are complete, function as designed, and can be operated safely and reliably by the owner. It begins in design – with isolation valves, test points, flushing connections, temporary strainers and a commissioning philosophy – not in the last month of construction. On a boiler, a substation, an effluent treatment plant or a metro signalling system, commissioning is where hidden design, installation and integration problems finally surface, so it deserves its own plan, team and schedule. On modern plants the scope also covers digital systems – control networks and their cybersecurity settings, the data historian and any digital twin connections – and verifies energy performance, because operational energy and carbon are increasingly managed targets."
     },
     {
      "type": "flow",
@@ -6010,45 +7685,80 @@ TRACK.modules.push({
      ]
     },
     {
-     "type": "layers",
-     "title": "Systemisation – how commissioning breaks a plant down (top first)",
-     "items": [
-      {
-       "label": "Facility",
-       "parts": [
-        "The whole plant or building",
-        "Example: a combined-cycle power unit"
-       ]
-      },
-      {
-       "label": "System",
-       "parts": [
-        "A group of equipment performing one function",
-        "Example: boiler feedwater"
-       ]
-      },
-      {
-       "label": "Subsystem",
-       "parts": [
-        "A part of a system that can be tested on its own",
-        "Example: feedwater pump A train with its piping, valves and instruments"
-       ]
-      },
-      {
-       "label": "Equipment and tags",
-       "parts": [
-        "Individual tagged items",
-        "Pump, motor, valves and transmitters each with a tag number"
-       ]
-      },
-      {
-       "label": "Check sheets and test records",
-       "parts": [
-        "Construction, pre-commissioning and commissioning check sheets per tag",
-        "The evidence behind every certificate"
-       ]
-      }
-     ]
+     "type": "tree",
+     "title": "Systemisation of a combined-cycle unit (illustrative)",
+     "root": {
+      "label": "Combined-cycle unit",
+      "text": "Facility",
+      "children": [
+       {
+        "label": "Boiler feedwater",
+        "text": "System",
+        "children": [
+         {
+          "label": "Feedwater pump A train",
+          "text": "Subsystem",
+          "children": [
+           {
+            "label": "Pump and motor tags"
+           },
+           {
+            "label": "Valves and transmitters"
+           },
+           {
+            "label": "Check sheets per tag"
+           }
+          ]
+         },
+         {
+          "label": "Feedwater pump B train",
+          "text": "Subsystem"
+         },
+         {
+          "label": "Deaerator",
+          "text": "Subsystem"
+         }
+        ]
+       },
+       {
+        "label": "Cooling water",
+        "text": "System",
+        "children": [
+         {
+          "label": "Circulating pumps"
+         },
+         {
+          "label": "Cooling tower cells"
+         }
+        ]
+       },
+       {
+        "label": "Compressed air",
+        "text": "Utility system",
+        "children": [
+         {
+          "label": "Compressors and dryers"
+         },
+         {
+          "label": "Distribution headers"
+         }
+        ]
+       },
+       {
+        "label": "Permanent power",
+        "text": "Utility system",
+        "children": [
+         {
+          "label": "MV switchboards"
+         },
+         {
+          "label": "LV distribution"
+         }
+        ]
+       }
+      ]
+     },
+     "caption": "Every tag belongs to exactly one subsystem; check sheets attach to tags, while certificates and turnover packages are issued per subsystem. Utility systems are completed first because the others depend on them."
     },
     {
      "type": "text",
@@ -6077,6 +7787,62 @@ TRACK.modules.push({
       "Permit-to-work, isolation and energisation arrangements in force and briefed",
       "Emergency response, first aid and fire-fighting arrangements ready and tested"
      ]
+    },
+    {
+     "type": "sequence",
+     "title": "From mechanical completion to ready for start-up",
+     "actors": [
+      "Construction",
+      "Completions",
+      "Commissioning",
+      "Operations"
+     ],
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Check sheets done; punch A cleared"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Turnover package + MC certificate",
+       "note": "Per subsystem"
+      },
+      {
+       "from": 2,
+       "to": 2,
+       "label": "Pre-commissioning and cold tests"
+      },
+      {
+       "from": 2,
+       "to": 3,
+       "label": "Invite to witness functional tests"
+      },
+      {
+       "from": 3,
+       "to": 2,
+       "label": "Witnessed; procedures reviewed",
+       "reply": true
+      },
+      {
+       "from": 2,
+       "to": 3,
+       "label": "PSSR: start-up items closed"
+      },
+      {
+       "from": 3,
+       "to": 2,
+       "label": "Ready-for-start-up approval",
+       "reply": true
+      },
+      {
+       "from": 3,
+       "to": 3,
+       "label": "Live system under operations permits"
+      }
+     ],
+     "caption": "Each hand-off is a signed record per subsystem, not a verbal agreement. Operations witnesses and approves before hazardous energy is introduced, then controls the live system through its own permit-to-work."
     },
     {
      "type": "table",
@@ -6214,6 +7980,17 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Construction builds by area; commissioning proves by system – switch the late-stage schedule to system completion",
+      "Move from mechanical completion through pre-commissioning, cold and hot commissioning to performance tests, with evidence at each step",
+      "Systemise early and commission utilities first; turnover packages pass from construction to commissioning per subsystem",
+      "A pre-start-up safety review must close every safety-critical gap before hazardous energy or process fluid is introduced",
+      "Correct performance test results to the contract's reference conditions before judging guarantees"
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -6326,6 +8103,61 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "sequence",
+     "title": "Taking over: a recorded decision",
+     "actors": [
+      "Contractor",
+      "Engineer",
+      "Owner"
+     ],
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Apply for taking over",
+       "note": "Within the contract's notice rules"
+      },
+      {
+       "from": 1,
+       "to": 1,
+       "label": "Check criteria: tests, records, training"
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Joint inspection; categorised punch list"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Recommend, with outstanding items"
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Safety-critical gaps closed first",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Taking-over certificate + dated list",
+       "reply": true
+      },
+      {
+       "from": 0,
+       "to": 2,
+       "label": "Care, custody and control pass"
+      },
+      {
+       "from": 2,
+       "to": 2,
+       "label": "Insurance, O&M and defects period start"
+      }
+     ],
+     "caption": "Taking over is judged against the criteria in the contract. Minor outstanding items can be listed with dates, but gaps that affect safe operation must be closed before the owner takes control."
+    },
+    {
      "type": "table",
      "title": "The handover dossier – what the owner should receive",
      "head": [
@@ -6369,7 +8201,7 @@ TRACK.modules.push({
        "Asset information",
        "Asset register and structured data for the maintenance management system",
        "Data not in a format the owner's systems can import",
-       "Asset information requirements defined early and test-loaded before handover"
+       "Asset information requirements defined early and test-loaded before handover; sensor tags and data mappings verified where a digital twin is planned"
       ]
      ]
     },
@@ -6381,7 +8213,49 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "**Operations readiness** prepares the owner's organisation to run the asset from day one. It covers recruiting and training operators and maintainers in time to take part in commissioning; writing operating, maintenance and emergency procedures; setting up the maintenance management system with the asset register, maintenance routines and spares records; securing consumables such as chemicals, lubricants and filters; arranging specialist support contracts; and obtaining the permits and licences needed to operate. On a hypothetical new hospital it also means clinical commissioning – moving equipment, staff and patients – which can take months after technical handover."
+     "text": "**Operations readiness** prepares the owner's organisation to run the asset from day one. It covers recruiting and training operators and maintainers in time to take part in commissioning; writing operating, maintenance and emergency procedures; setting up the maintenance management system with the asset register, maintenance routines and spares records; securing consumables such as chemicals, lubricants and filters; arranging specialist support contracts; and obtaining the permits and licences needed to operate. On a hypothetical new hospital it also means clinical commissioning – moving equipment, staff and patients – which can take months after technical handover. Owners with an asset management system aligned to ISO 55001 (current edition 2024) can derive their asset information requirements from it, and ISO 19650-3 covers how that information is then managed in operation."
+    },
+    {
+     "type": "timeline",
+     "title": "Operations readiness from design to aftercare",
+     "items": [
+      {
+       "when": "Design",
+       "label": "Operators join design reviews",
+       "text": "Operability and maintainability tested; asset information requirements set"
+      },
+      {
+       "when": "Contract award",
+       "label": "Readiness plan and owner",
+       "text": "Handover strategy, staffing plan, maintenance system set-up"
+      },
+      {
+       "when": "T − 12 months",
+       "label": "Recruit and start training",
+       "text": "Key operators and maintainers in post; vendor courses booked"
+      },
+      {
+       "when": "T − 6 months",
+       "label": "Draft O&M manuals reviewed",
+       "text": "Operators check procedures before training relies on them"
+      },
+      {
+       "when": "Commissioning",
+       "label": "Operators work under supervision",
+       "text": "Witness tests, run systems, assessed hands-on"
+      },
+      {
+       "when": "T",
+       "label": "Taking over",
+       "text": "Care, custody and control pass to the owner"
+      },
+      {
+       "when": "Defects period",
+       "label": "Aftercare and review",
+       "text": "Soft landings visits; performance in use measured"
+      }
+     ],
+     "caption": "T is the planned taking-over date; the lead times are illustrative and grow with complexity. The point is that readiness starts in design, not in the final month."
     },
     {
      "type": "compare",
@@ -6404,7 +8278,7 @@ TRACK.modules.push({
         "Design reviews test operability and maintainability",
         "A graduated handover with familiarisation and aftercare",
         "Designers and contractors stay engaged for an agreed period after handover",
-        "Performance in use is monitored and fine-tuned against design intent"
+        "Performance in use – including energy and operational carbon – is monitored and fine-tuned against design intent"
        ]
       }
      ]
@@ -6528,6 +8402,17 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Handover transfers care, custody and control; run operations readiness as a workstream that starts in design",
+      "Judge the dossier on usability – verified as-builts, project-specific manuals, test-loaded asset data – not file counts",
+      "Train and assess operators on the specific systems before they take control, especially high-voltage and safety-critical ones",
+      "Make deliberate spares decisions and link warranty start dates to commissioning or taking over",
+      "Soft landings keeps designers and builders engaged after handover to tune performance in use, including energy"
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -6603,7 +8488,7 @@ TRACK.modules.push({
    "blocks": [
     {
      "type": "text",
-     "text": "Closeout is not an administrative tail. It settles money, releases securities, retires risks, preserves knowledge and gives people their next role. Projects that close badly keep leaking for years: final accounts that are never agreed, bonds that are never released, insurance that lapses at the wrong moment, and records that cannot be found when a latent defect or a claim appears. Good closeout is planned from the start, executed deliberately and owned by a named person, often while the most experienced people are already being pulled onto the next project."
+     "text": "Closeout is not an administrative tail. It settles money, releases securities, retires risks, preserves knowledge and gives people their next role. Projects that close badly keep leaking for years: final accounts that are never agreed, bonds that are never released, insurance that lapses at the wrong moment, and records that cannot be found when a latent defect or a claim appears. Good closeout is planned from the start, executed deliberately and owned by a named person, often while the most experienced people are already being pulled onto the next project. ISO 21502 guidance treats closing as a managed process in its own right, with the same planning and ownership as any other."
     },
     {
      "type": "flow",
@@ -6708,6 +8593,7 @@ TRACK.modules.push({
       "Site demobilised, temporary works removed and land reinstated with sign-off from owners and authorities",
       "Project records archived with an index, retention periods and access rights",
       "Asset information transferred and confirmed usable by operations",
+      "As-built carbon and environmental performance recorded against the carbon baseline and handed to the owner",
       "Team released with feedback and recognition; knowledge captured from key people",
       "Post-project review held and lessons register published with owners and dates",
       "Benefits realisation review scheduled, with measures and data sources agreed"
@@ -6775,6 +8661,34 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "cycle",
+     "title": "The lessons-learned loop",
+     "center": "Changed practice",
+     "items": [
+      {
+       "label": "Capture evidence",
+       "text": "Facts from records and front-line people, not memory"
+      },
+      {
+       "label": "Find root cause",
+       "text": "Ask why until reaching a cause a future project can control"
+      },
+      {
+       "label": "Change the standard",
+       "text": "Specification, template, checklist or contract clause, with an owner and date"
+      },
+      {
+       "label": "Apply next project",
+       "text": "The change is used at the right stage of the next project"
+      },
+      {
+       "label": "Verify the result",
+       "text": "Check that it was adopted and made a difference; if not, go round again"
+      }
+     ],
+     "caption": "A lessons register that stops after the first step is only a diary. The loop closes when a later project shows the changed standard working."
+    },
+    {
      "type": "template",
      "title": "Lessons learned register",
      "purpose": "Capture lessons in a form that leads to a specific change in practice, with an owner and evidence that the change was adopted.",
@@ -6811,7 +8725,53 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "A **benefits realisation review** returns, months or years after handover, to the benefits promised in the business case (developed in Justify) and measures whether they arrived: the effluent treatment plant meeting discharge standards consistently, the new production line reaching its rated output, the substation reducing outages, the hospital wards reducing waiting times. The review needs measures and data sources agreed at closeout, an owner in the operating organisation, and an honest comparison with the original assumptions. Its findings are among the most valuable lessons an organisation has, because they test whether its investment decisions were sound."
+     "text": "A **benefits realisation review** returns, months or years after handover, to the benefits promised in the business case (developed in Justify) and measures whether they arrived: the effluent treatment plant meeting discharge standards consistently, the new production line reaching its rated output, the substation reducing outages, the hospital wards reducing waiting times. The review needs measures and data sources agreed at closeout, an owner in the operating organisation, and an honest comparison with the original assumptions. Its findings are among the most valuable lessons an organisation has, because they test whether its investment decisions were sound. Owners that publish sustainability disclosures – increasingly aligned with IFRS S1 and S2 (2023) – also need reliable as-built carbon and energy data, so secure it at closeout while the evidence is available, ideally against a carbon baseline managed in the PAS 2080 way."
+    },
+    {
+     "type": "chart",
+     "kind": "line",
+     "title": "Benefit ramp-up vs business case (illustrative)",
+     "labels": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4",
+      "Q5",
+      "Q6",
+      "Q7",
+      "Q8"
+     ],
+     "series": [
+      {
+       "name": "Business case",
+       "values": [
+        60,
+        80,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+       ]
+      },
+      {
+       "name": "Measured in operation",
+       "values": [
+        45,
+        62,
+        75,
+        82,
+        86,
+        88,
+        89,
+        90
+       ]
+      }
+     ],
+     "unit": "%",
+     "yLabel": "Output, % of rated",
+     "caption": "Illustrative data for a new production line, by quarter after handover. Output plateaus about 10 points below the business case – the review must find out whether the assumption, the asset or its operation explains the gap."
     },
     {
      "type": "callout",
@@ -6881,6 +8841,17 @@ TRACK.modules.push({
        "term": "Records retention schedule",
        "def": "A defined list of project and asset record types with how long each must be kept, where, in what format and who may access it, reflecting contractual, legal and operational needs."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Plan closeout from the start across six workstreams: contractual, financial, physical, information, people, benefits and learning",
+      "Close as you go: agree variations monthly and close each subcontract when its scope ends",
+      "Secure records and key people's knowledge before they leave, and keep records under a retention schedule",
+      "A lesson counts only when it changes a standard, template or decision – with an owner and later verification",
+      "Measure benefits in operation against the business case and feed the gaps into future investment standards"
      ]
     },
     {
@@ -6994,7 +8965,7 @@ TRACK.exam.push([
    "USD 6m, the gap between the base and the P50 value"
   ],
   "answer": 0,
-  "explain": "Risk-based contingency is the chosen confidence value minus the base estimate: 104m - 92m = 12m. The P50 and P90 gaps reflect different appetites, and the full P80 value is the funded total, not the contingency."
+  "explain": "Risk-based contingency is the chosen confidence value minus the base estimate: 104m - 92m = 12m, so the funded total is the P80 of 104m. The P50 and P90 gaps reflect different appetites, and the full P80 value is the funded total, not the contingency."
  },
  {
   "module": "m5",
@@ -7078,7 +9049,7 @@ TRACK.exam.push([
    "A guaranteed maximum price agreed after the contractor's design is fully complete and checked"
   ],
   "answer": 2,
-  "explain": "When work must start before scope can be defined, cost-reimbursable with a fixed fee is practical, with controls to manage cost risk. Lump sum, remeasurement and GMP all need definition that does not yet exist."
+  "explain": "When work must start before the scope can be defined, cost-reimbursable with a fixed fee is practical, with cost verification controls; once the damage is surveyed, later phases can move to a target cost or remeasured contract. Lump sum, remeasurement and GMP all need definition that does not yet exist."
  },
  {
   "module": "m6",
@@ -7186,7 +9157,7 @@ TRACK.exam.push([
    "During the defects period, when the contractor is still available to answer questions about the data"
   ],
   "answer": 2,
-  "explain": "Asset information requirements shape what is modelled, tagged and handed over, so they must be defined early. Defining them later means retrofitting data that was never collected, which is expensive or impossible."
+  "explain": "Asset information requirements – in ISO 19650 terms, derived from what the organisation needs to operate the asset – shape what is modelled, tagged, sensed and handed over, so they must be defined at the start. Defining them later means retrofitting data that was never collected, which is expensive or impossible."
  },
  {
   "module": "m7",
@@ -7210,7 +9181,7 @@ TRACK.exam.push([
    "Ask the contractor to upload the contract instead, so that the confidentiality risk is shared"
   ],
   "answer": 0,
-  "explain": "Confidential contract information should go only into tools the organisation has approved for it, and any summary must be checked by a competent person. Uploading to an unapproved tool risks disclosure regardless of who does it."
+  "explain": "Confidential contract information should go only into tools the organisation has approved for that class of information under its AI and information-security policy, and any summary must be verified by a competent person before use. Uploading to an unapproved tool risks disclosure regardless of who does it."
  },
  {
   "module": "m7",

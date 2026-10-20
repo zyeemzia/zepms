@@ -9,7 +9,7 @@ TRACK.meta = {
   "pdf": "ZEPMS-Book.pdf",
   "storeKey": "zepms.v1",
   "tagline": "Build it right, build it safe, hand it over ready.",
-  "lead": "A professional specialization for people who deliver engineering projects in construction, infrastructure, manufacturing, energy and process plant: business cases and NPV, scope and WBS, critical path scheduling, cost and earned value, quantitative risk, contracts and claims, site safety and leadership, BIM and digital twins, and commissioning through to closeout, organised around one engineering delivery loop.",
+  "lead": "A professional specialization for people who deliver engineering projects in construction, infrastructure, manufacturing, energy and process plant: business cases and NPV, scope and WBS, critical path scheduling, cost and earned value, quantitative risk, contracts and claims, site safety and leadership, carbon and ESG, BIM information management and digital twins, and commissioning through to closeout, organised around one engineering delivery loop.",
   "signature": { "type": "loop", "name": "The ZEPMS Delivery Loop", "caption": "Eight stages every engineering project moves through: justify the investment, define the scope, schedule the work, budget and measure it, protect people and value, procure and contract, integrate teams and data, then commission and hand over. Lessons from each handover feed the next business case." },
   "hours": "80–100",
   "level": "Professional",
@@ -30,7 +30,7 @@ TRACK.meta = {
       "Earned value status report at a simulated mid-point with CPI, SPI, EAC and corrective actions",
       "Risk register with a quantitative analysis of the top risks (P50/P80) and an HSE plan",
       "Procurement and contract strategy with contract types, tender evaluation criteria and a variation procedure",
-      "Stakeholder engagement plan, site communication rhythm and a BIM/digital-twin use plan",
+      "Stakeholder engagement plan, site communication rhythm and a BIM information-management (ISO 19650) and digital-twin use plan",
       "Inspection and test plan, commissioning plan, handover checklist and closeout report"
     ],
     "rubric": [

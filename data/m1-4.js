@@ -9,7 +9,7 @@ TRACK.modules.push({
   "Explain engineering project life cycles, stage gates and the roles of owner, consultant, contractor and operator",
   "Conduct a feasibility study and options analysis with an honest do-nothing baseline and sound site selection",
   "Calculate and interpret NPV, IRR, payback, discounted payback and benefit-cost ratio",
-  "Build a business case with sensitivity and scenario analysis and an appropriate funding route",
+  "Build a business case with sensitivity and scenario analysis, whole-life carbon and an appropriate funding route",
   "Draft a project charter with governance, decision rights, tolerances and stage-gate approvals"
  ],
  "lessons": [
@@ -30,7 +30,7 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "It helps to separate two life cycles. The **project life cycle** runs from the first idea to handover: identify, select, define, execute and commission. The **asset life cycle** is far longer: it contains the project, then years of operation and maintenance, upgrades and finally decommissioning or demolition. Owners pay for the whole asset life cycle, so decisions made during the project, such as material choices, equipment redundancy, access for maintenance and energy efficiency, should be judged on whole-life cost and performance, not on capital cost alone. Contractors are mostly paid for the project life cycle, which is one reason owner and contractor priorities can quietly diverge. In the ZEPMS Delivery Loop, **Justify** covers the Identify and Select phases below, **Define** covers Define, the middle stages run across Define and Execute, and **Commission** closes the project and opens operations."
+     "text": "It helps to separate two life cycles. The **project life cycle** runs from the first idea to handover: identify, select, define, execute and commission. The **asset life cycle** is far longer: it contains the project, then years of operation and maintenance, upgrades and finally decommissioning or demolition. Owners pay for the whole asset life cycle, so decisions made during the project, such as material choices, equipment redundancy, access for maintenance and energy efficiency, should be judged on whole-life cost and performance, not on capital cost alone. Contractors are mostly paid for the project life cycle, which is one reason owner and contractor priorities can quietly diverge. In the ZEPMS Delivery Loop, **Justify** covers the Identify and Select phases below, **Define** covers Define, the middle stages run across Define and Execute, and **Commission** closes the project and opens operations. Asset management standards (ISO 55000 and ISO 55001, both revised in 2024) expect project decisions to trace back to the organisation's asset management objectives, while ISO 21502:2020 gives general guidance on governing and managing the project itself."
     },
     {
      "type": "flow",
@@ -169,8 +169,97 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "sequence",
+     "title": "How a stage-gate decision is made",
+     "actors": [
+      "Project team",
+      "Independent reviewer",
+      "Sponsor",
+      "Investment committee"
+     ],
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Gate pack: estimate, risks, case"
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Findings and conditions",
+       "reply": true
+      },
+      {
+       "from": 0,
+       "to": 0,
+       "label": "Close findings, update the pack"
+      },
+      {
+       "from": 0,
+       "to": 2,
+       "label": "Recommendation with evidence"
+      },
+      {
+       "from": 2,
+       "to": 3,
+       "label": "Endorsed pack and review report"
+      },
+      {
+       "from": 3,
+       "to": 2,
+       "label": "Go, hold, recycle or stop",
+       "note": "Recorded with conditions",
+       "reply": true
+      },
+      {
+       "from": 2,
+       "to": 0,
+       "label": "Next-phase funding released",
+       "reply": true
+      }
+     ],
+     "caption": "The independent challenge comes before the sponsor endorses the pack, and stop or recycle are real outcomes. Money for the next phase is released only after the decision and its conditions are recorded."
+    },
+    {
      "type": "text",
      "text": "**Front-end loading** means investing effort early, in definition, design basis, site investigation, permits and execution planning, before committing to full-scale execution. The logic is simple: the ability to influence the outcome is highest at the start, when only a small share of the budget has been spent, and it falls steeply once contracts are signed and construction begins. A geotechnical investigation that costs a tiny fraction of the foundations can avoid redesigning pile caps after the piling rigs have arrived. Owners who rush the front end to start construction sooner often finish later, because unresolved scope and design questions surface during execution, when they are most expensive to fix."
+    },
+    {
+     "type": "chart",
+     "kind": "line",
+     "title": "Influence falls as spending rises",
+     "labels": [
+      "Identify",
+      "Select",
+      "Define",
+      "Execute",
+      "Commission"
+     ],
+     "series": [
+      {
+       "name": "Ability to influence outcome",
+       "values": [
+        100,
+        85,
+        60,
+        20,
+        5
+       ]
+      },
+      {
+       "name": "Cumulative spend",
+       "values": [
+        1,
+        3,
+        8,
+        90,
+        100
+       ]
+      }
+     ],
+     "unit": "%",
+     "yLabel": "% of maximum",
+     "caption": "Illustrative shape, not data from a real project: most of the ability to shape cost, carbon and performance is used before execution, while most of the money is spent during it. That gap is the case for front-end loading."
     },
     {
      "type": "compare",
@@ -197,6 +286,12 @@ TRACK.modules.push({
        ]
       }
      ]
+    },
+    {
+     "type": "callout",
+     "kind": "insight",
+     "title": "Carbon and contractors follow the same logic",
+     "text": "Whole-life carbon behaves like cost: carbon management guidance such as **PAS 2080:2023** stresses that the largest reductions come from early choices, such as questioning the need, reusing existing assets or building less, long before materials are bought. Buildability knowledge is also most valuable early, which is why many owners now use **early contractor involvement**, often under a two-stage arrangement, so that a contractor helps shape the design and plan before the price is fixed."
     },
     {
      "type": "callout",
@@ -269,6 +364,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Judge project decisions on whole-life cost, carbon and performance: the owner pays for the asset life cycle, not only the project.",
+      "Each party is paid for different things and carries different risks, so owner and contractor priorities must be actively aligned.",
+      "A stage gate is worth having only if stop, hold and recycle are real outcomes, decided on defined deliverables by a named decision-maker.",
+      "Front-end loading spends a little early, when influence is highest, to avoid expensive change during execution."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -286,7 +391,7 @@ TRACK.modules.push({
        "q": "What gives a stage gate its real value to an owner?",
        "options": [
         "The genuine option to stop, hold or recycle based on new information",
-        "A formal occasion to recognise the team's work in the phase",
+        "A formal occasion to recognise the team's work at the end of each phase",
         "The chance to transfer all remaining risk to the contractor",
         "The requirement to publish the budget to all bidders"
        ],
@@ -309,7 +414,7 @@ TRACK.modules.push({
        "options": [
         "The owner's operations team",
         "The EPC contractor or its design subconsultant",
-        "The lender's technical adviser",
+        "The lender's technical adviser acting for the banks",
         "The O&M operator after handover"
        ],
        "answer": 1,
@@ -381,8 +486,8 @@ TRACK.modules.push({
       [
        "Environmental",
        "Can impacts be avoided, reduced or managed acceptably?",
-       "Screening, baseline surveys, initial impact assessment (developed in Protect)",
-       "Wetland, protected habitat or flood-prone land in the footprint"
+       "Screening, baseline surveys, climate-risk and whole-life carbon screening, initial impact assessment (developed in Protect)",
+       "Wetland, protected habitat or flood-prone land in the footprint; flood levels that ignore climate projections"
       ],
       [
        "Social",
@@ -429,10 +534,73 @@ TRACK.modules.push({
      "text": "Options analysis starts with the **need**, not the solution. If a textile mill's need is 'reliable steam at lower cost', the long list might include repairing the existing boilers, a new gas-fired boiler, a biomass boiler, waste-heat recovery from stenters and hot effluent, buying steam from a neighbouring plant, or cutting steam demand through process changes. Framing the need as 'build a new boiler house' would have silently removed half of those choices. Every options analysis must include a **do-nothing** (or do-minimum) option as the baseline: it shows what happens without new investment and is the reference against which the benefits of every other option are measured."
     },
     {
+     "type": "tree",
+     "title": "A long list built from the need, not the solution",
+     "root": {
+      "label": "Need: reliable steam at lower cost",
+      "children": [
+       {
+        "label": "Do-minimum",
+        "text": "Repair existing boilers (the baseline)"
+       },
+       {
+        "label": "Reduce demand",
+        "children": [
+         {
+          "label": "Process changes",
+          "text": "Insulation, condensate return, recipe changes"
+         }
+        ]
+       },
+       {
+        "label": "Recover heat",
+        "children": [
+         {
+          "label": "Hot effluent recovery"
+         },
+         {
+          "label": "Stenter exhaust recovery"
+         }
+        ]
+       },
+       {
+        "label": "Generate new",
+        "children": [
+         {
+          "label": "Gas-fired boiler"
+         },
+         {
+          "label": "Biomass boiler"
+         },
+         {
+          "label": "Electric or heat pump",
+          "text": "For lower-temperature duties; check grid capacity"
+         }
+        ]
+       },
+       {
+        "label": "Buy",
+        "children": [
+         {
+          "label": "Steam from a neighbour"
+         }
+        ]
+       }
+      ]
+     },
+     "caption": "Stating the need as an outcome opens up whole families of options, with do-minimum kept as the baseline. Each branch is screened for fatal flaws before the short list is developed in depth."
+    },
+    {
      "type": "callout",
      "kind": "warning",
      "title": "Do-nothing is rarely free",
      "text": "Doing nothing usually has costs: rising maintenance on an ageing transformer, penalties or loss of buyer certification when an effluent treatment plant fails discharge limits, lost production from frequent breakdowns, or growing safety risk in a deteriorating structure. Cost the do-nothing case honestly. If it is understated, every alternative looks better than it really is; if it is ignored, the analysis has no baseline at all."
+    },
+    {
+     "type": "callout",
+     "kind": "pro",
+     "title": "Carbon and climate belong in the options appraisal",
+     "text": "Owners, lenders and regulators increasingly expect each short-listed option to show **whole-life carbon** alongside whole-life cost: embodied carbon from materials and construction (EN 15978 stages A1 to A5), carbon in use (stage B) and at end of life (stage C). The biggest savings come from options-stage choices such as reuse, building less or a different technology. Test every option against climate projections as well: a design flood level based only on past records may be too low for a 40-year asset."
     },
     {
      "type": "steps",
@@ -452,7 +620,7 @@ TRACK.modules.push({
       },
       {
        "title": "Assess the short list",
-       "text": "Develop the remaining options far enough to compare capital and operating cost, NPV, risks, schedule, environmental and social effects and operability."
+       "text": "Develop the remaining options far enough to compare capital and operating cost, NPV, whole-life carbon, risks, schedule, environmental and social effects and operability."
       },
       {
        "title": "Compare and score",
@@ -526,6 +694,39 @@ TRACK.modules.push({
      "answer": "Zero liquid discharge may be screened out at this stage if its capital and energy costs are clearly beyond the owner's means and it is unproven at this scale, but the reason must be recorded, not assumed. The central ETP should not be relied on as the only solution while its completion date is unconfirmed; it can be kept as a future option, with the on-site design checked so that a later connection remains possible. Do-minimum is the baseline and must be costed honestly, including the commercial risk of losing the buyer. The likely short list is a new biological ETP with and without water recycling, compared on NPV, footprint, resilience to power interruptions (for example standby generation for aeration), sludge handling, ease of operation by the plant's staff and capacity for the planned expansion. Operations, environment and compliance staff, finance and the owner's engineer should all score, and the ranking should be tested against changes in the weights."
     },
     {
+     "type": "chart",
+     "kind": "bar",
+     "title": "How the effluent options might compare",
+     "labels": [
+      "Do-minimum",
+      "Biological ETP",
+      "Bio ETP + recycling",
+      "Zero liquid discharge"
+     ],
+     "series": [
+      {
+       "name": "Capital cost",
+       "values": [
+        80,
+        600,
+        780,
+        1900
+       ]
+      },
+      {
+       "name": "PV of running cost and compliance risk",
+       "values": [
+        1250,
+        520,
+        430,
+        700
+       ]
+      }
+     ],
+     "yLabel": "USD thousand, present value",
+     "caption": "Illustrative figures for the hypothetical denim plant: do-minimum is cheapest to build but carries the highest running cost and compliance risk, and zero liquid discharge fails on capital cost. The two biological options are close, so both go to feasibility."
+    },
+    {
      "type": "scenario",
      "title": "The feasibility study that must say yes",
      "situation": "You lead a feasibility study for a hypothetical 50 MW gas-fired peaking plant. The draft results show a positive NPV only if gas is supplied at the full contracted volume every year; with the kind of supply curtailment the region has experienced, the NPV turns negative. The director who championed the project asks you to present only the full-supply case to the board because 'curtailment is temporary'. What should you do FIRST?",
@@ -590,6 +791,17 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Feasibility asks whether a project can be done and whether it should be; its job is to find fatal flaws while change is cheap.",
+      "Start from the need in outcome terms and include an honestly costed do-nothing or do-minimum baseline.",
+      "Screen the long list for fatal flaws, record why options were dropped and develop only one to three in depth.",
+      "Compare the short list on whole-life cost, whole-life carbon, risk and non-monetised effects, and test the ranking.",
+      "Site factors such as land title, flood level, ground, heavy-load access and utilities can each stop a project."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -606,10 +818,10 @@ TRACK.modules.push({
       {
        "q": "A university needs more teaching space. Which option list best reflects good options analysis?",
        "options": [
-        "Three architectural designs for the same tower on the same plot",
+        "Three architectural designs for the same new tower on the same plot",
         "A new tower with three alternative facade materials",
         "Three contractors' prices for an identical new tower",
-        "Do-minimum, timetabling changes, refurbishment, a new block and leasing"
+        "Do-minimum, timetabling, refurbishment, a new block or leasing"
        ],
        "answer": 3,
        "explain": "Good options analysis starts from the need and includes genuinely different solutions, including non-build and do-minimum options. The other lists are variations of one predetermined solution."
@@ -618,9 +830,9 @@ TRACK.modules.push({
        "q": "Why must a do-nothing option be costed honestly?",
        "options": [
         "It is the baseline against which every other option's benefits are measured",
-        "Regulators always require do-nothing to be the cheapest option",
-        "Do-nothing is normally the option that boards end up choosing",
-        "Lenders only finance projects that beat do-nothing on capital cost"
+        "Regulators always require the do-nothing option to be shown as the cheapest one",
+        "Do-nothing is normally the option that boards and investment committees choose",
+        "Lenders will only finance projects that beat do-nothing on capital cost alone"
        ],
        "answer": 0,
        "explain": "Benefits of each option are measured relative to the do-nothing baseline, so an understated baseline inflates every option. The other statements are not general rules."
@@ -639,7 +851,7 @@ TRACK.modules.push({
       {
        "q": "When candidate substation sites are compared, which item belongs in the site selection checklist rather than the tariff study?",
        "options": [
-        "The forecast electricity tariff in year ten",
+        "The forecast electricity tariff in the tenth year of operation",
         "Transformer delivery access and the design flood level",
         "The parent company's dividend policy",
         "The exchange rate assumed for imported spares"
@@ -668,7 +880,7 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "The **discount rate** carries much of the decision. A private owner usually starts from its weighted average cost of capital, the blended cost of its debt and equity, often adds a premium for project risk, and may set a minimum acceptable return called a **hurdle rate**. Public bodies use a social discount rate set by the finance ministry or funding agency for economic appraisal. Be consistent: if cash flows are in **nominal** terms (including expected inflation), use a nominal rate; if they are in **real** terms (constant prices), use a real rate. Mixing the two is one of the most common errors in engineering business cases."
+     "text": "The **discount rate** carries much of the decision. A private owner usually starts from its weighted average cost of capital, the blended cost of its debt and equity, often adds a premium for project risk, and may set a minimum acceptable return called a **hurdle rate**. Public bodies use a social discount rate set by the finance ministry or funding agency for economic appraisal. Be consistent: if cash flows are in **nominal** terms (including expected inflation), use a nominal rate; if they are in **real** terms (constant prices), use a real rate. Mixing the two is one of the most common errors in engineering business cases. When inflation is volatile, as many economies experienced from 2021 onwards, state the inflation assumption explicitly and test it, because nominal and real figures drift apart quickly."
     },
     {
      "type": "formula",
@@ -799,6 +1011,45 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "chart",
+     "kind": "line",
+     "title": "Cumulative cash flow and cumulative present value",
+     "labels": [
+      "Year 0",
+      "Year 1",
+      "Year 2",
+      "Year 3",
+      "Year 4",
+      "Year 5"
+     ],
+     "series": [
+      {
+       "name": "Cumulative cash flow",
+       "values": [
+        -1000,
+        -750,
+        -450,
+        -100,
+        250,
+        550
+       ]
+      },
+      {
+       "name": "Cumulative PV at 10%",
+       "values": [
+        -1000,
+        -772.7,
+        -524.8,
+        -261.8,
+        -22.8,
+        163.5
+       ]
+      }
+     ],
+     "yLabel": "USD thousand",
+     "caption": "Illustrative figures from the table above. The undiscounted line crosses zero during year 4 (payback 3.29 years); the discounted line crosses only in year 5 (discounted payback 4.12 years), ending at the NPV of +163.5."
+    },
+    {
      "type": "steps",
      "title": "Reading the five measures from the table",
      "items": [
@@ -823,6 +1074,34 @@ TRACK.modules.push({
        "text": "The only cost here is the initial investment, because operating costs are already netted off the savings. PV of benefits = 1,163.49 and PV of costs = 1,000, so BCR = 1,163.49 / 1,000 = **1.16**: each unit of capital returns 1.16 units in present-value terms."
       }
      ]
+    },
+    {
+     "type": "chart",
+     "kind": "line",
+     "title": "NPV profile of the waste-heat recovery project",
+     "labels": [
+      "0%",
+      "5%",
+      "10%",
+      "15%",
+      "20%",
+      "25%"
+     ],
+     "series": [
+      {
+       "name": "NPV",
+       "values": [
+        550,
+        335.6,
+        163.5,
+        23.6,
+        -91.4,
+        -187.1
+       ]
+      }
+     ],
+     "yLabel": "NPV, USD thousand",
+     "caption": "Illustrative figures from the worked example: NPV falls as the discount rate rises and crosses zero just below 16%, which is the IRR. At the company's 10% rate the NPV is +163.5, and at 0% it is simply the undiscounted total of 550."
     },
     {
      "type": "callout",
@@ -876,7 +1155,7 @@ TRACK.modules.push({
      "type": "callout",
      "kind": "warning",
      "title": "Traps that catch experienced engineers",
-     "text": "**Non-conventional cash flows**: if a project has a large outflow late in life, such as decommissioning an offshore platform, a mid-life turbine overhaul or quarry restoration, the cash flow changes sign more than once and there may be two IRRs or none; rely on NPV. **Scale**: a small project can have a higher IRR but a much lower NPV than a large one; when options are mutually exclusive and capital is available, NPV is the better guide. **Classification**: treating operating costs as negative benefits rather than as costs changes the BCR, though not the NPV, so always state the convention. **Timing**: confirm whether cash flows fall at the start or end of each year. **Spreadsheets**: most spreadsheet NPV functions assume the first value in the range falls at the end of period 1, so enter the year-0 investment outside the function (NPV = CF_0 + NPV(rate, CF_1 to CF_n)), show the discount factor column explicitly and have a second person rebuild the headline figures by hand before any gate review."
+     "text": "**Non-conventional cash flows**: if a project has a large outflow late in life, such as decommissioning an offshore platform, a mid-life turbine overhaul or quarry restoration, the cash flow changes sign more than once and there may be two IRRs or none; rely on NPV. **Scale**: a small project can have a higher IRR but a much lower NPV than a large one; when options are mutually exclusive and capital is available, NPV is the better guide. **Classification**: treating operating costs as negative benefits rather than as costs changes the BCR, though not the NPV, so always state the convention. **Timing**: confirm whether cash flows fall at the start or end of each year. **Spreadsheets**: most spreadsheet NPV functions assume the first value in the range falls at the end of period 1, so enter the year-0 investment outside the function (NPV = CF_0 + NPV(rate, CF_1 to CF_n)), show the discount factor column explicitly and have a second person rebuild the headline figures by hand before any gate review. **Automated drafts**: when software or AI tools build a cash-flow model or extract figures from documents, treat the result as a draft, check every formula and input, and have a competent person sign off the numbers."
     },
     {
      "type": "scenario",
@@ -940,6 +1219,16 @@ TRACK.modules.push({
        "term": "Benefit-cost ratio",
        "def": "The present value of benefits divided by the present value of costs; a ratio above 1 indicates that benefits exceed costs at the chosen discount rate."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Discount future cash flows so front-loaded costs and long-tail benefits compare fairly; match nominal flows with nominal rates and real with real.",
+      "NPV measures value created in money and is the primary rule, especially for mutually exclusive options and non-conventional cash flows.",
+      "IRR, payback, discounted payback and BCR add views of margin, exposure and ranking, but each can mislead on its own.",
+      "Show the discount factors, enter year 0 outside spreadsheet NPV functions and have someone rebuild headline figures by hand."
      ]
     },
     {
@@ -1021,6 +1310,38 @@ TRACK.modules.push({
      "text": "A **business case** is the reasoned argument for an investment: why it is needed, which options were considered, why the preferred option offers the best value, whether it is affordable and fundable, and how it will be delivered. It is not a one-off document written to win approval. It matures in stages, typically a strategic outline at identification, an outline case after options analysis and a full case before the final investment decision, and it is revisited at each gate and at closeout, when the promised benefits are checked against what actually happened."
     },
     {
+     "type": "timeline",
+     "title": "How a business case matures",
+     "items": [
+      {
+       "when": "Identify",
+       "label": "Strategic outline case",
+       "text": "Need, strategic fit, long list and a rough cost range"
+      },
+      {
+       "when": "Select",
+       "label": "Outline business case",
+       "text": "Preferred option from the options analysis, with sensitivities"
+      },
+      {
+       "when": "Define",
+       "label": "Full business case",
+       "text": "Firm estimate, procurement route and funding for the investment decision"
+      },
+      {
+       "when": "Execute",
+       "label": "Revalidated at each gate",
+       "text": "Updated for cost, schedule and risk; stop if the value is lost"
+      },
+      {
+       "when": "Operate",
+       "label": "Benefits review",
+       "text": "Actual benefits compared with those promised; lessons fed back"
+      }
+     ],
+     "caption": "The same argument is refined at each stage rather than rewritten. It does not end at approval: it is revalidated during execution and checked against reality once the asset is operating."
+    },
+    {
      "type": "framework",
      "title": "The five dimensions of a business case",
      "items": [
@@ -1053,7 +1374,7 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "Engineers often blur **economic** and **financial** appraisal. Financial appraisal looks at cash to and from the owner: tolls, tariffs, production margins, capital and operating costs. Economic appraisal, used for public infrastructure, looks at value to society: travel time savings and fewer accidents on an expressway, reduced flood damage behind an embankment, health benefits from clean water, including effects that never appear as cash. A metro line can have a negative financial NPV because fares do not cover its costs and still a strongly positive economic NPV because of time savings, reduced congestion and lower emissions. Both views are legitimate, but they answer different questions and must not be blended into one number."
+     "text": "Engineers often blur **economic** and **financial** appraisal. Financial appraisal looks at cash to and from the owner: tolls, tariffs, production margins, capital and operating costs. Economic appraisal, used for public infrastructure, looks at value to society: travel time savings and fewer accidents on an expressway, reduced flood damage behind an embankment, health benefits from clean water, including effects that never appear as cash. A metro line can have a negative financial NPV because fares do not cover its costs and still a strongly positive economic NPV because of time savings, reduced congestion and lower emissions. Both views are legitimate, but they answer different questions and must not be blended into one number. Many public appraisal frameworks now also value changes in greenhouse gas emissions, often using a carbon value set by the government or funder; use the official value where one exists and state it."
     },
     {
      "type": "text",
@@ -1108,6 +1429,36 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "chart",
+     "kind": "bar",
+     "title": "NPV under each sensitivity case",
+     "labels": [
+      "Base",
+      "Capex +10%",
+      "Capex +20%",
+      "Savings -10%",
+      "Savings -20%",
+      "Rate 12%",
+      "1-year delay"
+     ],
+     "series": [
+      {
+       "name": "NPV at 10% (USD thousand)",
+       "values": [
+        163.5,
+        63.5,
+        -36.5,
+        47.1,
+        -69.2,
+        104.2,
+        57.7
+       ]
+      }
+     ],
+     "yLabel": "USD thousand",
+     "caption": "Illustrative figures from the table: bars below zero are the cases that destroy value. Savings and capital cost dominate, so vendor performance guarantees and price risk deserve the most management attention."
+    },
+    {
      "type": "compare",
      "title": "Sensitivity analysis vs scenario analysis",
      "columns": [
@@ -1140,6 +1491,12 @@ TRACK.modules.push({
      "text": "Research on large infrastructure programmes in many countries has repeatedly found that, at the decision stage, capital costs and durations tend to be underestimated and demand or benefits overestimated. Two causes are usually distinguished: genuine cognitive **optimism bias**, and **strategic misrepresentation**, where promoters understate costs to win approval. Practical correctives include reference class forecasting (adjusting an estimate using the actual outcomes of a class of similar completed projects), explicit uplifts where funding guidance requires them, independent estimate reviews at gates, and asking 'what would have to be true?' of every key assumption."
     },
     {
+     "type": "callout",
+     "kind": "pro",
+     "title": "Price volatility and delay belong in the case",
+     "text": "Since the early 2020s, prices and lead times for steel, cement, cable, transformers, switchgear and freight have swung sharply. A credible business case states which prices are fixed and when, how escalation is allowed for (for example a contract price-adjustment formula or an escalation allowance) and how long-lead equipment affects the date benefits start. Treat delay as a sensitivity in its own right: in the example above, one year of delay removes about two-thirds of the NPV."
+    },
+    {
      "type": "table",
      "title": "Funding routes for engineering projects",
      "head": [
@@ -1164,13 +1521,13 @@ TRACK.modules.push({
       [
        "Development finance",
        "Infrastructure and energy funded with multilateral or bilateral development banks or export credit agencies",
-       "Strong environmental and social safeguards, procurement under the lender's rules, independent monitoring",
+       "Strong environmental and social safeguards (such as the World Bank Environmental and Social Framework or the IFC Performance Standards; many commercial lenders apply the Equator Principles), procurement under the lender's rules, independent monitoring",
        "Safeguard compliance becomes a condition of disbursement; reporting is detailed and regular"
       ],
       [
        "Owner equity and corporate borrowing",
        "Factory expansions, utilities and process plant funded from the company's own resources",
-       "A return above the hurdle rate, strategic fit, a manageable effect on cash flow",
+       "A return above the hurdle rate, strategic fit, a manageable effect on cash flow and, increasingly, consistency with the company's climate targets and sustainability disclosures (for example under IFRS S1 and S2)",
        "Faster decisions but tight capital rationing; projects compete with other uses of cash"
       ],
       [
@@ -1292,25 +1649,36 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "A business case is a living argument across five dimensions: strategic, economic, commercial, financial and management.",
+      "Keep financial appraisal (cash to the owner) and economic appraisal (value to society) separate; they answer different questions.",
+      "Switching values and scenarios show how much room for error a case has; present downsides openly rather than removing them.",
+      "Counter optimism bias with reference class forecasting, independent review and explicit allowances for price volatility and delay.",
+      "Each funding route brings its own expectations, from bankable revenue to environmental and social safeguards."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
        "q": "A business case section explains contractor market capacity, packaging and contract type. Which dimension is this?",
        "options": [
         "Strategic",
-        "Economic",
+        "Management",
         "Financial",
         "Commercial"
        ],
        "answer": 3,
-       "explain": "Procurement route, packaging and contract strategy belong to the commercial dimension. Financial covers affordability and funding; economic covers value for money across options."
+       "explain": "Procurement route, packaging and contract strategy belong to the commercial dimension. Financial covers affordability and funding, and management covers governance and delivery capability."
       },
       {
        "q": "NPV falls to zero if annual savings drop by 14%. This 14% is best described as:",
        "options": [
         "The switching value for savings",
         "The internal rate of return",
-        "The optimism bias uplift",
+        "The optimism bias uplift on the estimate",
         "The benefit-cost ratio"
        ],
        "answer": 0,
@@ -1331,12 +1699,12 @@ TRACK.modules.push({
        "q": "Which practice most directly counters optimism bias in a cost estimate?",
        "options": [
         "Asking the promoter to sign the estimate personally",
-        "Adjusting the estimate using outcomes of similar completed projects",
+        "Reference class forecasting against completed projects",
         "Reducing contingency to make the project more competitive",
         "Using a lower discount rate for the most uncertain costs"
        ],
        "answer": 1,
-       "explain": "Reference class forecasting anchors the estimate in real outcomes of comparable projects. Signatures, lower contingency or rate changes do not remove bias and may worsen it."
+       "explain": "Reference class forecasting anchors the estimate in the actual outcomes of comparable completed projects. Signatures, lower contingency or rate changes do not remove bias and may worsen it."
       },
       {
        "q": "Which funding route most typically makes environmental and social safeguards a condition of disbursement?",
@@ -1366,18 +1734,19 @@ TRACK.modules.push({
    "blocks": [
     {
      "type": "text",
-     "text": "Once the investment decision is taken, the project needs formal authority to exist. The **project charter** provides it: it names the project, its purpose and its sponsor, appoints the project manager, sets high-level scope, budget, milestones and constraints, and states what the project manager may decide without asking. On engineering projects the charter is also where the owner records the outputs of the front end, the approved business case, the basis of design, the estimate and the target dates, so that everyone starts from the same baseline rather than from their own memory of earlier discussions."
+     "text": "Once the investment decision is taken, the project needs formal authority to exist. The **project charter** provides it: it names the project, its purpose and its sponsor, appoints the project manager, sets high-level scope, budget, milestones and constraints, and states what the project manager may decide without asking. On engineering projects the charter is also where the owner records the outputs of the front end, the approved business case, the basis of design, the estimate and the target dates, so that everyone starts from the same baseline rather than from their own memory of earlier discussions. International guidance such as ISO 21502:2020 treats this formal authorisation, with defined governance and a business case that stays under review, as a basic condition for managing any project."
     },
     {
      "type": "keypoints",
      "title": "What a good engineering project charter contains",
      "items": [
       "Purpose, business need and a link to the approved business case",
-      "Objectives and success criteria: capacity, performance, safety, cost, completion and benefits",
+      "Objectives and success criteria: capacity, performance, safety, cost, completion, carbon and benefits",
       "High-level scope with key inclusions, exclusions and battery limits (detailed in Define)",
       "Summary budget with contingency, and key milestones including gate dates",
       "Sponsor, project manager and governance bodies, with decision rights and tolerances",
       "Major assumptions, constraints, risks and dependencies such as permits, land and grid connection",
+      "Information requirements and the common data environment to be used, following the ISO 19650 approach",
       "Approval signatures and date"
      ]
     },
@@ -1429,7 +1798,7 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "Governance works when everyone knows who decides what. **Decision rights** assign each class of decision, such as approving a gate, awarding a contract, releasing contingency or changing the design basis, to a specific person or body. **Tolerances** set the limits within which each level may act before escalating: for example, the project manager may approve changes up to a stated value and a few days of schedule impact, the sponsor up to a higher limit, and anything above goes to the steering committee. Tolerances should cover cost, time, scope, quality and safety, and they must be meaningful: too tight and the steering committee drowns in trivia; too loose and real problems stay hidden until it is too late to act."
+     "text": "Governance works when everyone knows who decides what. **Decision rights** assign each class of decision, such as approving a gate, awarding a contract, releasing contingency or changing the design basis, to a specific person or body. **Tolerances** set the limits within which each level may act before escalating: for example, the project manager may approve changes up to a stated value and a few days of schedule impact, the sponsor up to a higher limit, and anything above goes to the steering committee. Tolerances should cover cost, time, scope, quality and safety, and they must be meaningful: too tight and the steering committee drowns in trivia; too loose and real problems stay hidden until it is too late to act. On projects that manage a carbon budget, carbon needs a tolerance too."
     },
     {
      "type": "table",
@@ -1487,6 +1856,62 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "sequence",
+     "title": "Escalating a change beyond the PM's tolerance",
+     "actors": [
+      "Contractor",
+      "Project manager",
+      "Sponsor",
+      "Steering committee"
+     ],
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Early warning: utility clash on route"
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Request quotations for options"
+      },
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Cost and time for each option",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 1,
+       "label": "Check impact against tolerances",
+       "note": "Above PM limit, within sponsor's"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Recommendation and impact assessment"
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Decision: approve option B",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Instruction under the contract"
+      },
+      {
+       "from": 1,
+       "to": 3,
+       "label": "Reported in the exception report"
+      }
+     ],
+     "caption": "The decision goes to the lowest level whose tolerance covers it, here the sponsor, and the committee is informed rather than asked. The contractor is instructed only after the decision, through the contract's own procedure."
+    },
+    {
      "type": "text",
      "text": "A **project management office** supports governance with standards and data. On a single large project it may be the project controls team that runs the schedule, cost reports, risk register and document control. Across an owner's portfolio it may set procedures, templates and gate criteria, provide planners and cost engineers, and assure the quality of reporting. PMOs range from **supportive** (offering tools and coaching) through **controlling** (requiring compliance with standards) to **directive** (managing projects directly). The test of a useful PMO is whether its data helps decision-makers act earlier, not how many reports it produces."
     },
@@ -1495,6 +1920,12 @@ TRACK.modules.push({
      "kind": "example",
      "title": "Many organisations, one programme",
      "text": "Urban rail projects such as Dhaka's first metro line, which began passenger service in late 2022, involve an implementing company, ministries, city authorities, utility owners, traffic police, lenders and several contractors for civil works, rolling stock and systems. Governance on programmes like this needs interface forums as well as a steering committee, because many critical decisions, such as utility diversions, road closures, power supply and station access, sit outside the project's direct control."
+    },
+    {
+     "type": "callout",
+     "kind": "pro",
+     "title": "Safety leadership starts in the charter",
+     "text": "Since 2022 the ILO has counted a safe and healthy working environment among its fundamental principles and rights at work. Owners give that weight from the start: safety objectives sit beside cost and time in the charter, the owner's own duties in design and contractor selection are assigned, and the sponsor states that anyone may stop unsafe work. Site rules and contracts follow that lead."
     },
     {
      "type": "steps",
@@ -1518,7 +1949,7 @@ TRACK.modules.push({
       },
       {
        "title": "Run the kickoff",
-       "text": "Bring owner, consultants and early contractors together to align on objectives, safety expectations, roles, interfaces, communication and the first 90 days."
+       "text": "Bring owner, consultants and early contractors together (under two-stage or alliance arrangements the contractor joins before the price is fixed) to align on objectives, safety leadership, roles, interfaces, information management and the first 90 days."
       },
       {
        "title": "Mobilise",
@@ -1605,6 +2036,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "The charter authorises the project, appoints the project manager and records the front-end baseline everyone starts from.",
+      "Decision rights and tolerances say who decides what; a change goes to the lowest level whose tolerance covers it.",
+      "Committees decide as bodies: individual members, however senior, should not instruct contractors directly.",
+      "Put controls, safety leadership and information management in place before mobilisation, not after."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -1678,7 +2119,7 @@ TRACK.modules.push({
   "Translate owner's requirements into a basis of design, specifications and applicable codes and standards",
   "Write a scope statement with battery limits, exclusions, assumptions and interfaces",
   "Build a deliverable-oriented WBS with a WBS dictionary, responsibility matrix and control accounts",
-  "Manage design development through FEED, detailed design, reviews, value engineering and HAZOP to design freeze",
+  "Manage design development through FEED, detailed design, reviews, value engineering, HAZOP and a common data environment to design freeze",
   "Establish a scope baseline and run disciplined change control that prevents scope creep"
  ],
  "lessons": [
@@ -1766,11 +2207,80 @@ TRACK.modules.push({
        "Normally unmanned with remote control; one transformer out for maintenance at a time"
       ],
       [
+       "Carbon and resilience",
+       "Whole-life carbon target and climate assumptions",
+       "Embodied carbon budget for civil works; design flood level checked against climate projections, not only past records"
+      ],
+      [
+       "Information requirements",
+       "Asset data and models the owner needs to operate and maintain",
+       "Data for every transformer and breaker delivered in the structure of the owner's maintenance system"
+      ],
+      [
        "Assumptions and exclusions",
        "What the design takes as given and what it does not cover",
        "Incoming 33 kV lines by the utility up to the gantry; telecom link by others"
       ]
      ]
+    },
+    {
+     "type": "tree",
+     "title": "Tracing requirements for the substation",
+     "root": {
+      "label": "Business need",
+      "text": "Reliable supply to the export processing zone",
+      "children": [
+       {
+        "label": "OPR: survive one transformer failure",
+        "children": [
+         {
+          "label": "BoD: 2 x 100% transformers (N-1)",
+          "children": [
+           {
+            "label": "Spec: transformer data sheet"
+           },
+           {
+            "label": "Test: load transfer on outage"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "label": "OPR: failed transformer replaceable",
+        "children": [
+         {
+          "label": "BoD: removal route and lifting",
+          "children": [
+           {
+            "label": "Drawing: layout showing the route"
+           },
+           {
+            "label": "Check: route trial at handover"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "label": "OPR: normally unmanned",
+        "children": [
+         {
+          "label": "BoD: remote control and alarms",
+          "children": [
+           {
+            "label": "Spec: control system interface"
+           },
+           {
+            "label": "Test: operation from control centre"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     "caption": "Every owner requirement should trace down to a design criterion, a deliverable and a test. The removal-route branch is exactly what is missing in the scenario later in this lesson, so nothing in design or testing would have caught the gap."
     },
     {
      "type": "compare",
@@ -1799,8 +2309,49 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "matrix",
+     "title": "Choosing a specification style",
+     "x": "Owner's need for standardisation (low to high)",
+     "y": "Supply market's design capability (low to high)",
+     "quadrants": [
+      {
+       "title": "Performance specification",
+       "items": [
+        "State outputs and tests",
+        "Let suppliers innovate",
+        "Typical of EPC packages"
+       ]
+      },
+      {
+       "title": "Performance plus owner standards",
+       "items": [
+        "Outputs plus a preferred equipment list",
+        "Common spares and controls",
+        "A hybrid specification"
+       ]
+      },
+      {
+       "title": "Design by the owner's engineer",
+       "items": [
+        "Owner's designer fixes the solution",
+        "Simple, build-only package",
+        "Owner keeps design risk"
+       ]
+      },
+      {
+       "title": "Prescriptive specification",
+       "items": [
+        "Owner's standard details and equipment",
+        "Acceptance by conformity checks",
+        "Owner keeps outcome risk"
+       ]
+      }
+     ],
+     "caption": "A rule of thumb, not a law: performance specifications suit capable markets that can take design responsibility, while strong owner standards or a weak supply market push towards prescription. Many packages end up as hybrids."
+    },
+    {
      "type": "text",
-     "text": "Codes and standards turn decades of experience into minimum rules. A typical project draws on the national building code and fire regulations, electrical and grid codes, environmental discharge standards, and international standards for equipment and materials, such as IEC standards for electrical equipment, ISO standards for many management systems and test methods, and ASME or European standards for pressure equipment. The basis of design should list each applicable code with its edition, set an **order of precedence** for conflicts (normally statutory requirements first, then project-specific requirements, then referenced standards) and say who rules when two documents disagree. Codes set minimums; the owner's requirements may legitimately go further."
+     "text": "Codes and standards turn decades of experience into minimum rules. A typical project draws on the national building code and fire regulations, electrical and grid codes, environmental discharge standards, and international standards for equipment and materials, such as IEC standards for electrical equipment, ISO standards for many management systems and test methods, and ASME or European standards for pressure equipment. The basis of design should list each applicable code with its edition, set an **order of precedence** for conflicts (normally statutory requirements first, then project-specific requirements, then referenced standards) and say who rules when two documents disagree. Codes set minimums; the owner's requirements may legitimately go further. In Bangladesh, for example, the Bangladesh National Building Code (BNBC) 2020 is the national building code for structural, fire and building services design."
     },
     {
      "type": "callout",
@@ -1815,7 +2366,7 @@ TRACK.modules.push({
       {
        "label": "C",
        "title": "Constructability",
-       "text": "Can it be built safely and efficiently? Modular units, standard reinforcement details, crane access, temporary works, sequence and lay-down space."
+       "text": "Can it be built safely and efficiently? Offsite and modular units designed for manufacture and assembly, standard reinforcement details, crane access, temporary works, sequence and lay-down space."
       },
       {
        "label": "O",
@@ -1835,7 +2386,7 @@ TRACK.modules.push({
       {
        "label": "E",
        "title": "Energy and environment",
-       "text": "Does it minimise whole-life energy, water and emissions? Efficient motors, heat recovery, daylight, water reuse, lower-carbon materials."
+       "text": "Does it minimise whole-life energy, water and carbon? Efficient motors, heat recovery, daylight, water reuse, lower-carbon materials and less material overall."
       }
      ]
     },
@@ -1857,6 +2408,7 @@ TRACK.modules.push({
       "Constructability input has been obtained from construction and temporary works specialists",
       "Assumptions, exclusions and interfaces with other parties are listed with owners",
       "Allowances for future expansion are stated or deliberately excluded",
+      "Whole-life carbon targets, climate assumptions and the owner's information requirements are stated",
       "The document is under revision control with approval signatures"
      ]
     },
@@ -1925,6 +2477,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Requirements flow from business need to owner's requirements, basis of design, specifications and tests, and must stay traceable.",
+      "The basis of design is the single technical reference: control it like a contract document, with code editions and an order of precedence.",
+      "Performance specifications transfer design responsibility and need measurable tests; prescriptive ones keep it with the owner.",
+      "Build constructability, operability, maintainability, safety and whole-life carbon into requirements before layouts are fixed."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -1954,7 +2516,7 @@ TRACK.modules.push({
        "options": [
         "In the order of precedence in the basis of design",
         "In the contractor's monthly progress report",
-        "In the steering committee's terms of reference",
+        "In the terms of reference of the steering committee",
         "In the site safety induction materials"
        ],
        "answer": 0,
@@ -1975,7 +2537,7 @@ TRACK.modules.push({
        "q": "Why should the edition of each code be fixed in the basis of design?",
        "options": [
         "Because older editions are always cheaper to design to",
-        "Because designers and suppliers may otherwise use different editions",
+        "Because designers and suppliers may use different editions",
         "Because regulators accept only the newest edition published",
         "Because the code edition determines the discount rate"
        ],
@@ -2057,49 +2619,65 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "The **work breakdown structure** decomposes the total scope into progressively smaller, manageable parts. A good engineering WBS is **deliverable-oriented**, organised around what is produced (a station box, a turbine hall, a substation, an ETP) rather than who produces it, and it obeys the **100% rule**: each level contains all the work of its parent and nothing more, so nothing is missed and nothing is counted twice. Elements at the same level should not overlap. The lowest level is the **work package**, small enough to estimate, schedule, assign to one responsible party and measure; a common rule of thumb is that a work package should be completed within one or two reporting periods. Project management, design and commissioning are deliverables too and belong in the WBS."
+     "text": "The **work breakdown structure** decomposes the total scope into progressively smaller, manageable parts. A good engineering WBS is **deliverable-oriented**, organised around what is produced (a station box, a turbine hall, a substation, an ETP) rather than who produces it, and it obeys the **100% rule**: each level contains all the work of its parent and nothing more, so nothing is missed and nothing is counted twice. Elements at the same level should not overlap. The lowest level is the **work package**, small enough to estimate, schedule, assign to one responsible party and measure; a common rule of thumb is that a work package should be completed within one or two reporting periods. Project management, design and commissioning are deliverables too and belong in the WBS. ISO 21511:2018 gives international guidance on work breakdown structures. Offsite and modular items, such as prefabricated MEP risers or bathroom pods, need work packages for factory production, transport and installation, so progress and interfaces at each stage stay visible. Coding model objects and documents to the WBS also lets quantities, 4D sequencing and cost be drawn from the model."
     },
     {
-     "type": "layers",
-     "title": "WBS levels for a hypothetical elevated metro station (top first)",
-     "items": [
-      {
-       "label": "Level 1: Project",
-       "parts": [
-        "Elevated station S5 with adjoining viaduct spans"
-       ]
-      },
-      {
-       "label": "Level 2: Major deliverables",
-       "parts": [
-        "Foundations and substructure",
-        "Station structure",
-        "Architecture and finishes",
-        "Station systems (MEP)",
-        "Management, design and commissioning"
-       ]
-      },
-      {
-       "label": "Level 3: Sub-deliverables",
-       "parts": [
-        "Piles and pile caps",
-        "Concourse and platform levels",
-        "Escalators and lifts",
-        "HVAC and smoke ventilation",
-        "Power distribution and lighting"
-       ]
-      },
-      {
-       "label": "Level 4: Work packages",
-       "parts": [
-        "Bored piles, grid A to D",
-        "Pile caps PC1 to PC8",
-        "Platform slab pours 1 to 3",
-        "LV switchboards and cable trays",
-        "Lift installation and testing"
-       ]
-      }
-     ]
+     "type": "tree",
+     "title": "WBS for a hypothetical elevated metro station",
+     "root": {
+      "label": "Station S5 with adjoining viaduct spans",
+      "children": [
+       {
+        "label": "Foundations and substructure",
+        "children": [
+         {
+          "label": "Bored piles",
+          "text": "Work packages: piles grid A to D"
+         },
+         {
+          "label": "Pile caps and piers",
+          "text": "Work packages: PC1 to PC8"
+         }
+        ]
+       },
+       {
+        "label": "Station structure",
+        "children": [
+         {
+          "label": "Concourse level"
+         },
+         {
+          "label": "Platform level and roof",
+          "text": "Work packages: slab pours 1 to 3"
+         }
+        ]
+       },
+       {
+        "label": "Architecture and finishes",
+        "text": "Finishes, facade and cladding"
+       },
+       {
+        "label": "Station systems (MEP)",
+        "children": [
+         {
+          "label": "Lifts and escalators"
+         },
+         {
+          "label": "HVAC and smoke ventilation"
+         },
+         {
+          "label": "Power and lighting",
+          "text": "Work packages: LV switchboards, cable trays"
+         }
+        ]
+       },
+       {
+        "label": "Management, design, commissioning",
+        "text": "Project management, design, testing and commissioning"
+       }
+      ]
+     },
+     "caption": "Each branch contains all of its parent's work and nothing else (the 100% rule), and management, design and commissioning appear as deliverables. Work packages sit at the next level down, small enough to estimate, schedule and assign to one party."
     },
     {
      "type": "compare",
@@ -2129,7 +2707,8 @@ TRACK.modules.push({
         "Breaks down costs by account or cost type",
         "Answers: where does the money go?",
         "Basis for estimates, budgets and cost reports (see Budget)",
-        "Lowest level: cost codes such as labour, materials and plant"
+        "Lowest level: cost codes such as labour, materials and plant",
+        "Where carbon is a managed baseline, a carbon budget can be held against the same codes"
        ]
       }
      ]
@@ -2137,6 +2716,112 @@ TRACK.modules.push({
     {
      "type": "text",
      "text": "Where the WBS and the organisational breakdown structure (OBS) intersect, responsibility is assigned. A **responsibility assignment matrix** (RAM) lists WBS elements down the side and organisations or roles across the top; a common format marks who is Responsible, Accountable, Consulted and Informed (RACI), and each element should have exactly one accountable party. A **control account** is the management control point where scope, budget, schedule and actual cost are integrated for one WBS element under one responsible manager. It contains one or more work packages and is where earned value is measured and variances are explained (see Budget). Choose the level with care: too high and problems hide inside large accounts; too low and the reporting effort overwhelms the team."
+    },
+    {
+     "type": "topology",
+     "title": "Where a control account sits",
+     "nodes": [
+      {
+       "id": "wbs",
+       "kind": "doc",
+       "label": "WBS element",
+       "sub": "What: 4 Station systems (MEP)",
+       "x": 1,
+       "y": 1
+      },
+      {
+       "id": "obs",
+       "kind": "team",
+       "label": "OBS manager",
+       "sub": "Who: MEP package manager",
+       "x": 5,
+       "y": 1
+      },
+      {
+       "id": "sch",
+       "kind": "doc",
+       "label": "Schedule",
+       "sub": "Activities and dates",
+       "x": 0,
+       "y": 3
+      },
+      {
+       "id": "ca",
+       "kind": "process",
+       "label": "Control account",
+       "sub": "Scope, budget, schedule, actual cost",
+       "x": 3,
+       "y": 3
+      },
+      {
+       "id": "cbs",
+       "kind": "db",
+       "label": "Cost codes (CBS)",
+       "sub": "Labour, materials, plant, subcontract",
+       "x": 6,
+       "y": 3
+      },
+      {
+       "id": "wp1",
+       "kind": "doc",
+       "label": "Work package",
+       "sub": "LV switchboards and cable trays",
+       "x": 1,
+       "y": 5
+      },
+      {
+       "id": "wp2",
+       "kind": "doc",
+       "label": "Work package",
+       "sub": "HVAC and smoke ventilation",
+       "x": 3,
+       "y": 5
+      },
+      {
+       "id": "pp",
+       "kind": "doc",
+       "label": "Planning package",
+       "sub": "Future work, budgeted, not yet detailed",
+       "x": 5,
+       "y": 5
+      }
+     ],
+     "links": [
+      {
+       "a": "wbs",
+       "b": "ca",
+       "label": "what"
+      },
+      {
+       "a": "obs",
+       "b": "ca",
+       "label": "who"
+      },
+      {
+       "a": "sch",
+       "b": "ca",
+       "label": "when"
+      },
+      {
+       "a": "ca",
+       "b": "cbs",
+       "label": "how much"
+      },
+      {
+       "a": "ca",
+       "b": "wp1"
+      },
+      {
+       "a": "ca",
+       "b": "wp2"
+      },
+      {
+       "a": "ca",
+       "b": "pp",
+       "style": "dashed"
+      }
+     ],
+     "caption": "A control account sits where one WBS element meets one responsible manager, with its own budget, schedule and actual cost; earned value is measured here. Work packages are planned in detail now, while planning packages hold budget for later work."
     },
     {
      "type": "table",
@@ -2284,14 +2969,24 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "The scope statement fixes the boundary: deliverables, battery limits, exclusions, assumptions, constraints, interfaces and acceptance.",
+      "A deliverable-oriented WBS obeys the 100% rule, with management, design, commissioning and offsite work included as deliverables.",
+      "The WBS dictionary removes doubt about what each element contains and how its completion is accepted.",
+      "Control accounts integrate scope, budget, schedule and actual cost under one manager; size them so that problems cannot hide."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
        "q": "Which statement best describes a battery limit?",
        "options": [
-        "A cap on the number of batteries installed in a UPS room",
+        "A cap on the number of batteries that may be installed in a UPS room",
         "The largest sum the PM may spend without approval",
-        "A defined boundary where one party's scope ends and another's begins",
+        "A defined boundary between one party's scope and another's",
         "A limit on working hours inside a live plant area"
        ],
        "answer": 2,
@@ -2311,7 +3006,7 @@ TRACK.modules.push({
       {
        "q": "Which top-level breakdown is most deliverable-oriented for a hospital block?",
        "options": [
-        "Civil, mechanical and electrical engineers, and architects",
+        "Civil engineers, mechanical engineers, electrical engineers and architects",
         "Labour, materials, plant, subcontracts and overheads",
         "January works, February works, March works",
         "Substructure, superstructure, envelope, MEP systems, fit-out"
@@ -2398,7 +3093,137 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "Design management is project management applied to design work. The design manager plans the deliverables, sequences the disciplines (process before piping, structural loads before foundations, equipment data before electrical sizing), chases vendor information and coordinates reviews. The core tool is the **deliverables register**: a list of every drawing, calculation, specification and model with its discipline, revision, planned and actual dates and status, such as issued for review, approved or issued for construction. It makes design progress measurable rather than a matter of opinion, and it shows when late vendor data or unanswered comments are blocking other disciplines downstream."
+     "text": "Design management is project management applied to design work. The design manager plans the deliverables, sequences the disciplines (process before piping, structural loads before foundations, equipment data before electrical sizing), chases vendor information and coordinates reviews. The core tool is the **deliverables register**: a list of every drawing, calculation, specification and model with its discipline, revision, planned and actual dates and status, such as issued for review, approved or issued for construction. It makes design progress measurable rather than a matter of opinion, and it shows when late vendor data or unanswered comments are blocking other disciplines downstream. On projects run to the ISO 19650 series, this register takes the form of master and task information delivery plans, and every drawing or model is an information container whose status is managed in a **common data environment** (CDE), as shown below."
+    },
+    {
+     "type": "topology",
+     "title": "Information states in a common data environment",
+     "nodes": [
+      {
+       "id": "str",
+       "kind": "team",
+       "label": "Structural team",
+       "sub": "Develops its own models",
+       "x": 0,
+       "y": 1
+      },
+      {
+       "id": "mep",
+       "kind": "team",
+       "label": "MEP team",
+       "sub": "Develops its own models",
+       "x": 0,
+       "y": 3
+      },
+      {
+       "id": "sh",
+       "kind": "storage",
+       "label": "Shared",
+       "sub": "Federated model, clash checks",
+       "x": 2,
+       "y": 2
+      },
+      {
+       "id": "ap",
+       "kind": "process",
+       "label": "Review/authorise",
+       "sub": "Lead designer, then owner accepts",
+       "x": 4,
+       "y": 2
+      },
+      {
+       "id": "pub",
+       "kind": "doc",
+       "label": "Published",
+       "sub": "Issued for construction",
+       "x": 6,
+       "y": 2
+      },
+      {
+       "id": "site",
+       "kind": "user",
+       "label": "Site team",
+       "sub": "Builds only from Published",
+       "x": 7,
+       "y": 0
+      },
+      {
+       "id": "arc",
+       "kind": "storage",
+       "label": "Archive",
+       "sub": "Superseded revisions kept",
+       "x": 7,
+       "y": 4
+      }
+     ],
+     "links": [
+      {
+       "a": "str",
+       "b": "sh",
+       "label": "share"
+      },
+      {
+       "a": "mep",
+       "b": "sh",
+       "label": "share"
+      },
+      {
+       "a": "sh",
+       "b": "ap",
+       "label": "submit"
+      },
+      {
+       "a": "ap",
+       "b": "pub",
+       "label": "authorised"
+      },
+      {
+       "a": "pub",
+       "b": "site",
+       "label": "use"
+      },
+      {
+       "a": "pub",
+       "b": "arc",
+       "label": "superseded",
+       "style": "dashed"
+      }
+     ],
+     "zones": [
+      {
+       "label": "Work in progress",
+       "x": 0,
+       "y": 0,
+       "w": 1,
+       "h": 4,
+       "tone": "neutral"
+      },
+      {
+       "label": "Shared",
+       "x": 2,
+       "y": 1,
+       "w": 1,
+       "h": 2,
+       "tone": "accent"
+      },
+      {
+       "label": "Published",
+       "x": 6,
+       "y": 1,
+       "w": 1,
+       "h": 2,
+       "tone": "good"
+      },
+      {
+       "label": "Archive",
+       "x": 7,
+       "y": 4,
+       "w": 1,
+       "h": 1,
+       "tone": "neutral"
+      }
+     ],
+     "caption": "Information moves through states instead of being emailed around: teams work privately, share for coordination, and only authorised containers are published. Superseded revisions are archived, never deleted, so the history of every change survives."
     },
     {
      "type": "keypoints",
@@ -2406,6 +3231,7 @@ TRACK.modules.push({
      "items": [
       "**Staged reviews** at defined maturity, often around 30%, 60% and 90% of detailed design, plus a final review before issue for construction",
       "**Interdisciplinary checks** so structural, mechanical, electrical and architectural documents agree, increasingly supported by clash detection in a federated 3D model (see Integrate)",
+      "**Automated checks**, such as rule-based or AI-assisted model checking and clash triage, speed reviews, but a competent engineer still verifies and signs off every finding",
       "**Operations and maintenance reviews** with the future operator walking through the 3D model",
       "**Constructability reviews** with contractors and temporary works engineers",
       "**Formal comment resolution**: every comment logged, answered and closed, with the reason recorded"
@@ -2493,7 +3319,13 @@ TRACK.modules.push({
      "type": "callout",
      "kind": "insight",
      "title": "Value engineering is not cost cutting",
-     "text": "**Value engineering** analyses the functions an element must perform and looks for ways to deliver them at lower whole-life cost without reducing performance, safety or quality. Replacing cast-in-situ crossheads with precast units to cut work at height, standardising pump sizes to reduce spares, or orienting a building to cut its cooling load are value engineering. Deleting a standby pump or thinning roof insulation to meet a budget is cost cutting with consequences. Value engineering pays best at concept and FEED, when change is cheap; late proposals during construction must be weighed against redesign, delay and approval costs."
+     "text": "**Value engineering** analyses the functions an element must perform and looks for ways to deliver them at lower whole-life cost without reducing performance, safety or quality. Replacing cast-in-situ crossheads with precast units to cut work at height, standardising pump sizes to reduce spares, or orienting a building to cut its cooling load are value engineering. Deleting a standby pump or thinning roof insulation to meet a budget is cost cutting with consequences. Value engineering pays best at concept and FEED, when change is cheap; late proposals during construction must be weighed against redesign, delay and approval costs. Switching to a lower-carbon concrete mix that meets the same strength and durability is value engineering too."
+    },
+    {
+     "type": "callout",
+     "kind": "pro",
+     "title": "Decide offsite, carbon and data needs early",
+     "text": "Precast elements, volumetric modules, prefabricated MEP risers and plant skids change grids, tolerances, crane and transport limits and the design programme, because factories need frozen information earlier than site trades. **Design for manufacture and assembly** (DfMA) decisions therefore belong at concept and FEED, together with a whole-life carbon assessment at each design stage. Likewise, if the owner wants an operational digital twin (concepts in ISO/IEC 30173:2023), define the asset data it needs during design, not at handover."
     },
     {
      "type": "case",
@@ -2511,6 +3343,46 @@ TRACK.modules.push({
      "kind": "warning",
      "title": "Design freeze must mean something",
      "text": "A **design freeze** is the point after which design changes are allowed only through formal change control with impact assessment. Freezes are usually staged, for example process design, then layouts, then detailed discipline design, and linked to procurement: equipment cannot be ordered until its data sheet is frozen, and foundations cannot be finalised until vendor loads are confirmed. A freeze that is announced but not enforced is worse than none, because procurement and construction proceed on documents that are still moving."
+    },
+    {
+     "type": "timeline",
+     "title": "Staged freezes on a typical process plant",
+     "items": [
+      {
+       "when": "Concept",
+       "label": "Technology and layout chosen"
+      },
+      {
+       "when": "FEED",
+       "label": "Process design frozen",
+       "text": "Flow diagrams and balances fixed; P&IDs ready for HAZOP"
+      },
+      {
+       "when": "End of FEED",
+       "label": "Plot plan and data sheets frozen",
+       "text": "Long-lead equipment can be ordered"
+      },
+      {
+       "when": "Detailed 30-60%",
+       "label": "Vendor data confirmed",
+       "text": "Certified loads fix foundations and piping"
+      },
+      {
+       "when": "Detailed 90%",
+       "label": "Discipline design frozen",
+       "text": "Later changes only through change control"
+      },
+      {
+       "when": "IFC",
+       "label": "Issued for construction"
+      },
+      {
+       "when": "Handover",
+       "label": "As-built records",
+       "text": "Documents and models match the installed asset"
+      }
+     ],
+     "caption": "Each freeze is tied to the work that depends on it: orders need frozen data sheets and foundations need certified vendor loads. After the last freeze, change is still possible, but only through change control."
     },
     {
      "type": "scenario",
@@ -2577,6 +3449,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Design matures from concept to FEED to detailed design; skimping on one stage moves uncertainty into the next, where it costs more.",
+      "A deliverables register or information delivery plan, with a common data environment, makes design progress and status visible.",
+      "Reviews, HAZOP, value engineering, DfMA and carbon decisions add most value before freeze; value engineering keeps functions.",
+      "Freezes are staged and tied to procurement; after a freeze, change goes through control rather than being forbidden."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -2594,7 +3476,7 @@ TRACK.modules.push({
        "q": "In a HAZOP, combining the guide word 'reverse' with the parameter 'flow' is used to:",
        "options": [
         "Calculate the pump's required suction head",
-        "Generate a credible deviation to analyse for causes and safeguards",
+        "Generate a credible deviation for the team to analyse",
         "Set the order of precedence between conflicting standards",
         "Rank options in a multi-criteria analysis"
        ],
@@ -2606,7 +3488,7 @@ TRACK.modules.push({
        "options": [
         "Deleting the standby fire pump to meet the budget",
         "Reducing roof insulation below the design basis",
-        "Standardising pump sizes to cut spares with no loss of function",
+        "Standardising pump sizes so fewer spares are needed",
         "Removing the second transformer from an N-1 substation"
        ],
        "answer": 2,
@@ -2616,7 +3498,7 @@ TRACK.modules.push({
        "q": "What does the deliverables register mainly allow the design manager to do?",
        "options": [
         "Measure design progress and spot blocked deliverables",
-        "Value variations submitted by the contractor",
+        "Value variations submitted by the contractor each month",
         "Assign safety responsibilities on site",
         "Calculate the discount rate for the business case"
        ],
@@ -2628,7 +3510,7 @@ TRACK.modules.push({
        "options": [
         "Because regulators require one freeze per discipline",
         "Because value engineering is banned after the first freeze",
-        "Because equipment orders and foundations depend on frozen data",
+        "Because orders and foundations depend on frozen data",
         "Because the steering committee meets only at freeze dates"
        ],
        "answer": 2,
@@ -2730,7 +3612,7 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "An **impact assessment** is the heart of change control. A request to move a switchgear room on a factory extension looks like an architectural change, yet it may affect cable lengths and voltage drop, fire separation, ventilation, structural openings, cable already on order and the commissioning sequence. A good assessment is done by every affected discipline, considers direct and indirect effects (including disruption to other work and safety during construction), estimates cost and time with a stated confidence and identifies any new risks. Speed matters too: a change that waits weeks for assessment while work continues on the old design creates rework whichever way the decision goes."
+     "text": "An **impact assessment** is the heart of change control. A request to move a switchgear room on a factory extension looks like an architectural change, yet it may affect cable lengths and voltage drop, fire separation, ventilation, structural openings, cable already on order and the commissioning sequence. A good assessment is done by every affected discipline, considers direct and indirect effects (including disruption to other work and safety during construction), estimates cost and time with a stated confidence and identifies any new risks. Speed matters too: a change that waits weeks for assessment while work continues on the old design creates rework whichever way the decision goes. Where the project manages a carbon budget, include the effect on whole-life carbon. In volatile markets, price changes at current rates and state how long each quotation remains valid."
     },
     {
      "type": "compare",
@@ -2760,10 +3642,79 @@ TRACK.modules.push({
         "A change to the work a contractor must perform under its contract",
         "Instructed through the contract's procedure by the authorised party",
         "Valued and paid under the contract's rules (developed in Procure)",
-        "Follows an approved change wherever a contract is affected"
+        "Follows an approved change wherever a contract is affected",
+        "Called a variation under FIDIC 2017 and, for most owner changes, a compensation event under NEC4"
        ]
       }
      ]
+    },
+    {
+     "type": "sequence",
+     "title": "From change request to contract instruction",
+     "actors": [
+      "Requester",
+      "Project manager",
+      "Design team",
+      "Contractor",
+      "Change board"
+     ],
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Change request (logged as CR-14)"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Assess design, safety, interfaces"
+      },
+      {
+       "from": 1,
+       "to": 3,
+       "label": "Request price and time proposal"
+      },
+      {
+       "from": 2,
+       "to": 1,
+       "label": "Technical impact and risks",
+       "reply": true
+      },
+      {
+       "from": 3,
+       "to": 1,
+       "label": "Proposal: cost and time",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 4,
+       "label": "Assessment and recommendation"
+      },
+      {
+       "from": 4,
+       "to": 1,
+       "label": "Approved with conditions",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 1,
+       "label": "Update baselines and change log"
+      },
+      {
+       "from": 1,
+       "to": 3,
+       "label": "Instruction under the contract"
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Decision communicated",
+       "reply": true
+      }
+     ],
+     "caption": "The board decides only once both the technical impact and the contractor's price and time are known. The contractor is instructed through the contract's own procedure after the decision, and the baselines are updated so records stay consistent."
     },
     {
      "type": "keypoints",
@@ -2781,7 +3732,7 @@ TRACK.modules.push({
      "type": "callout",
      "kind": "definition",
      "title": "Configuration management",
-     "text": "**Configuration management** keeps the description of the asset, including requirements, design documents, models, vendor data and the physical installation, consistent and under control as changes occur. It answers questions such as: which revision of this P&ID is current, which approved changes have been incorporated, and does the installed valve match the approved data sheet? It relies on unique identification of items, revision control, a change history linked to approved changes, and audits that compare documents with the built asset. Without it, as-built records drift away from reality, which becomes a safety problem during commissioning and maintenance."
+     "text": "**Configuration management** keeps the description of the asset, including requirements, design documents, models, vendor data and the physical installation, consistent and under control as changes occur. It answers questions such as: which revision of this P&ID is current, which approved changes have been incorporated, and does the installed valve match the approved data sheet? It relies on unique identification of items, revision control, a change history linked to approved changes, and audits that compare documents with the built asset. Without it, as-built records drift away from reality, which becomes a safety problem during commissioning and maintenance. Reality capture, such as laser scanning and drone surveys, now makes it practical to compare what was built with the model and the approved revisions, and an operational digital twin is only as trustworthy as this discipline."
     },
     {
      "type": "case",
@@ -2793,6 +3744,51 @@ TRACK.modules.push({
       "What should the project manager put in place now?"
      ],
      "answer": "Approving changes one by one below a site-level limit hid their cumulative effect: nobody reviewed the total impact on cost, time and building systems, and there is no sign of impact assessment by all affected disciplines. The isolation room conversion was never a minor change; it alters the HVAC concept, room pressure regimes, controls and infection-control requirements and should have gone to the change control board with a full design and cost assessment before any work began. The project manager should now pause further non-essential changes, consolidate approved and pending changes into one log showing cumulative cost and time, commission the HVAC design for the isolation rooms, and set tolerances that apply to cumulative as well as individual changes. A clinical user group with one authorised representative and agreed cut-off dates should channel future requests, and the forecast with options should go to the steering committee."
+    },
+    {
+     "type": "chart",
+     "kind": "line",
+     "title": "Small approvals, large total",
+     "labels": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "M6",
+      "M7",
+      "M8"
+     ],
+     "series": [
+      {
+       "name": "Cumulative approved changes",
+       "values": [
+        12,
+        30,
+        55,
+        85,
+        120,
+        160,
+        205,
+        250
+       ]
+      },
+      {
+       "name": "Cumulative change tolerance",
+       "values": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150,
+        150
+       ]
+      }
+     ],
+     "yLabel": "USD thousand",
+     "caption": "Illustrative figures for a case like the hospital block: every change was below the site engineer's limit, yet the total passes the cumulative tolerance in month 6. Only a cumulative review would have triggered escalation in time."
     },
     {
      "type": "scenario",
@@ -2859,13 +3855,23 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "The scope baseline (scope statement, WBS and WBS dictionary) makes every change a deliberate decision with known consequences.",
+      "Raise trend notices early and assess change requests across every affected discipline, including safety, interfaces and carbon.",
+      "Decide at the level set by decision rights, update the baselines and instruct contractors only through the contract's procedure.",
+      "Track cumulative change against a tolerance, and keep documents, models and the built asset consistent through configuration management."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
        "q": "Which set of documents makes up the scope baseline?",
        "options": [
         "The approved scope statement, WBS and WBS dictionary",
-        "The charter, business case and feasibility study",
+        "The charter, the business case and the feasibility study",
         "The contract, drawings and site instructions",
         "The risk register, issue log and lessons register"
        ],
@@ -2875,7 +3881,7 @@ TRACK.modules.push({
       {
        "q": "Many small changes, each below the approval limit, have together caused a large overrun. Which control would have helped most?",
        "options": [
-        "Giving the site engineer a higher approval limit",
+        "Giving the site engineer a higher individual approval limit",
         "Raising the steering committee's own tolerances",
         "Reviewing cumulative change impact against a tolerance",
         "Holding the kickoff meeting again with the contractor"
@@ -2897,10 +3903,10 @@ TRACK.modules.push({
       {
        "q": "Which question is primarily answered by configuration management?",
        "options": [
-        "Which contractor offered the lowest tender price?",
+        "Which contractor offered the lowest tender price for the works?",
         "What is the critical path of the project schedule?",
         "Who is accountable for each WBS element?",
-        "Does the installed equipment match the current approved revision?"
+        "Does the installed valve match the approved revision?"
        ],
        "answer": 3,
        "explain": "Configuration management keeps documents and the physical asset consistent. Tender prices, critical paths and accountability are handled by other processes."
@@ -2909,11 +3915,11 @@ TRACK.modules.push({
        "q": "Why should a change control board decide only on changes with a completed impact assessment?",
        "options": [
         "Because the board cannot meet more than once a month",
+        "Because unassessed decisions undermine the baseline",
         "Because contractors are paid only after the board meets",
-        "Because assessments transfer liability to the designer",
-        "Because decisions without known consequences undermine the baseline"
+        "Because assessments transfer liability to the designer"
        ],
-       "answer": 3,
+       "answer": 1,
        "explain": "The baseline's value is that every change is a deliberate decision with known effects. The other reasons are not why impact assessment is required."
       }
      ]
@@ -2956,6 +3962,73 @@ TRACK.modules.push({
      "kind": "definition",
      "title": "What makes a good activity",
      "text": "A good activity has a **verb-noun name** a foreman understands ('Pour pile cap PC-07', not 'Concrete'), a **single responsible party**, a start and finish that can be observed on site, and a duration short enough to be measured between updates. A practical rule for construction work is that most activities should last no longer than about two update periods. Each activity belongs to exactly one work package, so that time, cost and progress roll up cleanly to the control accounts used in Budget."
+    },
+    {
+     "type": "tree",
+     "title": "From work package to activities (illustrative)",
+     "root": {
+      "label": "1.2 Transformer bay T1",
+      "text": "Work packages from the WBS",
+      "children": [
+       {
+        "label": "1.2.1 Earthworks",
+        "children": [
+         {
+          "label": "Excavate foundation T1",
+          "text": "5 d"
+         },
+         {
+          "label": "Blind and set out T1",
+          "text": "1 d"
+         }
+        ]
+       },
+       {
+        "label": "1.2.2 Drainage and oil pit",
+        "children": [
+         {
+          "label": "Build oil containment pit",
+          "text": "6 d"
+         },
+         {
+          "label": "Lay drainage to soakaway",
+          "text": "3 d"
+         }
+        ]
+       },
+       {
+        "label": "1.2.3 Foundation T1",
+        "children": [
+         {
+          "label": "Fix rebar and formwork",
+          "text": "4 d"
+         },
+         {
+          "label": "Pour transformer foundation T1",
+          "text": "3 d"
+         },
+         {
+          "label": "Cure foundation T1",
+          "text": "7 d, continuous calendar"
+         }
+        ]
+       },
+       {
+        "label": "1.2.4 Transformer installation",
+        "children": [
+         {
+          "label": "Transformer T1 delivered",
+          "text": "Milestone, 0 d"
+         },
+         {
+          "label": "Set and dress transformer T1",
+          "text": "4 d"
+         }
+        ]
+       }
+      ]
+     },
+     "caption": "Each work package breaks into a few verb-noun activities that one crew can perform and report. Notice that curing runs on its own continuous calendar and the delivery is a zero-duration milestone linked into the logic."
     },
     {
      "type": "table",
@@ -3005,6 +4078,7 @@ TRACK.modules.push({
       "**Continuous seven-day calendars** for curing, ground consolidation, cooling, slip-forming and other processes that do not stop at weekends.",
       "**Holiday calendars** for national and religious holidays, such as Eid periods when much of the workforce travels home and productivity drops before and after.",
       "**Weather windows**: monsoon months that limit earthworks, piling platforms and roofing; wind limits for crane lifts and offshore installation.",
+      "**Heat and climate**: hot-season work-rest regimes and shifted working hours cut productive time; build them into calendars or productivity rates instead of hoping crews will catch up.",
       "**Shutdown and outage windows** for brownfield work, such as a boiler tie-in permitted only during a planned plant shutdown.",
       "**Resource calendars** for scarce plant, such as a heavy-lift crane available only between two other contracts."
      ]
@@ -3090,6 +4164,12 @@ TRACK.modules.push({
     {
      "type": "text",
      "text": "Durations should be calculated, not guessed. A hypothetical blockwork package of 1,800 m2 with two gangs, each laying 15 m2 per day, takes 1,800 / (2 x 15) = 60 working days on the site calendar. The same discipline applies to cable pulling in metres per day, pipe welding in inch-diameters per day or steel erection in tonnes per day. Writing the quantity and productivity next to each duration turns arguments about whether 60 days is 'too long' into a useful discussion about crew size, productivity and access. **Milestones**, by contrast, have zero duration: they mark events such as 'transformer delivered to site' or 'sectional completion of the station box' and are linked into the logic so that their dates move when the work driving them moves."
+    },
+    {
+     "type": "callout",
+     "kind": "pro",
+     "title": "Digital and offsite inputs to the network",
+     "text": "Three changes shape how networks are built today. **4D planning** links model elements to activities so the team can rehearse the sequence and spot clashes in space and time before they happen on site; under the ISO 19650 series the schedule and the model are shared as managed information containers in the common data environment (CDE), so everyone works from the current revision. **Offsite and modular construction** moves work into factories, so production slots, factory acceptance, transport and delivery windows become real activities and milestones. **AI-assisted tools** can propose activities, logic and durations from past schedules in minutes: treat the output as a first draft and have a planner check every link, duration basis and calendar before it is used for control. ISO 21502:2020, the international guidance on project management, treats this planning as part of integrated project control, not a drawing exercise."
     },
     {
      "type": "scenario",
@@ -3188,6 +4268,17 @@ TRACK.modules.push({
        "term": "Schedule level",
        "def": "The degree of detail in a schedule, from Level 1 (one-page milestone summary) to Level 5 (day-by-day crew tasks), with each level serving a different audience while staying consistent with the others."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Build the schedule as a logic-linked network of verb-noun activities, each tied to one work package and one responsible party.",
+      "Prefer FS links, pair SS with FF for overlapping work, and replace long or unexplained lags with real activities.",
+      "Calculate durations from quantities and crew output, and put weather, heat, holidays and outage windows into calendars.",
+      "Use hard constraints only for genuine external dates, with a written reason: logic, not typed dates, drives the programme.",
+      "Treat AI-generated or model-linked schedules as drafts until a planner has checked the logic, durations and calendars."
      ]
     },
     {
@@ -3459,6 +4550,144 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "topology",
+     "title": "The substation network as an activity-on-node diagram",
+     "nodes": [
+      {
+       "id": "A",
+       "kind": "process",
+       "label": "A Mobilise",
+       "sub": "3 d · ES 0 · EF 3 · TF 0",
+       "x": 0,
+       "y": 3
+      },
+      {
+       "id": "B",
+       "kind": "process",
+       "label": "B Excavate fdn",
+       "sub": "5 d · ES 3 · EF 8 · TF 0",
+       "x": 1.5,
+       "y": 1
+      },
+      {
+       "id": "C",
+       "kind": "process",
+       "label": "C Cable trench",
+       "sub": "4 d · ES 3 · EF 7 · TF 7",
+       "x": 1.5,
+       "y": 3
+      },
+      {
+       "id": "F",
+       "kind": "process",
+       "label": "F Control room",
+       "sub": "10 d · ES 3 · EF 13 · TF 8",
+       "x": 1.5,
+       "y": 5
+      },
+      {
+       "id": "D",
+       "kind": "process",
+       "label": "D Foundation",
+       "sub": "8 d · ES 8 · EF 16 · TF 0",
+       "x": 3,
+       "y": 1
+      },
+      {
+       "id": "E",
+       "kind": "process",
+       "label": "E Ducts",
+       "sub": "6 d · ES 7 · EF 13 · TF 7",
+       "x": 3,
+       "y": 3
+      },
+      {
+       "id": "I",
+       "kind": "process",
+       "label": "I C&P panels",
+       "sub": "6 d · ES 13 · EF 19 · TF 8",
+       "x": 4.5,
+       "y": 5
+      },
+      {
+       "id": "G",
+       "kind": "process",
+       "label": "G Transformer",
+       "sub": "4 d · ES 16 · EF 20 · TF 0",
+       "x": 4.5,
+       "y": 1
+      },
+      {
+       "id": "H",
+       "kind": "process",
+       "label": "H Pull cables",
+       "sub": "7 d · ES 20 · EF 27 · TF 0",
+       "x": 6,
+       "y": 3
+      },
+      {
+       "id": "J",
+       "kind": "process",
+       "label": "J Commission",
+       "sub": "5 d · ES 27 · EF 32 · TF 0",
+       "x": 7,
+       "y": 4.5
+      }
+     ],
+     "links": [
+      {
+       "a": "A",
+       "b": "B",
+       "style": "bold"
+      },
+      {
+       "a": "B",
+       "b": "D",
+       "style": "bold"
+      },
+      {
+       "a": "D",
+       "b": "G",
+       "style": "bold"
+      },
+      {
+       "a": "G",
+       "b": "H",
+       "style": "bold"
+      },
+      {
+       "a": "H",
+       "b": "J",
+       "style": "bold"
+      },
+      {
+       "a": "A",
+       "b": "C"
+      },
+      {
+       "a": "C",
+       "b": "E"
+      },
+      {
+       "a": "E",
+       "b": "H"
+      },
+      {
+       "a": "A",
+       "b": "F"
+      },
+      {
+       "a": "F",
+       "b": "I"
+      },
+      {
+       "a": "I",
+       "b": "J"
+      }
+     ],
+     "caption": "Logic runs left to right and every link is finish-to-start. Bold links trace the critical path A-B-D-G-H-J (32 days, zero float); H waits for both E and G, and J for both H and I."
+    },
+    {
      "type": "callout",
      "kind": "example",
      "title": "Reading the result",
@@ -3567,6 +4796,17 @@ TRACK.modules.push({
        "term": "Negative float",
        "def": "Float below zero, which appears when an imposed completion or milestone date is earlier than the date the network can achieve. It shows how much time must be recovered."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Forward pass: ES is the largest predecessor EF at a merge. Backward pass: LF is the smallest successor LS at a burst.",
+      "Total float (LS - ES) is shared along a path; free float (earliest successor ES - EF) belongs to the activity alone.",
+      "The critical path is the longest path with the lowest float; report near-critical paths and watch float erosion between updates.",
+      "Negative float means the logic cannot meet an imposed date: recover the time or report the impact.",
+      "Agree who owns float under the contract before the first delay, not after it."
      ]
     },
     {
@@ -3769,6 +5009,41 @@ TRACK.modules.push({
      "text": "Path mean Te = 56 days and path standard deviation = 5 days (the square root of the summed variance of 25; adding the four sigmas instead would wrongly give 9). For a target of 60 days, z = (60 - 56) / 5 = 0.8 and the standard normal table gives about 0.79, roughly a **79%** chance. For 52 days, z = -0.8 and the chance is about 21%. A plan built on the most likely values, 51 days, has z = (51 - 56) / 5 = -1.0, only about a **16%** chance. To be about 95% confident, T = 56 + 1.645 x 5 = 64.2 days, so the team would commit to 65 working days."
     },
     {
+     "type": "chart",
+     "kind": "line",
+     "title": "Confidence of finishing the viaduct segment by day T",
+     "labels": [
+      "Day 51",
+      "Day 52",
+      "Day 54",
+      "Day 56",
+      "Day 58",
+      "Day 60",
+      "Day 62",
+      "Day 64",
+      "Day 66"
+     ],
+     "series": [
+      {
+       "name": "Probability of finishing by T",
+       "values": [
+        16,
+        21,
+        34,
+        50,
+        66,
+        79,
+        88,
+        95,
+        98
+       ]
+      }
+     ],
+     "unit": "%",
+     "yLabel": "Probability",
+     "caption": "Normal approximation for the hypothetical worked example (Te = 56, sigma = 5 days). The most likely plan of 51 days has only about a 16% chance, and moving from about 80% to 95% confidence costs another four days."
+    },
+    {
      "type": "table",
      "title": "Useful standard normal values",
      "head": [
@@ -3840,10 +5115,49 @@ TRACK.modules.push({
      "text": "PERT's biggest weakness is that it looks only at the critical path. Where two or more paths merge, the successor can start only when **all** of them have finished, so for independent paths the probability of an on-time start is the product of the individual probabilities. If two independent paths each have a 50% chance of finishing by day 40, the chance that both are done by day 40 is 0.5 x 0.5 = 25%; with three such paths it falls to 12.5%. This is **merge bias**: projects with many near-critical paths finish later than a critical-path PERT calculation suggests. A Monte Carlo schedule risk analysis, covered in Protect, captures the effect by simulating every path together."
     },
     {
+     "type": "chart",
+     "kind": "bar",
+     "title": "Merge bias: chance that every parallel path is finished on time",
+     "labels": [
+      "1 path",
+      "2 paths",
+      "3 paths",
+      "4 paths"
+     ],
+     "series": [
+      {
+       "name": "Each path 50% likely",
+       "values": [
+        50,
+        25,
+        12.5,
+        6.25
+       ]
+      },
+      {
+       "name": "Each path 80% likely",
+       "values": [
+        80,
+        64,
+        51.2,
+        41
+       ]
+      }
+     ],
+     "unit": "%",
+     "caption": "Illustrative, assuming independent paths: the joint chance is the product of the individual chances. Even paths that are each 80% likely give only about a 41% chance when four of them feed one milestone."
+    },
+    {
      "type": "callout",
      "kind": "warning",
      "title": "Limitations of PERT",
      "text": "PERT assumes activity durations are independent, but monsoon rain, a late design package or a shared crane affects many activities at once, so real variance is larger than PERT shows. It assumes the critical path stays critical, ignores merge bias, and relies on a normal approximation that is shaky when a path has only a handful of activities. Its answers are also only as good as the O and P values people are willing to state. Treat PERT probabilities as a disciplined estimate for discussion, not a guarantee."
+    },
+    {
+     "type": "callout",
+     "kind": "insight",
+     "title": "Beyond hand PERT",
+     "text": "On major projects the hand calculation is a sense check for a **Monte Carlo schedule risk analysis** of the whole network, which models every path, correlation between activities and discrete risk events together. Owners and lenders commonly ask for P50 and P80 (sometimes P90) dates, so always state which confidence level a committed date represents. Some tools now suggest duration ranges from historical project data: use them as a reference class, adjust them for this site's ground, method and supply chain, and keep a named planner accountable for the inputs. Ranges for long-lead equipment such as power transformers and switchgear should reflect current supplier lead times, which have been volatile in recent years, not figures copied from an old programme."
     },
     {
      "type": "case",
@@ -3918,6 +5232,16 @@ TRACK.modules.push({
        "term": "Merge bias",
        "def": "The tendency for a milestone fed by several parallel paths to finish later than any single path suggests, because every incoming path must finish before the milestone is reached."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "PERT mean = (O + 4M + P) / 6 and sigma = (P - O) / 6; add variances, not standard deviations, along a path.",
+      "z = (T - Te) / sigma_path turns a target date into a probability; commit to a stated confidence such as P80 or P90.",
+      "A plan built on most likely durations is usually optimistic when risks are skewed to the right.",
+      "Merge bias and correlated risks make the real chance lower than a single-path PERT result; use a Monte Carlo analysis for commitments that matter."
      ]
     },
     {
@@ -4091,6 +5415,54 @@ TRACK.modules.push({
      "text": "On early starts the site would need 3 cranes on days 1-2, 2 on day 3 and 1 on day 4, then none. Moving Q by 4 days and R by 7 days, both within their float, gives exactly 1 crane every day from day 1 to day 9 and leaves completion unchanged: that is **smoothing**, and it has used most of the float. Now suppose R had only 4 days of total float. Delaying R by 7 days would then push completion back by 3 days. Re-sequencing helps: lift R on days 5-6 (using all 4 of its float) and install Q on days 7-9 (6 days late against 5 days of float), and completion slips by only 1 day. Accepting a later finish because the crane limit is fixed is **levelling**, and choosing the best sequence is a planning judgement, not something to leave to a software rule."
     },
     {
+     "type": "chart",
+     "kind": "bar",
+     "title": "Tower crane demand before and after smoothing",
+     "labels": [
+      "Day 1",
+      "Day 2",
+      "Day 3",
+      "Day 4",
+      "Day 5",
+      "Day 6",
+      "Day 7",
+      "Day 8",
+      "Day 9"
+     ],
+     "series": [
+      {
+       "name": "Early-start schedule",
+       "values": [
+        3,
+        3,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+       ]
+      },
+      {
+       "name": "Smoothed schedule",
+       "values": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+       ]
+      }
+     ],
+     "yLabel": "Cranes needed",
+     "caption": "From the hypothetical worked example: early starts need three cranes on days 1-2 against one available. Moving Q and R within their float holds demand at one crane every day without moving completion."
+    },
+    {
      "type": "compare",
      "title": "Resource levelling vs resource smoothing",
      "columns": [
@@ -4121,6 +5493,44 @@ TRACK.modules.push({
      "kind": "insight",
      "title": "What levelling does to the critical path",
      "text": "After levelling, an activity can become critical not because of logic but because it is waiting for a resource. Scheduling software may represent this with resource-driven links that do not appear in the logic diagram, so the critical path can look broken. Make the reason visible: either add a documented resource relationship or report a **resource-constrained critical path** that names the crane, crew or outage window driving it. Remember that smoothing consumes float: the plan becomes more efficient but also more fragile."
+    },
+    {
+     "type": "matrix",
+     "title": "Choosing a response to a resource clash",
+     "x": "Float on the clashing work",
+     "y": "Ability to add more of the resource",
+     "quadrants": [
+      {
+       "title": "Add resource or crash",
+       "items": [
+        "Second crane or crew if cheaper than the delay",
+        "Check work-face space and supervision first"
+       ]
+      },
+      {
+       "title": "Smooth first, add only if cheap",
+       "items": [
+        "Move work within its float",
+        "Add resource only if the float is needed for risk"
+       ]
+      },
+      {
+       "title": "Level and re-sequence",
+       "items": [
+        "Accept a resource-driven date or change the method",
+        "Night lifts, offsite assembly or a new sequence",
+        "Report the resource-constrained critical path"
+       ]
+      },
+      {
+       "title": "Smooth within float",
+       "items": [
+        "Delay non-critical work to fit the limit",
+        "Record the float consumed"
+       ]
+      }
+     ],
+     "caption": "Ask two questions: how much float does the clashing work have, and can the resource really be increased? Clashes in the right-hand column are usually solved by smoothing; the bottom-left quadrant is true levelling."
     },
     {
      "type": "flow",
@@ -4157,6 +5567,12 @@ TRACK.modules.push({
      "kind": "pro",
      "title": "Planning around the crane",
      "text": "On congested sites the tower crane is often the real critical resource. Plan by **hook time**: list every lift by zone and day, give priority to lifts that release other trades (formwork panels, reinforcement cages, steel members), move small-item handling to hoists, telehandlers or permitted night shifts, and keep heavy-lift days clear of competing work. Wind-speed limits, lift plans and exclusion zones, developed in Protect, belong in the same plan as the crane schedule."
+    },
+    {
+     "type": "callout",
+     "kind": "insight",
+     "title": "Offsite work, heat and crowded work fronts",
+     "text": "**Modern methods of construction** such as precast frames, volumetric modules and pre-assembled pipe racks move labour off site. The site labour histogram flattens, but demand concentrates on crane hook time, delivery slots and laydown space, and factory capacity and transport become resources to plan. **Heat stress** in the hot season brings work-rest regimes and earlier shifts that cut productive hours, so histograms based on cool-season output overstate capacity. Limiting trade density at a work face is a **safety control** as well as a productivity measure, and leaders who set and enforce those limits prevent the congestion behind many incidents. Optimisation and AI-assisted levelling tools can test many sequences quickly, but their priority rules still need a planner's review."
     },
     {
      "type": "template",
@@ -4255,6 +5671,16 @@ TRACK.modules.push({
        "term": "Resource-constrained critical path",
        "def": "The sequence of activities that drives completion once resource limits are applied, including links created by waiting for a scarce resource rather than by logic alone."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "A logic network assumes unlimited resources: load the scarce ones, such as cranes, specialist crews and work-face space, and compare demand with availability.",
+      "Smoothing keeps the end date and consumes float; levelling respects a fixed limit and may move the end date.",
+      "Choose the sequence deliberately and review it, because software priority rules can make poor choices.",
+      "After levelling, report the resource-constrained critical path and name the resource that drives it."
      ]
     },
     {
@@ -4453,6 +5879,56 @@ TRACK.modules.push({
      "text": "Duration falls from 32 to 27 days. Direct cost rises by 24k (8 + 10 + 6) while indirect cost falls by 35k (5 days x 7k), a net saving of 11k. If the contract also imposed delay damages of 10k per day for every day beyond day 25, each day saved down to day 25 would be worth 17k, so crashing G (12k) and then J (15k) would also pay and the economical finish would become 25 days. The method is the same; only the daily saving changes. In practice, check that crashed durations are achievable: a second cable crew needs drums, termination kits, supervision and work-face space."
     },
     {
+     "type": "chart",
+     "kind": "line",
+     "title": "Crashing the substation: change in cost against the 32-day plan",
+     "labels": [
+      "32 days",
+      "30 days",
+      "28 days",
+      "27 days",
+      "26 days",
+      "25 days"
+     ],
+     "series": [
+      {
+       "name": "Extra direct cost",
+       "values": [
+        0,
+        8,
+        18,
+        24,
+        36,
+        51
+       ]
+      },
+      {
+       "name": "Indirect cost saved",
+       "values": [
+        0,
+        -14,
+        -28,
+        -35,
+        -42,
+        -49
+       ]
+      },
+      {
+       "name": "Net change",
+       "values": [
+        0,
+        -6,
+        -10,
+        -11,
+        -6,
+        2
+       ]
+      }
+     ],
+     "unit": "k",
+     "caption": "Illustrative figures from the worked example with no delay damages. The net change is lowest at 27 days (11k saved); crashing G and then J beyond that adds more direct cost than the indirect cost it saves."
+    },
+    {
      "type": "compare",
      "title": "Crashing vs fast-tracking",
      "columns": [
@@ -4480,7 +5956,7 @@ TRACK.modules.push({
     },
     {
      "type": "text",
-     "text": "A schedule is useful only if it is updated on a fixed cycle, usually weekly on site and monthly for formal reporting. At each update the planner sets a new **data date**, records actual start and finish dates, enters a realistic **remaining duration** (not just a percent complete) for each activity in progress, and recalculates. Out-of-sequence progress, where work has started before its predecessors finished, must be handled deliberately: **retained logic** keeps the remaining work waiting for the predecessor, while **progress override** lets it continue as if the link no longer applied. Retained logic is usually the more honest choice. The update is compared with the **schedule baseline** to report variances and forecast completion; the baseline itself changes only through formal change control, as set out in Define."
+     "text": "A schedule is useful only if it is updated on a fixed cycle, usually weekly on site and monthly for formal reporting. At each update the planner sets a new **data date**, records actual start and finish dates, enters a realistic **remaining duration** (not just a percent complete) for each activity in progress, and recalculates. Out-of-sequence progress, where work has started before its predecessors finished, must be handled deliberately: **retained logic** keeps the remaining work waiting for the predecessor, while **progress override** lets it continue as if the link no longer applied. Retained logic is usually the more honest choice. The update is compared with the **schedule baseline** to report variances and forecast completion; the baseline itself changes only through formal change control, as set out in Define. Progress evidence increasingly comes from **reality capture**: drone surveys, laser scans and 360-degree photos compared with the model show what is actually installed. Automated or AI-assisted progress recognition speeds this up, but site engineers must verify it before it becomes an actual date in the schedule. Modern contract forms such as FIDIC 2017 and NEC4 set out what a programme must contain and when revised programmes are due, so check what your contract requires at each update."
     },
     {
      "type": "keypoints",
@@ -4492,6 +5968,42 @@ TRACK.modules.push({
       "Measure **percent plan complete (PPC)** every week and record why tasks were missed; fix the recurring causes rather than blaming crews.",
       "Feed actual progress and newly discovered constraints back into the master schedule so the critical path stays realistic."
      ]
+    },
+    {
+     "type": "cycle",
+     "title": "The weekly planning loop",
+     "center": "Reliable weekly promises",
+     "items": [
+      {
+       "label": "Master schedule",
+       "text": "Level 3 milestones and the critical path set the targets"
+      },
+      {
+       "label": "Look-ahead",
+       "text": "The next 4-6 weeks broken into crew tasks with the foremen"
+      },
+      {
+       "label": "Make ready",
+       "text": "Constraints listed, owned and cleared by a date"
+      },
+      {
+       "label": "Weekly plan",
+       "text": "Crews commit only to tasks whose constraints are cleared"
+      },
+      {
+       "label": "Daily huddle",
+       "text": "Short coordination at the work face; early warnings raised"
+      },
+      {
+       "label": "Measure PPC",
+       "text": "Tasks done as planned divided by tasks planned; reasons logged"
+      },
+      {
+       "label": "Learn and fix",
+       "text": "Remove recurring causes and feed progress back to the schedule"
+      }
+     ],
+     "caption": "The loop turns once a week. Notice that work enters the weekly plan only after make-ready, and that what is learned flows back to the master schedule so the critical path stays realistic."
     },
     {
      "type": "checklist",
@@ -4506,6 +6018,7 @@ TRACK.modules.push({
       "No actual dates after the data date and no forecast dates before it.",
       "A critical path test works: adding delay to a critical activity delays the finish by the same amount.",
       "Key resources are loaded and peaks have been checked against availability.",
+      "Progress in the update is backed by verified evidence, and any logic or durations suggested by automated tools have been reviewed by a planner.",
       "Any negative float is reported with a recovery plan and an owner."
      ]
     },
@@ -4616,6 +6129,16 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Crash the cheapest critical activity first, re-check every path, and stop when the cost slope exceeds the daily saving.",
+      "Fast-tracking buys time with rework risk: test design maturity and open RFIs before overlapping work.",
+      "Update against a data date with actual dates and realistic remaining durations backed by verified progress evidence.",
+      "Run a 4-6 week look-ahead with make-ready, commit only constraint-free work, and use PPC to improve reliability."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -4710,49 +6233,49 @@ TRACK.modules.push({
     },
     {
      "type": "table",
-     "title": "Estimate classes by design maturity (indicative)",
+     "title": "Estimate classes by design maturity (AACE-style ranges for process plant; indicative)",
      "head": [
       "Class",
       "Design maturity",
       "Typical purpose",
       "Typical methods",
-      "Indicative accuracy range"
+      "Indicative accuracy range (low / high)"
      ],
      "rows": [
       [
        "Class 5: screening",
-       "Concept only: capacity, location, broad scope",
+       "Concept only: capacity, location, broad scope (about 0-2% of full definition)",
        "Screening options, strategic planning",
        "Analogous, capacity scaling",
-       "Widest: the outturn could plausibly be from about half to about double the figure"
+       "Low -20% to -50%; high +30% to +100%"
       ],
       [
        "Class 4: feasibility",
-       "Early design: main equipment list, block layouts",
+       "Early design: main equipment list, block layouts (about 1-15% of full definition)",
        "Feasibility study, option selection",
        "Parametric, equipment-factored",
-       "Wide: roughly -30% to +50%"
+       "Low -15% to -30%; high +20% to +50%"
       ],
       [
        "Class 3: budget authorisation",
-       "Basic design or FEED largely complete",
+       "Basic design or FEED largely complete (about 10-40% of full definition)",
        "Funding decision, budget approval",
        "Unit costs for major items, factors for the rest",
-       "Moderate: roughly -20% to +30%"
+       "Low -10% to -20%; high +10% to +30%"
       ],
       [
        "Class 2: control",
-       "Detailed design substantially advanced",
+       "Detailed design substantially advanced (about 30-75% of full definition)",
        "Cost baseline, checking bids",
        "Detailed quantities and unit rates",
-       "Narrower: roughly -15% to +20%"
+       "Low -5% to -15%; high +5% to +20%"
       ],
       [
        "Class 1: definitive",
-       "Design complete, quantities measured, prices quoted",
+       "Design complete, quantities measured, prices quoted (about 65-100% of full definition)",
        "Check estimate, tender pricing",
        "Full bottom-up with firm quotations",
-       "Narrowest: roughly -10% to +15%"
+       "Low -3% to -10%; high +3% to +15%"
       ]
      ]
     },
@@ -4760,7 +6283,43 @@ TRACK.modules.push({
      "type": "callout",
      "kind": "insight",
      "title": "Ranges are skewed, and that is deliberate",
-     "text": "Notice that the high side of each range is wider than the low side. Engineering estimates are far more likely to grow than to shrink, because scope gaps, ground conditions and market prices tend to surprise upwards. Recommended-practice bodies such as AACE International publish classification schemes along these lines, and organisations calibrate the ranges to their own technology and history. The ranges above are indicative only: a first-of-a-kind process plant will sit at the wide end, a repeat warehouse at the narrow end."
+     "text": "Notice that the high side of each range is wider than the low side. Engineering estimates are far more likely to grow than to shrink, because scope gaps, ground conditions and market prices tend to surprise upwards. The pattern follows AACE International's recommended practice for the process industries; AACE publishes companion practices for other sectors, such as building and general construction, and organisations calibrate the ranges to their own technology, complexity and data. Each bound is itself a range: a first-of-a-kind process plant sits at the wide end, a repeat warehouse at the narrow end. The class describes how mature the definition is, not how much effort went into the estimate."
+    },
+    {
+     "type": "chart",
+     "kind": "bar",
+     "title": "The accuracy funnel: widest typical range by class",
+     "labels": [
+      "Class 5",
+      "Class 4",
+      "Class 3",
+      "Class 2",
+      "Class 1"
+     ],
+     "series": [
+      {
+       "name": "Low end",
+       "values": [
+        -50,
+        -30,
+        -20,
+        -15,
+        -10
+       ]
+      },
+      {
+       "name": "High end",
+       "values": [
+        100,
+        50,
+        30,
+        20,
+        15
+       ]
+      }
+     ],
+     "unit": "%",
+     "caption": "Indicative, using the widest bounds in the table. The range narrows as the design matures, and the high side always stays wider than the low side."
     },
     {
      "type": "framework",
@@ -4897,9 +6456,85 @@ TRACK.modules.push({
     },
     {
      "type": "callout",
+     "kind": "pro",
+     "title": "Estimating with models, machines and volatile markets",
+     "text": "**Model-based quantities** (often called 5D) let estimators take quantities straight from a BIM model, but check them against the agreed method of measurement and the model's maturity: a concept-stage model omits much of what a BOQ must price. **AI-assisted estimating tools** can suggest rates and benchmarks from past projects in seconds; use them to challenge the estimate, and have an estimator verify the basis, date and location of every rate before it is relied on. **Supply-chain volatility** means long-lead items such as transformers, switchgear and structural steel need current quotations with stated validity, escalation by cost-specific indices and, where the contract allows, price-adjustment provisions (FIDIC 2017 and NEC4 both offer optional mechanisms). The same quantities also drive a first **embodied-carbon** estimate for the product and construction stages (A1-A5), so options can be compared on cost and carbon together."
+    },
+    {
+     "type": "callout",
      "kind": "warning",
      "title": "Escalation, currency and contingency are different things",
      "text": "Escalation covers expected price movement over time. Currency allowances cover exchange-rate exposure on imported items such as transformers, turbines, switchgear or dyeing machines. Contingency covers uncertainty in scope definition and estimating. Rolling them into a single 'add 15%' hides the reasoning and makes later control impossible. Show each separately, state the base date, the exchange rate and its source, and keep imported and local content apart."
+    },
+    {
+     "type": "tree",
+     "title": "Structure of a project estimate",
+     "root": {
+      "label": "Total estimate",
+      "text": "Owner's view, by cost type",
+      "children": [
+       {
+        "label": "Direct field costs",
+        "children": [
+         {
+          "label": "Equipment"
+         },
+         {
+          "label": "Bulk materials"
+         },
+         {
+          "label": "Labour and plant"
+         },
+         {
+          "label": "Subcontracts"
+         }
+        ]
+       },
+       {
+        "label": "Indirect costs",
+        "children": [
+         {
+          "label": "Site overheads and temporary works"
+         },
+         {
+          "label": "Engineering and project management"
+         },
+         {
+          "label": "Commissioning and spares"
+         }
+        ]
+       },
+       {
+        "label": "Owner's costs",
+        "children": [
+         {
+          "label": "Land, permits and utility connections"
+         },
+         {
+          "label": "Owner's team and advisers"
+         }
+        ]
+       },
+       {
+        "label": "Allowances",
+        "children": [
+         {
+          "label": "Escalation",
+          "text": "Expected price movement to mid-point of spend"
+         },
+         {
+          "label": "Currency",
+          "text": "Exchange-rate exposure on imported content"
+         },
+         {
+          "label": "Contingency",
+          "text": "Scope definition and estimating uncertainty"
+         }
+        ]
+       }
+      ]
+     },
+     "caption": "Escalation, currency and contingency sit as separate, visible allowances rather than being buried in rates. Management reserve, held by the sponsor, sits above this estimate, as the next lesson shows."
     },
     {
      "type": "scenario",
@@ -5001,6 +6636,17 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Match the estimating method to the maturity of design, and always state the estimate class and its range.",
+      "Ranges are skewed upwards: early estimates are far more likely to grow than to shrink.",
+      "Show escalation, currency and contingency as separate allowances, with the base date, exchange rate and sources.",
+      "Model quantities and AI-suggested rates speed estimating, but a named estimator verifies them against the method of measurement.",
+      "Write a basis of estimate so that every major figure traces to a quantity, a rate and a date."
+     ]
+    },
+    {
      "type": "quiz",
      "items": [
       {
@@ -5078,52 +6724,39 @@ TRACK.modules.push({
      "text": "An approved estimate is not yet a budget that can be controlled. The **cost baseline** is the estimate broken down into control accounts and work packages, spread over time according to the schedule, and approved as the reference against which performance will be measured. It contains the planned cost of the work plus **contingency reserve** for identified risks; **management reserve** for the unforeseen sits above it under the sponsor's control. Because the baseline is time-phased, it also tells the finance team when money will be needed, which for a lender-funded power plant or a factory expansion paid from operating cash can matter as much as the total."
     },
     {
-     "type": "layers",
-     "title": "From activity estimates to project budget (top first)",
-     "items": [
-      {
-       "label": "Project budget",
-       "parts": [
-        "Cost baseline + management reserve",
-        "Approved by the sponsor or investment committee"
-       ]
-      },
-      {
-       "label": "Management reserve",
-       "parts": [
-        "For unforeseen work within the project's mandate",
-        "Released by the sponsor through change control; outside the baseline"
-       ]
-      },
-      {
-       "label": "Cost baseline",
-       "parts": [
-        "Control account budgets + contingency reserve",
-        "Time-phased; the reference for earned value"
-       ]
-      },
-      {
-       "label": "Contingency reserve",
-       "parts": [
-        "For identified risks and estimating uncertainty",
-        "Drawn down by the project manager under agreed rules"
-       ]
-      },
-      {
-       "label": "Control accounts and work packages",
-       "parts": [
-        "Civil, mechanical, electrical, engineering, project management",
-        "Built from activity estimates and the CBS"
-       ]
-      },
-      {
-       "label": "Activity cost estimates",
-       "parts": [
-        "Labour, plant, materials, subcontracts",
-        "Priced from quantities, rates and quotations"
-       ]
-      }
-     ]
+     "type": "tree",
+     "title": "From activity estimates to project budget",
+     "root": {
+      "label": "Project budget",
+      "text": "Approved by the sponsor or investment committee",
+      "children": [
+       {
+        "label": "Management reserve",
+        "text": "Unforeseen work within the mandate; released by the sponsor through change control"
+       },
+       {
+        "label": "Cost baseline",
+        "text": "Time-phased reference for earned value",
+        "children": [
+         {
+          "label": "Contingency reserve",
+          "text": "Identified risks and estimating uncertainty; drawn down by the PM under agreed rules"
+         },
+         {
+          "label": "Control account budgets",
+          "text": "Civil, mechanical, E&I, engineering and PM",
+          "children": [
+           {
+            "label": "Work packages",
+            "text": "Built from activity estimates: labour, plant, materials, subcontracts"
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     "caption": "Contingency sits inside the cost baseline and is drawn down by the project manager; management reserve sits outside it with the sponsor and enters the baseline only through change control."
     },
     {
      "type": "compare",
@@ -5234,6 +6867,57 @@ TRACK.modules.push({
      "text": "In month 5 the contractor's work for the month, valued at BDT 6.0 million, is certified. The contract withholds 5% retention and recovers a 10% advance payment by deducting 10% from each interim certificate. Net payment = 6.0 - 0.30 (retention) - 0.60 (advance recovery) = **5.10**, paid within the period stated in the contract, for example 28 days after certification. Under many contracts half the retention is released at taking-over and the rest at the end of the defects period, so the owner's cash curve lags its cost curve and has a tail after completion."
     },
     {
+     "type": "chart",
+     "kind": "line",
+     "title": "Cost curve and cash curve for the ETP",
+     "labels": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "M6",
+      "M7",
+      "M8",
+      "M9",
+      "M10"
+     ],
+     "series": [
+      {
+       "name": "Cumulative planned value",
+       "values": [
+        2.0,
+        5.0,
+        9.0,
+        14.0,
+        20.0,
+        26.0,
+        31.0,
+        35.0,
+        38.0,
+        40.0
+       ]
+      },
+      {
+       "name": "Cumulative cash paid",
+       "values": [
+        0,
+        1.9,
+        4.75,
+        8.55,
+        13.3,
+        19.0,
+        24.7,
+        29.45,
+        33.25,
+        36.1
+       ]
+      }
+     ],
+     "yLabel": "BDT million",
+     "caption": "Illustrative: each month's work is paid one month later with 5% retention held back and no advance payment. By month 10 the owner has paid 36.1 of 40.0; the last month's work and the retention follow after completion."
+    },
+    {
      "type": "keypoints",
      "title": "Retention, advances and commitments",
      "items": [
@@ -5241,7 +6925,9 @@ TRACK.modules.push({
       "**Advance payments** help contractors mobilise and order long-lead equipment. They are usually secured by an advance payment guarantee and recovered by deductions from interim certificates.",
       "**Commitments** are orders and subcontracts placed but not yet invoiced. They matter because they usually cannot be cancelled cheaply; tracking them is covered in the final lesson of this module.",
       "Milestone payments for major equipment such as transformers, turbines and boilers can be large and early: put them in the cash-flow forecast at their contractual dates.",
-      "Foreign-currency payments need treasury planning, such as letters of credit or forward cover, and the timing of those payments belongs in the cash-flow forecast."
+      "Foreign-currency payments need treasury planning, such as letters of credit or forward cover, and the timing of those payments belongs in the cash-flow forecast.",
+      "**Price adjustment**: where the contract links payments to published cost indices, certificate values move with inflation, so forecast the adjustment in the cash flow instead of discovering it in each certificate.",
+      "**Target-cost, cost-reimbursable and alliance** contracts pay actual cost through open-book accounts, so the owner's cash curve follows the contractor's real spend and any pain/gain share must be forecast too."
      ]
     },
     {
@@ -5273,6 +6959,12 @@ TRACK.modules.push({
        "text": "Obtain formal approval. From then on, changes to the baseline go through change control and are logged."
       }
      ]
+    },
+    {
+     "type": "callout",
+     "kind": "insight",
+     "title": "A carbon baseline beside the cost baseline",
+     "text": "Many owners now set a **carbon budget** alongside the cost budget. PAS 2080:2023 sets out carbon management for buildings and infrastructure across the value chain, and whole-life carbon is reported by life-cycle stage following EN 15978: A1-A5 product and construction, B use, C end of life and D beyond the system boundary. In practice the estimator uses the same quantities to calculate embodied carbon for A1-A5, the baseline records cost and carbon for each control account, and every change is assessed for both. State the carbon factors and their source and version, just as you state a price base date. Where an owner reports under IFRS S1/S2 or a similar framework, project carbon data may feed corporate disclosures, so keep it auditable."
     },
     {
      "type": "callout",
@@ -5342,6 +7034,17 @@ TRACK.modules.push({
        "term": "Advance payment",
        "def": "A payment made to the contractor early in the contract to fund mobilisation or long-lead purchases, usually secured by a guarantee and recovered through deductions from later certificates."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "The cost baseline is the time-phased estimate by control account plus contingency; management reserve sits outside it with the sponsor.",
+      "Contingency funds identified risks under agreed drawdown rules; unforeseen work needs change control and management reserve.",
+      "Cost is not cash: certification, payment periods, retention and advance recovery make the cash curve lag the cost curve.",
+      "Test contractor activity values for front-loading and keep allowances visible, not buried in rates.",
+      "Where a carbon budget is set, baseline it and control changes to it alongside cost."
      ]
     },
     {
@@ -5543,46 +7246,91 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "chart",
+     "kind": "bar",
+     "title": "PV, EV and AC by control account at month 5",
+     "labels": [
+      "Civil",
+      "Mechanical",
+      "E&I",
+      "Eng & PM"
+     ],
+     "series": [
+      {
+       "name": "PV",
+       "values": [
+        8.0,
+        6.0,
+        3.0,
+        3.0
+       ]
+      },
+      {
+       "name": "EV",
+       "values": [
+        7.5,
+        5.0,
+        3.0,
+        2.5
+       ]
+      },
+      {
+       "name": "AC",
+       "values": [
+        9.0,
+        6.0,
+        4.5,
+        3.0
+       ]
+      }
+     ],
+     "yLabel": "BDT million",
+     "caption": "Illustrative figures from the table. E&I is on schedule (EV equals PV) yet has the worst cost efficiency, while civil works carries the largest absolute overspend."
+    },
+    {
      "type": "callout",
      "kind": "example",
      "title": "Project-level results",
      "text": "CV = 18.0 - 22.5 = **-4.5**: the work done so far has cost 4.5 more than its budget. SV = 18.0 - 20.0 = **-2.0**: work worth 2.0 that should have been done by now is not yet done. CPI = 18.0 / 22.5 = **0.80**: every BDT 1.00 spent has earned only BDT 0.80 of budgeted work. SPI = 18.0 / 20.0 = **0.90**: progress is running at 90% of the planned rate. The project is 45% complete (18.0 / 40.0) but has spent about 56% of its budget (22.5 / 40.0). CV% = -4.5 / 18.0 = -25% and SV% = -2.0 / 20.0 = -10%."
     },
     {
-     "type": "table",
+     "type": "matrix",
      "title": "Reading CPI and SPI together",
-     "head": [
-      "CPI",
-      "SPI",
-      "What it usually means",
-      "Typical first questions"
+     "x": "SPI (schedule performance; 1.0 at the centre line)",
+     "y": "CPI (cost performance; 1.0 at the centre line)",
+     "quadrants": [
+      {
+       "title": "Behind but economical",
+       "items": [
+        "Is the work under-resourced?",
+        "Is the critical path slipping?",
+        "Are costs deferred or not yet booked?"
+       ]
+      },
+      {
+       "title": "Ahead and within budget",
+       "items": [
+        "Is progress over-claimed?",
+        "Is the baseline padded?",
+        "Can resources move to other work?"
+       ]
+      },
+      {
+       "title": "Behind and over cost",
+       "items": [
+        "Root causes: productivity, design, supply or rework?",
+        "A recovery plan is needed"
+       ]
+      },
+      {
+       "title": "On or ahead of plan but expensive",
+       "items": [
+        "Is progress bought with overtime or extra crews?",
+        "Was that acceleration agreed and funded?"
+       ]
+      }
      ],
-     "rows": [
-      [
-       "1.0 or above",
-       "1.0 or above",
-       "Ahead and within budget",
-       "Is progress over-claimed? Is the baseline padded? Can resources be released to other work?"
-      ],
-      [
-       "1.0 or above",
-       "Below 1.0",
-       "Behind but economical",
-       "Is the work under-resourced? Is the critical path slipping? Are costs being deferred or not yet booked?"
-      ],
-      [
-       "Below 1.0",
-       "1.0 or above",
-       "On or ahead of plan but expensive",
-       "Is progress being bought with overtime or extra crews? Was that acceleration agreed and funded?"
-      ],
-      [
-       "Below 1.0",
-       "Below 1.0",
-       "Behind and over cost",
-       "What are the root causes: productivity, design, supply, rework? A recovery plan is needed."
-      ]
-     ]
+     "caption": "Each quadrant suggests the first questions to ask, not the answer. The ETP at month 5 (CPI 0.80, SPI 0.90) sits bottom-left."
     },
     {
      "type": "text",
@@ -5623,6 +7371,12 @@ TRACK.modules.push({
        "text": "Corrective actions, updated forecasts and change requests"
       }
      ]
+    },
+    {
+     "type": "callout",
+     "kind": "insight",
+     "title": "EVM standards and contract forms",
+     "text": "ISO 21508:2018 gives international guidance on earned value management, and ISO 21502:2020 places performance measurement within overall project management, so the vocabulary in this lesson is widely shared. EVM works under any contract form, but the source of AC differs: on lump-sum and remeasurement contracts the owner's AC is usually certified value plus accruals, while on target-cost, cost-reimbursable and alliance contracts open-book records give the actual cost of the work directly. Some owners also apply the same planned, earned and actual logic to a carbon budget, tracking embodied carbon against progress."
     },
     {
      "type": "scenario",
@@ -5686,6 +7440,16 @@ TRACK.modules.push({
        "term": "Schedule performance index (SPI)",
        "def": "The ratio EV / PV, showing the rate of progress against plan; values below 1.0 indicate work behind schedule."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "PV comes from the time-phased baseline, EV from objective rules of credit, and AC from the cost system including accruals.",
+      "CV = EV - AC and CPI = EV / AC measure cost; SV = EV - PV and SPI = EV / PV measure schedule in money terms.",
+      "Drill down by control account: a project total can hide very different problems.",
+      "Read EVM with the critical path, because SV is money, not time, and SPI drifts back to 1.0 at the end."
      ]
     },
     {
@@ -5876,8 +7640,85 @@ TRACK.modules.push({
      "text": "The formula forecasts range from 44.5 to 53.1 against a budget of 40.0. To finish on budget, the remaining work would need a CPI of 1.26 when the project has achieved only 0.80 so far, a jump that experience suggests is very unlikely. Using EAC = 50.0, ETC = 50.0 - 22.5 = **27.5**, VAC = **-10.0**, and TCPI to that EAC = 22.0 / 27.5 = **0.80**, which simply matches current performance. The honest message to the sponsor: expect a final cost of roughly 47.5 to 50.0 unless the causes in civil and E&I works are fixed, and decide now whether contingency covers it or whether management reserve and a formal change are needed."
     },
     {
+     "type": "chart",
+     "kind": "bar",
+     "title": "Range of forecasts for the ETP at month 5",
+     "labels": [
+      "BAC",
+      "Rest at budget",
+      "Bottom-up",
+      "CPI continues",
+      "CPI x SPI"
+     ],
+     "series": [
+      {
+       "name": "Forecast final cost",
+       "values": [
+        40.0,
+        44.5,
+        47.5,
+        50.0,
+        53.1
+       ]
+      }
+     ],
+     "yLabel": "BDT million",
+     "caption": "Illustrative values from the worked table. Every forecast sits well above the 40.0 budget, and the bottom-up re-estimate lands between the optimistic 'rest at budget' figure and the CPI-based ones."
+    },
+    {
      "type": "text",
      "text": "Schedule variance in money becomes misleading late in a project, so many practitioners add **earned schedule**. Using the S-curve from the budgeting lesson, the EV of 18.0 at month 5 lies between the cumulative PV at month 4 (14.0) and month 5 (20.0). Earned schedule = 4 + (18.0 - 14.0) / (20.0 - 14.0) = 4 + 4 / 6 = **4.67 months**: the project has done the work it planned to have done about two-thirds of the way through month 5. SPI(t) = 4.67 / 5 = **0.93**, and a simple time forecast is 10 / 0.933 = about **10.7 months**. Like every EVM schedule measure, check this against the critical path, which may tell a different story."
+    },
+    {
+     "type": "chart",
+     "kind": "line",
+     "title": "Reading earned schedule from the S-curve",
+     "labels": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "M6",
+      "M7",
+      "M8",
+      "M9",
+      "M10"
+     ],
+     "series": [
+      {
+       "name": "Cumulative PV",
+       "values": [
+        2.0,
+        5.0,
+        9.0,
+        14.0,
+        20.0,
+        26.0,
+        31.0,
+        35.0,
+        38.0,
+        40.0
+       ]
+      },
+      {
+       "name": "Today's EV level (18.0)",
+       "values": [
+        18.0,
+        18.0,
+        18.0,
+        18.0,
+        18.0,
+        18.0,
+        18.0,
+        18.0,
+        18.0,
+        18.0
+       ]
+      }
+     ],
+     "yLabel": "BDT million",
+     "caption": "Illustrative: the level line at today's EV crosses the planned-value curve between month 4 (14.0) and month 5 (20.0), at about 4.67 months. That crossing is the earned schedule; the project is about a third of a month behind."
     },
     {
      "type": "table",
@@ -5933,11 +7774,11 @@ TRACK.modules.push({
       },
       {
        "title": "Add known changes and risks",
-       "text": "Include approved and pending variations, likely claims and the remaining risk exposure from the register."
+       "text": "Include approved and pending variations, likely claims, the remaining risk exposure from the register, and escalation or contract price adjustment on the remaining work at current indices."
       },
       {
        "title": "Reconcile",
-       "text": "Compare bottom-up and formula EACs; challenge any bottom-up figure much better than past performance unless a specific change explains it."
+       "text": "Compare bottom-up and formula EACs; challenge any bottom-up figure much better than past performance unless a specific change explains it. Treat automated or AI-generated forecasts as one more input to challenge, not as the answer."
       },
       {
        "title": "Report and decide",
@@ -6024,6 +7865,17 @@ TRACK.modules.push({
        "term": "Variance threshold",
        "def": "A pre-agreed limit on cost or schedule variance, or on CPI and SPI, beyond which a variance must be explained, escalated or acted on."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Calculate several EACs and state the assumption behind each: BAC / CPI, AC + (BAC - EV) and the CPI x SPI version.",
+      "Reconcile formula EACs with a bottom-up ETC that includes changes, risks and price escalation on the remaining work.",
+      "A TCPI well above the CPI achieved so far is a warning sign, not a target.",
+      "Use earned schedule to express schedule performance in time units, and check it against the critical path.",
+      "Report a reasoned range and a recommended EAC early, with the decisions needed from the sponsor."
      ]
     },
     {
@@ -6152,6 +8004,70 @@ TRACK.modules.push({
      ]
     },
     {
+     "type": "tree",
+     "title": "Choosing a rule of credit",
+     "root": {
+      "label": "What kind of work is it?",
+      "children": [
+       {
+        "label": "Countable, similar units",
+        "children": [
+         {
+          "label": "Units completed",
+          "text": "Metres, piles, panels, columns"
+         }
+        ]
+       },
+       {
+        "label": "Discrete item with stages",
+        "children": [
+         {
+          "label": "Weighted milestones",
+          "text": "Pumps, transformers, valves"
+         }
+        ]
+       },
+       {
+        "label": "Short: one or two periods",
+        "children": [
+         {
+          "label": "Fixed formula",
+          "text": "0/100, 50/50 or 20/80"
+         }
+        ]
+       },
+       {
+        "label": "Support tied to production",
+        "children": [
+         {
+          "label": "Apportioned effort",
+          "text": "Inspection, QA/QC"
+         }
+        ]
+       },
+       {
+        "label": "Support with no output",
+        "children": [
+         {
+          "label": "Level of effort",
+          "text": "Keep small and separate"
+         }
+        ]
+       },
+       {
+        "label": "None of these fits",
+        "children": [
+         {
+          "label": "Estimated % complete",
+          "text": "With evidence and independent checks"
+         }
+        ]
+       }
+      ]
+     },
+     "caption": "Work down from the nature of the work to the most objective rule that fits it. Estimated percent complete is the last resort, not the default."
+    },
+    {
      "type": "table",
      "title": "Weighted milestones: installing a dyeing machine (hypothetical budget BDT 2.0 million)",
      "head": [
@@ -6204,6 +8120,12 @@ TRACK.modules.push({
      "text": "Physical progress is backed by **quantity surveys**: joint measurement of concrete poured, steel erected, pipe welded and tested, or cable pulled, usually agreed each month between the contractor's and the owner's engineers and reconciled with drawings, delivery records and test certificates. On the cost side, the controller tracks several figures for every cost code: **commitments** (orders and subcontracts placed), **actuals** (invoices received and booked) and **accruals** (work done or goods received but not yet invoiced). Without accruals, AC is understated and CPI looks better than it really is. Without commitments, the forecast misses money that is already spoken for."
     },
     {
+     "type": "callout",
+     "kind": "pro",
+     "title": "Reality capture as progress evidence",
+     "text": "Drone surveys, laser scans and 360-degree photo walks, compared with the BIM model and stored in the CDE, give dated, objective evidence for joint measurement: earthwork volumes, steel erected, pipe runs installed. Automated or AI-based recognition of installed elements can speed up the counting, but a named engineer checks and signs off the quantities, especially where a rule of credit defines 'done' as tested or accepted, which a camera cannot see. In volatile markets also watch commitments closely: quotations with short validity, price-adjustment provisions and expediting costs can move the forecast before a single invoice arrives."
+    },
+    {
      "type": "steps",
      "title": "The monthly site cost cycle",
      "items": [
@@ -6232,6 +8154,63 @@ TRACK.modules.push({
        "text": "Issue the cost report, agree actions in the monthly review and track them to closure."
       }
      ]
+    },
+    {
+     "type": "sequence",
+     "title": "From monthly measurement to certified value and earned value",
+     "actors": [
+      "Contractor",
+      "Owner's engineer",
+      "Cost controller",
+      "Project manager"
+     ],
+     "steps": [
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Progress claim at the cut-off date",
+       "note": "Quantities, photos, test records"
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Joint measurement on site",
+       "note": "Scan data checked on the ground"
+      },
+      {
+       "from": 0,
+       "to": 1,
+       "label": "Agreed quantities signed by both",
+       "reply": true
+      },
+      {
+       "from": 1,
+       "to": 0,
+       "label": "Interim certificate for agreed work"
+      },
+      {
+       "from": 1,
+       "to": 2,
+       "label": "Measured progress by work package"
+      },
+      {
+       "from": 2,
+       "to": 2,
+       "label": "Apply rules of credit; post accruals",
+       "note": "EV and AC at the same cut-off"
+      },
+      {
+       "from": 2,
+       "to": 3,
+       "label": "EV, AC, CPI, SPI and forecasts"
+      },
+      {
+       "from": 3,
+       "to": 0,
+       "label": "Variance review and agreed actions"
+      }
+     ],
+     "caption": "Nothing is credited before it is measured, and the same agreed quantities drive both the payment certificate and earned value, so the two reports reconcile."
     },
     {
      "type": "template",
@@ -6363,6 +8342,16 @@ TRACK.modules.push({
        "term": "Accrual",
        "def": "A cost recognised for work done or goods received before the invoice is booked, included in actual cost so that cost performance is not overstated."
       }
+     ]
+    },
+    {
+     "type": "keypoints",
+     "title": "Key takeaways",
+     "items": [
+      "Agree a rule of credit for every work package before work starts, choosing the most objective rule that fits.",
+      "Back progress with joint measurement and evidence; reality-capture data helps, but an engineer verifies it.",
+      "Post accruals and update commitments every month, or CPI and forecasts will look better than they are.",
+      "Give every change its own reference and cost capture from the day it is instructed."
      ]
     },
     {
